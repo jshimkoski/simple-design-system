@@ -10,13 +10,6 @@ module.exports = {
       transparent: "var(--color-transparent)",
       current: "var(--color-current)",
 
-      primary: "var(--color-primary)",
-      secondary: "var(--color-secondary)",
-      success: "var(--color-success)",
-      info: "var(--color-info)",
-      warning: "var(--color-warning)",
-      danger: "var(--color-danger)",
-
       "static-gray": {
         100: "var(--color-static-gray-100)",
         200: "var(--color-static-gray-200)",
@@ -36,6 +29,16 @@ module.exports = {
 
       border: "var(--color-border)",
       placeholder: "var(--color-placeholder)",
+
+      blue: "var(--color-blue)",
+      green: "var(--color-green)",
+      indigo: "var(--color-indigo)",
+      orange: "var(--color-orange)",
+      pink: "var(--color-pink)",
+      purple: "var(--color-purple)",
+      red: "var(--color-red)",
+      teal: "var(--color-teal)",
+      yellow: "var(--color-yellow)",
 
       gray: {
         100: "var(--color-gray-100)",

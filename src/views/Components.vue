@@ -114,7 +114,7 @@
 
             <h3 class="text-lg mb-4 text-gray-600">
               Nav Type: Underline, Right Nav Type: Block, Right Nav Variant:
-              Warning
+              Orange
             </h3>
             <sds-container class="bg-gray-100 mb-4">
               <sds-navbar>
@@ -126,7 +126,7 @@
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
                 </sds-nav>
-                <sds-nav slot="nav-right" type="block" variant="warning">
+                <sds-nav slot="nav-right" type="block" variant="orange">
                   <a slot="item" href="#">Profile</a>
                   <a slot="item" href="#">Sign out</a>
                 </sds-nav>
@@ -134,7 +134,7 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
-              Nav Style Type: Pill, Nav Color Variant: Info, Nav Right Type:
+              Nav Style Type: Pill, Nav Color Variant: Purple, Nav Right Type:
               Underline
             </h3>
             <sds-container class="bg-gray-100 mb-4">
@@ -142,7 +142,7 @@
                 <h1 slot="brand">
                   Brand
                 </h1>
-                <sds-nav slot="nav" type="pill" variant="info">
+                <sds-nav slot="nav" type="pill" variant="purple">
                   <a slot="item" href="#" class="active">Home</a>
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
@@ -155,12 +155,12 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
-              No Brand, Nav Style Type: Block, Nav Color Variant: Danger, Nav
-              Right Type: Default
+              No Brand, Nav Style Type: Block, Nav Color Variant: Red, Nav Right
+              Type: Default
             </h3>
             <sds-container class="bg-gray-100 mb-4">
               <sds-navbar hide-brand>
-                <sds-nav slot="nav" type="block" variant="danger">
+                <sds-nav slot="nav" type="block" variant="red">
                   <a slot="item" href="#" class="active">Home</a>
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
@@ -184,8 +184,8 @@
               block.
             </p>
             <p>
-              Variant attribute options include default, primary, info, warning,
-              and danger
+              Variant attribute options include blue, green, indigo, orange,
+              pink, purple, red, teal, and yellow
             </p>
           </div>
           <section slot="content">
@@ -201,10 +201,10 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
-              Type: Underline, Variant: Primary
+              Type: Underline, Variant: Blue
             </h3>
             <sds-container class="bg-gray-100 mb-4">
-              <sds-nav type="underline" variant="primary">
+              <sds-nav type="underline" variant="blue">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
@@ -212,10 +212,10 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
-              Type: Pill, Variant: Info
+              Type: Pill, Variant: teal
             </h3>
             <sds-container class="bg-gray-100 mb-4">
-              <sds-nav type="pill" variant="info">
+              <sds-nav type="pill" variant="teal">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
@@ -223,10 +223,10 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
-              Type: Block, Variant: Danger
+              Type: Block, Variant: Red
             </h3>
             <sds-container class="bg-gray-100 mb-4">
-              <sds-nav type="block" variant="danger">
+              <sds-nav type="block" variant="red">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>

@@ -49,12 +49,15 @@
   --color-border: var(--color-static-gray-400);
   --color-placeholder: var(--color-static-gray-500);
 
-  --color-primary: rgb(0, 122, 255);
-  --color-secondary: var(--color-static-gray-500);
-  --color-success: rgb(52, 199, 89);
-  --color-info: rgb(90, 200, 250);
-  --color-warning: rgb(255, 149, 0);
-  --color-danger: rgb(255, 59, 48);
+  --color-blue: rgb(0, 122, 255);
+  --color-green: rgb(52, 199, 89);
+  --color-indigo: rgb(88, 86, 214);
+  --color-orange: rgb(255, 149, 0);
+  --color-pink: rgb(255, 45, 85);
+  --color-purple: rgb(175, 82, 222);
+  --color-red: rgb(255, 59, 48);
+  --color-teal: rgb(90, 200, 250);
+  --color-yellow: rgb(255, 204, 0);
 
   --color-gray-100: var(--color-static-gray-100);
   --color-gray-200: var(--color-static-gray-200);
@@ -76,12 +79,15 @@
   --color-border: var(--color-static-gray-600);
   --color-placeholder: var(--color-static-gray-700);
 
-  --color-primary: rgb(10, 132, 255);
-  --color-secondary: var(--color-static-gray-500);
-  --color-success: rgb(48, 209, 88);
-  --color-info: rgb(100, 210, 255);
-  --color-warning: rgb(255, 159, 10);
-  --color-danger: rgb(255, 69, 58);
+  --color-blue: rgb(10, 132, 255);
+  --color-green: rgb(48, 209, 88);
+  --color-indigo: rgb(94, 92, 230);
+  --color-orange: rgb(255, 159, 10);
+  --color-pink: rgb(255, 55, 95);
+  --color-purple: rgb(191, 90, 242);
+  --color-red: rgb(255, 69, 58);
+  --color-teal: rgb(100, 210, 255);
+  --color-yellow: rgb(255, 214, 10);
 
   --color-gray-100: var(--color-static-gray-900);
   --color-gray-200: var(--color-static-gray-800);
@@ -102,12 +108,15 @@
     --color-border: var(--color-static-gray-600);
     --color-placeholder: var(--color-static-gray-700);
 
-    --color-primary: rgb(10, 132, 255);
-    --color-secondary: var(--color-static-gray-500);
-    --color-success: rgb(48, 209, 88);
-    --color-info: rgb(100, 210, 255);
-    --color-warning: rgb(255, 159, 10);
-    --color-danger: rgb(255, 69, 58);
+    --color-blue: rgb(10, 132, 255);
+    --color-green: rgb(48, 209, 88);
+    --color-indigo: rgb(94, 92, 230);
+    --color-orange: rgb(255, 159, 10);
+    --color-pink: rgb(255, 55, 95);
+    --color-purple: rgb(191, 90, 242);
+    --color-red: rgb(255, 69, 58);
+    --color-teal: rgb(100, 210, 255);
+    --color-yellow: rgb(255, 214, 10);
 
     --color-gray-100: var(--color-static-gray-900);
     --color-gray-200: var(--color-static-gray-800);

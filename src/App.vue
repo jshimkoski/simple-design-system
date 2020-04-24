@@ -21,7 +21,7 @@
             >Examples</router-link
           >
         </sds-nav>
-        <sds-nav slot="nav-right" type="pill" variant="primary">
+        <sds-nav slot="nav-right" type="pill" variant="blue">
           <button slot="item" @click="toggleTheme" class="capitalize">
             {{ theme }} theme
           </button>

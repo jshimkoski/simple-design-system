@@ -42,44 +42,74 @@ template.innerHTML = `
      :host {
       --color-nav-hover: var(--color-bgcolor);
       --color-nav-active: var(--color-fgcolor);
-      --bg-nav-hover: var(--color-secondary);
-      --bg-nav-active: var(--color-secondary);
+      --bg-nav-hover: var(--color-gray-500);
+      --bg-nav-active: var(--color-gray-500);
     }
 
-    :host([variant=primary]) {
+    :host([variant=blue]) {
       --color-nav-hover: var(--color-white);
       --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-primary);
-      --bg-nav-active: var(--color-primary);
+      --bg-nav-hover: var(--color-blue);
+      --bg-nav-active: var(--color-blue);
     }
 
-    :host([variant=success]) {
+    :host([variant=green]) {
       --color-nav-hover: var(--color-white);
       --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-success);
-      --bg-nav-active: var(--color-success);
+      --bg-nav-hover: var(--color-green);
+      --bg-nav-active: var(--color-green);
     }
 
-    :host([variant=info]) {
+    :host([variant=indigo]) {
       --color-nav-hover: var(--color-white);
       --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-info);
-      --bg-nav-active: var(--color-info);
+      --bg-nav-hover: var(--color-indigo);
+      --bg-nav-active: var(--color-indigo);
     }
 
-    :host([variant=warning]) {
+    :host([variant=orange]) {
       --color-nav-hover: var(--color-white);
       --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-warning);
-      --bg-nav-active: var(--color-warning);
+      --bg-nav-hover: var(--color-orange);
+      --bg-nav-active: var(--color-orange);
     }
 
-    :host([variant=danger]) {
+    :host([variant=pink]) {
       --color-nav-hover: var(--color-white);
       --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-danger);
-      --bg-nav-active: var(--color-danger);
+      --bg-nav-hover: var(--color-pink);
+      --bg-nav-active: var(--color-pink);
     }
+
+    :host([variant=purple]) {
+      --color-nav-hover: var(--color-white);
+      --color-nav-active: var(--color-white);
+      --bg-nav-hover: var(--color-purple);
+      --bg-nav-active: var(--color-purple);
+    }
+
+    :host([variant=red]) {
+      --color-nav-hover: var(--color-white);
+      --color-nav-active: var(--color-white);
+      --bg-nav-hover: var(--color-red);
+      --bg-nav-active: var(--color-red);
+    }
+
+    :host([variant=teal]) {
+      --color-nav-hover: var(--color-white);
+      --color-nav-active: var(--color-white);
+      --bg-nav-hover: var(--color-teal);
+      --bg-nav-active: var(--color-teal);
+    }
+
+    :host([variant=yellow]) {
+      --color-nav-hover: var(--color-white);
+      --color-nav-active: var(--color-white);
+      --bg-nav-hover: var(--color-yellow);
+      --bg-nav-active: var(--color-yellow);
+    }
+
+
 
     /**
      * Types
