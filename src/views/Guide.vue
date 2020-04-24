@@ -149,9 +149,9 @@
           Static Color Palette
         </h5>
         <p class="text-gray-500 w-2/3">
-          The static color palette uses specific color variant from the light
-          theme no matter if in dark or light mode. You can be sure that if you
-          use a static color, it will always remain the same.
+          The static color palette uses specific colors no matter if in dark or
+          light mode. You can be sure that if you use a static color, it will
+          always remain the same.
         </p>
         <table class="mt-8 mb-12 w-full">
           <thead class="border-b">
@@ -159,6 +159,7 @@
               <th>Color Name</th>
               <th>CSS Variable Name</th>
               <th>Utility Class Name</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
@@ -166,79 +167,79 @@
               <td>White</td>
               <td>--color-white</td>
               <td>*-white</td>
+              <td><div class="p-4 bg-white border" /></td>
             </tr>
             <tr>
               <td>Black</td>
               <td>--color-black</td>
               <td>*-black</td>
+              <td><div class="p-4 bg-black border" /></td>
             </tr>
             <tr>
               <td>Transparent</td>
               <td>--color-transparent</td>
               <td>*-transparent</td>
+              <td><div class="p-4 bg-transparent border" /></td>
             </tr>
             <tr>
               <td>Current Color</td>
               <td>--color-current</td>
               <td>*-current</td>
+              <td><div class="p-4 bg-current border" /></td>
             </tr>
             <tr>
-              <td>Static Gray 100-900</td>
-              <td>--color-static-gray-100 through --color-static-gray-900</td>
-              <td>*-static-gray-100 through *-static-gray-900</td>
+              <td>Static Gray 100</td>
+              <td>--color-static-gray-100</td>
+              <td>*-static-gray-100</td>
+              <td><div class="p-4 bg-static-gray-100 border" /></td>
             </tr>
             <tr>
-              <td>Static Red 100-900</td>
-              <td>--color-static-red-100 through --color-static-red-900</td>
-              <td>*-static-red-100 through *-static-red-900</td>
+              <td>Static Gray 200</td>
+              <td>--color-static-gray-200</td>
+              <td>*-static-gray-200</td>
+              <td><div class="p-4 bg-static-gray-200 border" /></td>
             </tr>
             <tr>
-              <td>Static Orange 100-900</td>
-              <td>
-                --color-static-orange-100 through --color-static-orange-900
-              </td>
-              <td>*-static-orange-100 through *-static-orange-900</td>
+              <td>Static Gray 300</td>
+              <td>--color-static-gray-300</td>
+              <td>*-static-gray-300</td>
+              <td><div class="p-4 bg-static-gray-300 border" /></td>
             </tr>
             <tr>
-              <td>Static Yellow 100-900</td>
-              <td>
-                --color-static-yellow-100 through --color-static-yellow-900
-              </td>
-              <td>*-static-yellow-100 through *-static-yellow-900</td>
+              <td>Static Gray 400</td>
+              <td>--color-static-gray-400</td>
+              <td>*-static-gray-400</td>
+              <td><div class="p-4 bg-static-gray-400 border" /></td>
             </tr>
             <tr>
-              <td>Static Green 100-900</td>
-              <td>--color-static-green-100 through --color-static-green-900</td>
-              <td>*-static-green-100 through *-static-green-900</td>
+              <td>Static Gray 500</td>
+              <td>--color-static-gray-500</td>
+              <td>*-static-gray-500</td>
+              <td><div class="p-4 bg-static-gray-500 border" /></td>
             </tr>
             <tr>
-              <td>Static Teal 100-900</td>
-              <td>--color-static-teal-100 through --color-static-teal-900</td>
-              <td>*-static-teal-100 through *-static-teal-900</td>
+              <td>Static Gray 600</td>
+              <td>--color-static-gray-600</td>
+              <td>*-static-gray-600</td>
+              <td><div class="p-4 bg-static-gray-600 border" /></td>
             </tr>
             <tr>
-              <td>Static Blue 100-900</td>
-              <td>--color-static-blue-100 through --color-static-blue-900</td>
-              <td>*-static-blue-100 through *-static-blue-900</td>
+              <td>Static Gray 700</td>
+              <td>--color-static-gray-700</td>
+              <td>*-static-gray-700</td>
+              <td><div class="p-4 bg-static-gray-700 border" /></td>
             </tr>
             <tr>
-              <td>Static Indigo 100-900</td>
-              <td>
-                --color-static-indigo-100 through --color-static-indigo-900
-              </td>
-              <td>*-static-indigo-100 through *-static-indigo-900</td>
+              <td>Static Gray 800</td>
+              <td>--color-static-gray-800</td>
+              <td>*-static-gray-800</td>
+              <td><div class="p-4 bg-static-gray-800 border" /></td>
             </tr>
             <tr>
-              <td>Static Purple 100-900</td>
-              <td>
-                --color-static-purple-100 through --color-static-purple-900
-              </td>
-              <td>*-static-purple-100 through *-static-purple-900</td>
-            </tr>
-            <tr>
-              <td>Static Pink 100-900</td>
-              <td>--color-static-pink-100 through --color-static-pink-900</td>
-              <td>*-static-pink-100 through *-static-pink-900</td>
+              <td>Static Gray 900</td>
+              <td>--color-static-gray-900</td>
+              <td>*-static-gray-900</td>
+              <td><div class="p-4 bg-static-gray-900 border" /></td>
             </tr>
           </tbody>
         </table>
@@ -258,6 +259,7 @@
               <th>Color Name</th>
               <th>CSS Variable Name</th>
               <th>Utility Class Name</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
@@ -265,67 +267,124 @@
               <td>Foreground Color</td>
               <td>--color-fgcolor</td>
               <td>*-fgcolor</td>
+              <td><div class="p-4 bg-fgcolor border" /></td>
             </tr>
             <tr>
               <td>Background Color</td>
               <td>--color-bgcolor</td>
               <td>*-bgcolor</td>
+              <td><div class="p-4 bg-bgcolor border" /></td>
             </tr>
             <tr>
-              <td>Gray 100-900</td>
-              <td>--color-gray-100 through --color-gray-900</td>
-              <td>*-gray-100 through *-gray-900</td>
+              <td>Gray 100</td>
+              <td>--color-gray-100</td>
+              <td>*-gray-100</td>
+              <td><div class="p-4 bg-gray-100 border" /></td>
             </tr>
             <tr>
-              <td>Red 100-900</td>
-              <td>--color-red-100 through --color-red-900</td>
-              <td>*-red-100 through *-red-900</td>
+              <td>Gray 200</td>
+              <td>--color-gray-200</td>
+              <td>*-gray-200</td>
+              <td><div class="p-4 bg-gray-200 border" /></td>
             </tr>
             <tr>
-              <td>Orange 100-900</td>
-              <td>
-                --color-orange-100 through --color-orange-900
-              </td>
-              <td>*-orange-100 through *-orange-900</td>
+              <td>Gray 300</td>
+              <td>--color-gray-300</td>
+              <td>*-gray-300</td>
+              <td><div class="p-4 bg-gray-300 border" /></td>
             </tr>
             <tr>
-              <td>Yellow 100-900</td>
-              <td>--color-yellow-100 through --color-yellow-900</td>
-              <td>*-yellow-100 through *-yellow-900</td>
+              <td>Gray 400</td>
+              <td>--color-gray-400</td>
+              <td>*-gray-400</td>
+              <td><div class="p-4 bg-gray-400 border" /></td>
             </tr>
             <tr>
-              <td>Green 100-900</td>
-              <td>--color-green-100 through --color-green-900</td>
-              <td>*-green-100 through *-green-900</td>
+              <td>Gray 500</td>
+              <td>--color-gray-500</td>
+              <td>*-gray-500</td>
+              <td><div class="p-4 bg-gray-500 border" /></td>
             </tr>
             <tr>
-              <td>Teal 100-900</td>
-              <td>--color-teal-100 through --color-teal-900</td>
-              <td>*-teal-100 through *-teal-900</td>
+              <td>Gray 600</td>
+              <td>--color-gray-600</td>
+              <td>*-gray-600</td>
+              <td><div class="p-4 bg-gray-600 border" /></td>
             </tr>
             <tr>
-              <td>Blue 100-900</td>
-              <td>--color-blue-100 through --color-blue-900</td>
-              <td>*-blue-100 through *-blue-900</td>
+              <td>Gray 700</td>
+              <td>--color-gray-700</td>
+              <td>*-gray-700</td>
+              <td><div class="p-4 bg-gray-700 border" /></td>
             </tr>
             <tr>
-              <td>Indigo 100-900</td>
-              <td>--color-indigo-100 through --color-indigo-900</td>
-              <td>*-indigo-100 through *-indigo-900</td>
+              <td>Gray 800</td>
+              <td>--color-gray-800</td>
+              <td>*-gray-800</td>
+              <td><div class="p-4 bg-gray-800 border" /></td>
             </tr>
             <tr>
-              <td>Purple 100-900</td>
-              <td>--color-purple-100 through --color-purple-900</td>
-              <td>*-purple-100 through *-purple-900</td>
+              <td>Gray 900</td>
+              <td>--color-gray-900</td>
+              <td>*-gray-900</td>
+              <td><div class="p-4 bg-gray-900 border" /></td>
             </tr>
             <tr>
-              <td>Pink 100-900</td>
-              <td>--color-pink-100 through --color-pink-900</td>
-              <td>*-pink-100 through *-pink-900</td>
+              <td>Blue</td>
+              <td>--color-blue</td>
+              <td>*-blue</td>
+              <td><div class="p-4 bg-blue border" /></td>
+            </tr>
+            <tr>
+              <td>Green</td>
+              <td>--color-green</td>
+              <td>*-green</td>
+              <td><div class="p-4 bg-green border" /></td>
+            </tr>
+            <tr>
+              <td>Indigo</td>
+              <td>--color-indigo</td>
+              <td>*-indigo</td>
+              <td><div class="p-4 bg-indigo border" /></td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>--color-orange</td>
+              <td>*-orange</td>
+              <td><div class="p-4 bg-orange border" /></td>
+            </tr>
+            <tr>
+              <td>Pink</td>
+              <td>--color-pink</td>
+              <td>*-pink</td>
+              <td><div class="p-4 bg-pink border" /></td>
+            </tr>
+            <tr>
+              <td>Purple</td>
+              <td>--color-purple</td>
+              <td>*-purple</td>
+              <td><div class="p-4 bg-purple border" /></td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>--color-red</td>
+              <td>*-red</td>
+              <td><div class="p-4 bg-red border" /></td>
+            </tr>
+            <tr>
+              <td>Teal</td>
+              <td>--color-teal</td>
+              <td>*-teal</td>
+              <td><div class="p-4 bg-teal border" /></td>
+            </tr>
+            <tr>
+              <td>Yellow</td>
+              <td>--color-yellow</td>
+              <td>*-yellow</td>
+              <td><div class="p-4 bg-yellow border" /></td>
             </tr>
           </tbody>
         </table>
-        <h2>Customization</h2>
       </section>
     </sds-card>
   </sds-container>
