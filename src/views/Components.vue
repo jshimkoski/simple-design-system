@@ -28,7 +28,7 @@
           </p>
           <section slot="content">
             <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
-            <sds-container class="bg-gray-100 h-64">
+            <sds-container class="bg-gray-200 h-64">
               <sds-layout-stacked>
                 <header slot="header" class="border-dashed border">
                   Header
@@ -51,7 +51,7 @@
           </p>
           <section slot="content">
             <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
-            <sds-container class="bg-gray-100">
+            <sds-container class="bg-gray-200">
               <sds-layout-sidebar>
                 <header slot="sidebar" class="border-dashed border">
                   Sidebar
@@ -74,7 +74,7 @@
           </p>
           <section slot="content">
             <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
-            <sds-container class="bg-gray-100">
+            <sds-container class="bg-gray-200">
               <sds-container class="border-dashed border">
                 Content of container
               </sds-container>
@@ -95,7 +95,7 @@
             <h3 class="text-lg mb-4 text-gray-600">
               Nav Type: Default, Nav Right Type: Pill
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-navbar>
                 <h1 slot="brand">
                   Brand
@@ -116,7 +116,7 @@
               Nav Type: Underline, Right Nav Type: Block, Right Nav Variant:
               Warning
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-navbar>
                 <h1 slot="brand">
                   Brand
@@ -137,7 +137,7 @@
               Nav Style Type: Pill, Nav Color Variant: Info, Nav Right Type:
               Underline
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-navbar>
                 <h1 slot="brand">
                   Brand
@@ -158,7 +158,7 @@
               No Brand, Nav Style Type: Block, Nav Color Variant: Danger, Nav
               Right Type: Default
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-navbar hide-brand>
                 <sds-nav slot="nav" type="block" variant="danger">
                   <a slot="item" href="#" class="active">Home</a>
@@ -192,7 +192,7 @@
             <h3 class="text-lg mb-4 text-gray-600">
               Type: Default
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-nav>
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
@@ -203,7 +203,7 @@
             <h3 class="text-lg mb-4 text-gray-600">
               Type: Underline, Variant: Primary
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-nav type="underline" variant="primary">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
@@ -214,7 +214,7 @@
             <h3 class="text-lg mb-4 text-gray-600">
               Type: Pill, Variant: Info
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-nav type="pill" variant="info">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
@@ -225,7 +225,7 @@
             <h3 class="text-lg mb-4 text-gray-600">
               Type: Block, Variant: Danger
             </h3>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-nav type="block" variant="danger">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
@@ -243,7 +243,7 @@
           </p>
           <section slot="content">
             <h2 class="text-lg mb-4 text-gray-600">Type: Default</h2>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-card>
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
@@ -258,7 +258,7 @@
             </sds-container>
 
             <h2 class="text-lg mb-4 text-gray-600">Type: Simple</h2>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-card type="simple">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
@@ -273,7 +273,7 @@
             </sds-container>
 
             <h2 class="text-lg mb-4 text-gray-600">Type: Raised</h2>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-card type="raised">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
@@ -290,7 +290,7 @@
             <h2 class="text-lg mb-4 text-gray-600">
               Type: Accented
             </h2>
-            <sds-container class="bg-gray-100 mb-4">
+            <sds-container class="bg-gray-200 mb-4">
               <sds-card type="accented">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
