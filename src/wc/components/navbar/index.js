@@ -64,21 +64,21 @@ template.innerHTML = `
     }
 
     ::slotted([slot=nav]) {
-      display: none;
       grid-area: nav;
-      align-self: center;
-      border-top: var(--border) solid var(--color-gray-300) !important;
-      padding-top: var(--p-4);
-      padding-bottom: var(--p-4);
     }
 
     ::slotted([slot=nav-right]) {
-      display: none;
       grid-area: nav-right;
+    }
+
+    ::slotted([slot=nav]),
+    ::slotted([slot=nav-right]) {
+      display: none;
       align-self: center;
       border-top: var(--border) solid var(--color-gray-300) !important;
       padding-top: var(--p-4);
       padding-bottom: var(--p-4);
+      height: var(--h-full);
     }
 
     :host([mobile-menu-open]) ::slotted([slot=nav]),
