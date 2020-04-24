@@ -1,10 +1,36 @@
 <template>
   <sds-container class="guide">
-    <sds-card class="p-4 pb-6">
-      <h2 slot="title" class="text-4xl">{{ $route.name }}</h2>
-      <p slot="subtitle">Examples will exist on this page.</p>
-      <sds-container slot="content">
-        Woohoo!
+    <sds-card class="rounded">
+      <h2 slot="title" class="text-4xl font-medium">Inbox</h2>
+      <div slot="subtitle">
+        <input
+          type="text"
+          placeholder="Search"
+          class="bg-gray-100 placeholder-gray-600 focus:outline-none text-fgcolor rounded w-full p-2"
+        />
+      </div>
+      <sds-container
+        slot="content"
+        class="p-0 border-t border-gray-200 divide-y divide-gray-200"
+      >
+        <sds-card>
+          <h3 slot="title">Tim Cook</h3>
+          <div slot="subtitle">
+            <h4 class="text-gray-700">I'm a successful CEO.</h4>
+            <p>
+              This is content of a fake email that a person might receive.
+            </p>
+          </div>
+        </sds-card>
+        <sds-card>
+          <h3 slot="title">Steve Jobs</h3>
+          <div slot="subtitle">
+            <h4 class="text-gray-700">But I was a revolutionary.</h4>
+            <p>
+              This is content of a fake email that a person might receive.
+            </p>
+          </div>
+        </sds-card>
       </sds-container>
     </sds-card>
   </sds-container>

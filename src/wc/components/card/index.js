@@ -28,6 +28,11 @@ template.innerHTML = `
       padding: var(--p-3) var(--p-4);
     }
 
+    .header-inner {
+      align-self: center;
+      flex-grow: 1;
+    }
+
     :host([type=simple]),
     :host([type=raised]) {
       border: var(--border) solid var(--color-gray-300) !important;
@@ -56,7 +61,7 @@ template.innerHTML = `
     }
   </style>
   <header part="header">
-    <div>
+    <div class="header-inner" part="header-inner">
       <slot name="title"></slot>
       <slot name="subtitle"></slot>
     </div>
