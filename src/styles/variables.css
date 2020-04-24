@@ -53,7 +53,7 @@
  --color-fgcolor: rgb(28, 28, 30);
  --color-bgcolor: var(--color-white);
 
- --color-border: var(--color-static-gray-300);
+ --color-border: var(--color-static-gray-400);
  --color-placeholder: var(--color-static-gray-500);
 
  --color-gray-100: var(--color-static-gray-100);
@@ -73,7 +73,7 @@
  --color-fgcolor: rgb(242, 242, 247);
  --color-bgcolor: var(--color-black);
 
- --color-border: var(--color-static-gray-700);
+ --color-border: var(--color-static-gray-600);
  --color-placeholder: var(--color-static-gray-700);
 
  --color-gray-100: var(--color-static-gray-900);
@@ -92,7 +92,7 @@
    --color-fgcolor: rgb(242, 242, 247);
    --color-bgcolor: var(--color-black);
 
-   --color-border: var(--color-static-gray-700);
+   --color-border: var(--color-static-gray-600);
    --color-placeholder: var(--color-static-gray-700);
 
    --color-gray-100: var(--color-static-gray-900);
