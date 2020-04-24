@@ -1,0 +1,111 @@
+/* purgecss start ignore */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: var(--border-0);
+  border-style: solid;
+  border-color: var(--color-border);
+}
+
+html, body, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, button, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+select, textarea, input, optgroup, small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, progress, ruby, section, summary,
+time, mark, audio, video {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  vertical-align: baseline;
+  margin: var(--m-0);
+  background: 0;
+}
+
+html,
+body {
+  height: var(--h-full);
+  width: var(--w-full);
+}
+
+body {
+  line-height: var(--leading-normal);
+  font-family: var(--font-sans);
+  background-color: var(--color-bgcolor);
+  color: var(--color-fgcolor);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-placeholder);
+  font-style: italic;
+}
+
+p {
+  margin: var(--m-0);
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+button,
+[type=button],
+[type=submit],
+[role=button] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol, ul {
+  padding: var(--p-0);
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object,
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, progress, section {
+  display: block;
+}
+
+*:not(:defined) {
+  visibility: hidden;
+}
+
+/* purgecss end ignore */

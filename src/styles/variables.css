@@ -1,0 +1,113 @@
+/* purgecss start ignore */
+
+/**
+ * Static theme variables
+ */
+
+ :root {
+  --lighten: brightness(115%);
+  --darken: brightness(85%);
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-primary: #4299E1;
+  --color-secondary: #A0AEC0;
+  --color-success: #48BB78;
+  --color-info: #38B2AC;
+  --color-warning: #ED8936;
+  --color-danger: #F56565;
+
+  --color-static-gray-100: #F7FAFC;
+  --color-static-gray-200: #EDF2F7;
+  --color-static-gray-300: #E2E8F0;
+  --color-static-gray-400: #CBD5E0;
+  --color-static-gray-500: #A0AEC0;
+  --color-static-gray-600: #718096;
+  --color-static-gray-700: #4A5568;
+  --color-static-gray-800: #2D3748;
+  --color-static-gray-900: #1A202C;
+}
+
+/**
+* With this color palette definition
+* we can have automatic theme switching
+* based on a user's system preferences.
+*
+* We can override the system preference
+* by adding a "light" or "dark" class to
+* the :root element, which most of the time
+* is the <html> element.
+*
+* One drawback to this is we need to define
+* the same dark color palette twice due to
+* media query restrictions.
+**/
+
+/* Default/light theme */
+
+:root,
+:root.light {
+ --color-fgcolor: rgb(28, 28, 30);
+ --color-bgcolor: var(--color-white);
+ --color-bg-transparent: rgba(255, 255, 255, 0.7);
+
+ --color-border: var(--color-static-gray-300);
+ --color-placeholder: var(--color-static-gray-500);
+
+ --color-gray-100: var(--color-static-gray-100);
+ --color-gray-200: var(--color-static-gray-200);
+ --color-gray-300: var(--color-static-gray-300);
+ --color-gray-400: var(--color-static-gray-400);
+ --color-gray-500: var(--color-static-gray-500);
+ --color-gray-600: var(--color-static-gray-600);
+ --color-gray-700: var(--color-static-gray-700);
+ --color-gray-800: var(--color-static-gray-800);
+ --color-gray-900: var(--color-static-gray-900);
+}
+
+/* Dark theme */
+
+:root.dark {
+ --color-fgcolor: rgb(242, 242, 247);
+ --color-bgcolor: var(--color-black);
+ --color-bg-transparent: rgba(0, 0, 0, 0.7);
+
+ --color-border: var(--color-static-gray-700);
+ --color-placeholder: var(--color-static-gray-700);
+
+ --color-gray-100: var(--color-static-gray-900);
+ --color-gray-200: var(--color-static-gray-800);
+ --color-gray-300: var(--color-static-gray-700);
+ --color-gray-400: var(--color-static-gray-600);
+ --color-gray-500: var(--color-static-gray-500);
+ --color-gray-600: var(--color-static-gray-400);
+ --color-gray-700: var(--color-static-gray-300);
+ --color-gray-800: var(--color-static-gray-200);
+ --color-gray-900: var(--color-static-gray-100);
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+   --color-fgcolor: rgb(242, 242, 247);
+   --color-bgcolor: var(--color-black);
+   --color-bg-transparent: rgba(0, 0, 0, 0.7);
+
+   --color-border: var(--color-static-gray-700);
+   --color-placeholder: var(--color-static-gray-700);
+
+   --color-gray-100: var(--color-static-gray-900);
+   --color-gray-200: var(--color-static-gray-800);
+   --color-gray-300: var(--color-static-gray-700);
+   --color-gray-400: var(--color-static-gray-600);
+   --color-gray-500: var(--color-static-gray-500);
+   --color-gray-600: var(--color-static-gray-400);
+   --color-gray-700: var(--color-static-gray-300);
+   --color-gray-800: var(--color-static-gray-200);
+   --color-gray-900: var(--color-static-gray-100);
+ }
+}
+
+/* purgecss end ignore */
