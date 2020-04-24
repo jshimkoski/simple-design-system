@@ -22,14 +22,9 @@
           >
         </sds-nav>
         <sds-nav slot="nav-right" type="pill" variant="primary">
-          <a
-            slot="item"
-            href="#"
-            @click.prevent="toggleTheme"
-            class="capitalize"
-          >
+          <button slot="item" @click="toggleTheme" class="capitalize">
             {{ theme }} theme
-          </a>
+          </button>
         </sds-nav>
       </sds-navbar>
     </header>
