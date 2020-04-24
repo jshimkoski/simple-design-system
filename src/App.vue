@@ -21,7 +21,7 @@
             >Examples</router-link
           >
         </sds-nav>
-        <sds-nav slot="nav-right" type="pill" variant="info">
+        <sds-nav slot="nav-right" type="pill" variant="primary">
           <a
             slot="item"
             href="#"
@@ -33,12 +33,12 @@
         </sds-nav>
       </sds-navbar>
     </header>
-    <main slot="content" class="bg-gray-200">
+    <main slot="content" class="bg-gray-100">
       <router-view />
     </main>
     <footer
       slot="footer"
-      class="py-12 text-center text-sm bg-static-gray-900 text-gray-400 border-t border-static-gray-700"
+      class="py-12 text-center text-sm bg-static-gray-800 text-static-gray-300 border-t"
     >
       {{ appName }}, version 1.0.0
     </footer>
