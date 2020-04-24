@@ -33,7 +33,6 @@ module.exports = {
 
       fgcolor: "var(--color-fgcolor)",
       bgcolor: "var(--color-bgcolor)",
-      bgTransparent: "var(--color-bg-transparent)",
 
       border: "var(--color-border)",
       placeholder: "var(--color-placeholder)",
