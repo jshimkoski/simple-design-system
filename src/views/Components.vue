@@ -212,6 +212,17 @@
             </sds-container>
 
             <h3 class="text-lg mb-4 text-gray-600">
+              Type: Overline, Variant: Pink
+            </h3>
+            <sds-container class="bg-gray-100 mb-4">
+              <sds-nav type="overline" variant="pink">
+                <a slot="item" href="#" class="active">Home</a>
+                <a slot="item" href="#">About</a>
+                <a slot="item" href="#">Contact</a>
+              </sds-nav>
+            </sds-container>
+
+            <h3 class="text-lg mb-4 text-gray-600">
               Type: Pill, Variant: teal
             </h3>
             <sds-container class="bg-gray-100 mb-4">
