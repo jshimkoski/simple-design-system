@@ -6,11 +6,11 @@ template.innerHTML = `
       display: grid;
 
       grid-template-areas:
-        "brand close-btn"
+        "close-btn brand"
         "nav nav"
         "nav-right nav-right";
 
-      grid-template-columns: 1fr auto;
+      grid-template-columns: auto 1fr;
       grid-template-rows: auto auto auto;
 
       background-color: var(--color-bgcolor);
@@ -19,23 +19,23 @@ template.innerHTML = `
 
     :host([hide-brand]) {
       grid-template-areas:
-        "spacer close-btn"
+        "close-btn spacer"
         "nav nav"
         "nav-right nav-right";
 
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr;
         grid-template-rows: auto auto auto;
     }
 
     ::slotted([slot=brand]) {
       grid-area: brand;
       align-self: center;
-      padding: var(--p-4) var(--p-4);
     }
 
     div {
       grid-area: close-btn;
       align-self: center;
+      margin-left: var(--m-4);
       margin-right: var(--m-4);
     }
 
