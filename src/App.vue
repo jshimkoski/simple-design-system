@@ -7,7 +7,7 @@
             appName
           }}</router-link>
         </h1>
-        <sds-nav slot="nav" type="underline">
+        <sds-nav slot="nav" type="underline" variant="red">
           <router-link slot="item" to="/" active-class="active" exact
             >Home</router-link
           >
@@ -21,7 +21,7 @@
             >Examples</router-link
           >
         </sds-nav>
-        <sds-nav slot="nav-right" type="pill" variant="blue">
+        <sds-nav slot="nav-right" type="pill" variant="red">
           <button slot="item" @click="toggleTheme" class="capitalize">
             {{ theme }} theme
           </button>

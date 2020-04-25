@@ -10,15 +10,13 @@
           use in mind. Its collection of beautiful native Web Components are
           compatible with any JavaScript library or CSS framework out of the
           box. Check out the
-          <router-link
-            to="/guide"
-            class="text-danger hover:underline hover:darken"
+          <router-link to="/guide" class="text-red hover:underline hover:darken"
             >Getting Started Guide</router-link
           >
           or jump right into the
           <router-link
             to="/components"
-            class="text-danger hover:underline hover:darken"
+            class="text-red hover:underline hover:darken"
             >Component Documentation</router-link
           >
           to get started.
@@ -27,14 +25,14 @@
           <li class="pb-4">
             <router-link
               to="/guide"
-              class="text-danger hover:underline hover:darken uppercase text-xl"
+              class="text-red hover:underline hover:darken uppercase text-xl"
               >Getting Started Guide</router-link
             >
           </li>
           <li>
             <router-link
               to="/components"
-              class="text-danger hover:underline hover:darken uppercase text-xl"
+              class="text-red hover:underline hover:darken uppercase text-xl"
               >Component Documentation</router-link
             >
           </li>

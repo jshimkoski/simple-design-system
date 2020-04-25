@@ -2,6 +2,64 @@ const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
+    /**
+     * Color variants
+     */
+
+    :host {
+      --color-variant: var(--color-fgcolor);
+      --color-on-variant: var(--color-bg-color);
+    }
+
+    :host([variant=blue]) {
+      --color-variant: var(--color-blue);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=green]) {
+      --color-variant: var(--color-green);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=indigo]) {
+      --color-variant: var(--color-indigo);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=orange]) {
+      --color-variant: var(--color-orange);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=pink]) {
+      --color-variant: var(--color-pink);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=purple]) {
+      --color-variant: var(--color-purple);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=red]) {
+      --color-variant: var(--color-red);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=teal]) {
+      --color-variant: var(--color-teal);
+      --color-on-variant: var(--color-white);
+    }
+
+    :host([variant=yellow]) {
+      --color-variant: var(--color-yellow);
+      --color-on-variant: var(--color-white);
+    }
+
+    /**
+     * Core styles
+     */
+
     :host {
       display: flex;
       align-items: stretch;
@@ -26,90 +84,14 @@ template.innerHTML = `
     ::slotted(button:hover),
     ::slotted(button:focus),
     ::slotted(button:active) {
-      color: var(--color-fgcolor) !important;
+      color: var(--color-variant) !important;
       outline: none !important;
     }
 
     ::slotted(a.active),
     ::slotted(button.active) {
-      color: var(--color-fgcolor) !important;
+      color: var(--color-variant) !important;
     }
-
-    /**
-     * Color variants
-     */
-
-     :host {
-      --color-nav-hover: var(--color-bgcolor);
-      --color-nav-active: var(--color-fgcolor);
-      --bg-nav-hover: var(--color-gray-500);
-      --bg-nav-active: var(--color-gray-500);
-    }
-
-    :host([variant=blue]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-blue);
-      --bg-nav-active: var(--color-blue);
-    }
-
-    :host([variant=green]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-green);
-      --bg-nav-active: var(--color-green);
-    }
-
-    :host([variant=indigo]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-indigo);
-      --bg-nav-active: var(--color-indigo);
-    }
-
-    :host([variant=orange]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-orange);
-      --bg-nav-active: var(--color-orange);
-    }
-
-    :host([variant=pink]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-pink);
-      --bg-nav-active: var(--color-pink);
-    }
-
-    :host([variant=purple]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-purple);
-      --bg-nav-active: var(--color-purple);
-    }
-
-    :host([variant=red]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-red);
-      --bg-nav-active: var(--color-red);
-    }
-
-    :host([variant=teal]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-teal);
-      --bg-nav-active: var(--color-teal);
-    }
-
-    :host([variant=yellow]) {
-      --color-nav-hover: var(--color-white);
-      --color-nav-active: var(--color-white);
-      --bg-nav-hover: var(--color-yellow);
-      --bg-nav-active: var(--color-yellow);
-    }
-
-
 
     /**
      * Types
@@ -132,14 +114,15 @@ template.innerHTML = `
     :host([type=underline]) ::slotted(button:focus),
     :host([type=underline]) ::slotted(button:active) {
       outline: none !important;
-      border-color: var(--bg-nav-hover) !important;
+      color: var(--color-fgcolor) !important;
+      border-color: var(--color-variant) !important;
     }
 
     :host([type=underline]) ::slotted(a.active),
     :host([type=underline]) ::slotted(button.active) {
       outline: none !important;
       color: var(--color-fgcolor) !important;
-      border-color: var(--bg-nav-active) !important;
+      border-color: var(--color-variant) !important;
     }
 
     /* Pill type */
@@ -158,15 +141,15 @@ template.innerHTML = `
     :host([type=pill]) ::slotted(button:active) {
       border-radius: var(--rounded) !important;
       outline: none !important;
-      color: var(--color-nav-hover) !important;
-      background-color: var(--bg-nav-hover) !important;
+      color: var(--color-on-variant) !important;
+      background-color: var(--color-variant) !important;
     }
 
     :host([type=pill]) ::slotted(a.active),
     :host([type=pill]) ::slotted(button.active) {
       border-radius: var(--rounded) !important;
-      color: var(--color-nav-hover) !important;
-      background-color: var(--bg-nav-active) !important;
+      color: var(--color-on-variant) !important;
+      background-color: var(--color-variant) !important;
     }
 
     /* Block type */
@@ -184,14 +167,14 @@ template.innerHTML = `
     :host([type=block]) ::slotted(button:focus),
     :host([type=block]) ::slotted(button:active) {
       outline: none !important;
-      color: var(--color-nav-hover) !important;
-      background-color: var(--bg-nav-hover) !important;
+      color: var(--color-on-variant) !important;
+      background-color: var(--color-variant) !important;
     }
 
     :host([type=block]) ::slotted(a.active),
     :host([type=block]) ::slotted(button.active) {
-      color: var(--color-nav-hover) !important;
-      background-color: var(--bg-nav-active) !important;
+      color: var(--color-on-variant) !important;
+      background-color: var(--color-variant) !important;
     }
   </style>
   <slot name="item"></slot>

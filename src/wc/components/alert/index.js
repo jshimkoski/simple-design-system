@@ -99,16 +99,16 @@ template.innerHTML = `
       color: var(--color-orange-600, #DD6B20);
     }
 
-    /* Danger variant */
-    :host([variant=danger]) article {
+    /* red variant */
+    :host([variant=red]) article {
       background-color: var(--color-red-200, #FED7D7);
       border: var(--border, 1px) solid var(--color-red-600, #E53E3E);
       color: var(--color-red-800, #9B2C2C);
     }
-    :host([variant=danger]) button {
+    :host([variant=red]) button {
       color: var(--color-red-800, #9B2C2C);
     }
-    :host([variant=danger]) button:hover {
+    :host([variant=red]) button:hover {
       color: var(--color-red-600, #E53E3E);
     }
 
