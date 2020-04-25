@@ -125,6 +125,34 @@ template.innerHTML = `
       border-color: var(--color-variant) !important;
     }
 
+    /* Overline type */
+
+    :host([type=overline]) ::slotted(a),
+    :host([type=overline]) ::slotted(button) {
+      padding: var(--p-3) var(--p-3) var(--p-4) !important;
+      border-top-width: var(--border-4) !important;
+      border-color: var(--color-transparent) !important;
+      margin: var(--m-0) var(--m-1) !important;
+    }
+
+    :host([type=overline]) ::slotted(a:hover),
+    :host([type=overline]) ::slotted(a:focus),
+    :host([type=overline]) ::slotted(a:active),
+    :host([type=overline]) ::slotted(button:hover),
+    :host([type=overline]) ::slotted(button:focus),
+    :host([type=overline]) ::slotted(button:active) {
+      outline: none !important;
+      color: var(--color-fgcolor) !important;
+      border-color: var(--color-variant) !important;
+    }
+
+    :host([type=overline]) ::slotted(a.active),
+    :host([type=overline]) ::slotted(button.active) {
+      outline: none !important;
+      color: var(--color-fgcolor) !important;
+      border-color: var(--color-variant) !important;
+    }
+
     /* Pill type */
 
     :host([type=pill]) ::slotted(a),

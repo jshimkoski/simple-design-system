@@ -180,8 +180,8 @@
           <div slot="subtitle" class="w-2/3">
             <p>A horizontal navigation bar.</p>
             <p class="my-2">
-              Type attribute options include default, underline, pill, and
-              block.
+              Type attribute options include default, underline, overline, pill,
+              and block.
             </p>
             <p>
               Variant attribute options include blue, green, indigo, orange,
