@@ -5,7 +5,7 @@
   "description": "A modern design system that is remarkably flexible and easy to use.",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "./scripts/build.sh",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -27,6 +27,8 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.1.2",
+    "parcel-bundler": "^1.12.4",
+    "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "prerender-spa-plugin": "^3.2.1",
     "prettier": "^2.0.5",
