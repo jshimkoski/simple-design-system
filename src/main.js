@@ -8,7 +8,6 @@ import store from "./store";
 import "../simple-design-system";
 
 Vue.config.productionTip = false;
-// Vue.config.ignoredElements = [/sds-*/];
 
 Vue.use(VueMeta, {});
 
