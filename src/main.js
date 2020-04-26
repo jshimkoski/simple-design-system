@@ -4,11 +4,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-// Import all Web Components
-import "./wc";
-
-// Import styles
-import "./css/index.css";
+// simple design system
+import "../simple-design-system";
 
 Vue.config.productionTip = false;
 // Vue.config.ignoredElements = [/sds-*/];

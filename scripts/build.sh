@@ -6,11 +6,14 @@ rm -rf dist/
 # build docs
 PURGE_CSS=true npx vue-cli-service build --dest dist/docs
 
+# build all
+npx parcel build simple-design-system/index.js
+
 # build non-minified css
-npx parcel build src/css/index.css --no-minify -d dist/css
+npx parcel build simple-design-system/css/index.css --no-minify -d dist/css
 
 # build minified css
-npx parcel build src/css/index.css --out-file index.min.css -d dist/css
+npx parcel build simple-design-system/css/index.css --out-file index.min.css -d dist/css
 
-# build web components
-npx parcel build src/wc/index.js -d dist/wc
+# build all web components
+npx parcel build simple-design-system/wc/index.js -d dist/wc

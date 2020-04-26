@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "description": "A modern design system that is remarkably flexible and easy to use.",
-  "main": "dist/wc/index.js",
-  "style": "dist/css/index.css",
+  "main": "dist/index.js",
+  "style": "dist/index.css",
   "author": "Jason Shimkoski",
   "files": [
-    "dist/{wc,css}",
-    "src/{wc,css}"
+    "dist",
+    "simple-design-system"
   ],
   "repository": {
     "type": "git",
