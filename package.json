@@ -1,11 +1,11 @@
 {
   "name": "simple-design-system",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "A modern design system that is remarkably flexible and easy to use.",
   "main": "dist/wc/index.js",
   "style": "dist/css/index.css",
-  "author": "Jason Shimkoski <jshimkoski@me.com>",
+  "author": "Jason Shimkoski",
   "repository": {
     "type": "git",
     "url": "https://github.com/jshimkoski/simple-design-system.git"
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/jshimkoski/simple-design-system/issues"
   },
-  "homepage": "https://simple-design-system.netlify.app",
+  "homepage": "https://github.com/jshimkoski/simple-design-system/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "./scripts/build.sh",
