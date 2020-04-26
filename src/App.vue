@@ -1,6 +1,6 @@
 <template>
   <sds-layout-stacked>
-    <header slot="header">
+    <header slot="header" class="sticky top-0 z-10">
       <sds-navbar>
         <h1 slot="brand">
           <router-link to="/" active-class="active" exact>{{
@@ -33,7 +33,7 @@
     </main>
     <footer
       slot="footer"
-      class="py-12 text-center text-sm bg-static-gray-800 text-static-gray-300 border-t"
+      class="py-12 text-center text-sm bg-gray-100 border-t"
     >
       {{ appName }}, version 1.0.0
     </footer>

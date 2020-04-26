@@ -1,10 +1,9 @@
 <template>
-  <sds-card class="guide p-0 md:p-4">
-    <h2 slot="title" class="text-3xl">Guide</h2>
-    <p slot="subtitle">An in-depth overview of how we do things.</p>
+  <section class="guide p-4 md:p-8">
+    <h2 class="text-4xl mb-4">Guide</h2>
     <section slot="content">
-      <h3 class="text-2xl font-semibold mb-4">Introduction</h3>
-      <p>Why use the {{ appName }}?</p>
+      <h3 class="text-2xl font-semibold mb-2">Introduction</h3>
+      <h4 class="text-xl">Features</h4>
       <ul class="list-disc ml-8 sm:w-2/3">
         <li class="my-2">
           Dynamic light and dark theme switching based on a user's system
@@ -20,37 +19,30 @@
           (React, Vue, Angular, jQuery, doesn't matter).
         </li>
         <li class="my-2">
-          Styling is based on simple class declarations so no custom CSS is ever
-          required.
+          Utility classes provided by Tailwind CSS control styling so no custom
+          CSS is ever required.
         </li>
         <li class="my-2">
-          Accessibility requirements are built into the components themselves so
-          all you have to do is use the element and you are good to go.
+          No more memorizing complex nested element trees just use common
+          components such as navbars.
         </li>
         <li class="my-2">
           You can take full advantage of CSSPurge so the size of the CSS files
-          created with the SDS are ridiculously small.
+          are ridiculously small.
         </li>
       </ul>
-      <h3 class="text-2xl font-semibold mt-8 mb-4">Installation</h3>
-      <h4 class="text-xl font-semibold my-4">
-        Via NPM
-      </h4>
-      <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        npm i sds --save-dev
+      <h3 class="text-2xl font-semibold mt-8 mb-2">Installation</h3>
+      <h3 class="block text-xl mb-2">
+        Install via npm
+      </h3>
+      <code class="block bg-gray-100 border text-gray-900 rounded p-8 mb-4">
+        npm i simple-design-system --save-dev
       </code>
-      <h4 class="text-xl font-semibold my-4">
-        Via CDN
-      </h4>
-      <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        <div>&lt;!-- In head --&gt;</div>
-        <div>
-          &lt;link rel="stylesheet" type="text/css" href="sds.min.css"&gt;
-        </div>
-        <div>&lt;!-- At bottom of body --&gt;</div>
-        <div>
-          &lt;script src="sds.min.js"&gt;
-        </div>
+      <h3 class="block text-xl mb-2">
+        Add it to your entry file
+      </h3>
+      <code class="block bg-gray-100 border text-gray-900 rounded p-8">
+        import "simple-design-system";
       </code>
       <h3 class="text-2xl font-semibold mt-8 mb-4">Controlling File Size</h3>
       <h3 class="text-2xl font-semibold mt-8 mb-4">Browser Support</h3>
@@ -382,7 +374,7 @@
         </tbody>
       </table>
     </section>
-  </sds-card>
+  </section>
 </template>
 
 <script>

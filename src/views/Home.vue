@@ -108,23 +108,16 @@
         Getting Started
       </h2>
       <h3 class="block text-xl text-gray-700 my-5">
-        Via NPM
+        Install via npm
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        npm i sds --save-dev
+        npm i simple-design-system --save-dev
       </code>
       <h3 class="block text-xl text-gray-700 my-5">
-        Via CDN
+        Add it to your entry file
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        <div>&lt;!-- In head --&gt;</div>
-        <div>
-          &lt;link rel="stylesheet" type="text/css" href="sds.min.css"&gt;
-        </div>
-        <div>&lt;!-- At bottom of body --&gt;</div>
-        <div>
-          &lt;script src="sds.min.js"&gt;
-        </div>
+        import "simple-design-system";
       </code>
     </sds-container>
   </sds-container>
