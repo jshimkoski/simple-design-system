@@ -28,7 +28,7 @@
         </sds-nav>
       </sds-navbar>
     </header>
-    <main slot="content" class="bg-gray-100">
+    <main slot="content">
       <router-view />
     </main>
     <footer

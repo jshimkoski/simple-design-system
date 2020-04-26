@@ -21,7 +21,7 @@
       </aside>
       <sds-container slot="content" class="space-y-8">
         <!-- Layout Stacked -->
-        <sds-card id="layout-stacked" class="p-4 pb-6">
+        <sds-card id="layout-stacked" class="p:0 md:p-4 pb-6">
           <h2 slot="title" class="text-3xl">Layout Stacked</h2>
           <p slot="subtitle">
             A traditional header/content/footer layout. All slots are optional.

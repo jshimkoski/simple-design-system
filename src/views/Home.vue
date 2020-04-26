@@ -1,6 +1,6 @@
 <template>
   <sds-container class="home p-0">
-    <sds-container class="block md:grid md:grid-cols-2 md:gap-8">
+    <sds-container class="block md:grid md:grid-cols-2 md:gap-8 bg-gray-100">
       <div>
         <h2 class="text-gray-900 text-3xl leading-snug">
           A modern design system that is remarkably flexible and easy to use.
@@ -103,7 +103,7 @@
         </p>
       </div>
     </sds-container>
-    <sds-container>
+    <sds-container class="bg-gray-100">
       <h2 class="block text-2xl">
         Getting Started
       </h2>
