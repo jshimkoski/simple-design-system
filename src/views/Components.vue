@@ -1,6 +1,6 @@
 <template>
   <sds-container class="components p-0">
-    <sds-layout-sidebar class="divide-x">
+    <sds-layout-sidebar class="md:divide-x">
       <aside slot="sidebar" class="hidden md:block">
         <nav class="p-8 text-sm space-y-2">
           <h2 class="font-medium mb-2 text-base">Web Components</h2>
