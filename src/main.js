@@ -8,7 +8,7 @@ import store from "./store";
 import "./wc";
 
 // Import styles
-import "./styles/index.css";
+import "./css/index.css";
 
 Vue.config.productionTip = false;
 // Vue.config.ignoredElements = [/sds-*/];

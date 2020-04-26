@@ -6,6 +6,10 @@
   "main": "dist/wc/index.js",
   "style": "dist/css/index.css",
   "author": "Jason Shimkoski",
+  "files": [
+    "dist/{wc,css}",
+    "src/{wc,css}"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jshimkoski/simple-design-system.git"
