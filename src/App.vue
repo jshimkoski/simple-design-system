@@ -1,6 +1,6 @@
 <template>
   <sds-layout-stacked>
-    <header slot="header" class="sticky top-0 z-10">
+    <header slot="header">
       <sds-navbar>
         <h1 slot="brand">
           <router-link to="/" active-class="active" exact>{{

@@ -4,16 +4,36 @@
       <aside slot="sidebar" class="hidden md:block">
         <nav class="p-8 text-sm space-y-2">
           <h2 class="font-medium mb-2 text-base">Web Components</h2>
-          <a href="#layout-stacked" class="block hover:text-red"
+          <a
+            href="#layout-stacked"
+            class="block hover:text-red focus:text-red focus:outline-none"
             >Layout Stacked</a
           >
-          <a href="#layout-sidebar" class="block hover:text-red"
+          <a
+            href="#layout-sidebar"
+            class="block hover:text-red focus:text-red focus:outline-none"
             >Layout Sidebar</a
           >
-          <a href="#container" class="block hover:text-red">Container</a>
-          <a href="#navbar" class="block hover:text-red">Navbar</a>
-          <a href="#nav" class="block hover:text-red">Nav</a>
-          <a href="#card" class="block hover:text-red">Card</a>
+          <a
+            href="#container"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Container</a
+          >
+          <a
+            href="#navbar"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Navbar</a
+          >
+          <a
+            href="#nav"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Nav</a
+          >
+          <a
+            href="#card"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Card</a
+          >
         </nav>
       </aside>
       <div slot="content" class="space-y-8 p-4 md:py-6 md:px-8">
