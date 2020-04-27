@@ -2,7 +2,7 @@ const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
-  /**
+    /**
      * Color variants
      */
 
@@ -102,12 +102,13 @@ template.innerHTML = `
     }
 
     button svg {
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     button:hover,
     button:focus,
-    button:active {
+    button:active,
+    :host([mobile-menu-open]) button {
       outline: none;
       fill: var(--color-variant);
     }
