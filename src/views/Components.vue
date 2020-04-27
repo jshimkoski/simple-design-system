@@ -46,7 +46,7 @@
             A traditional header/content/footer layout. All slots are optional.
           </p>
           <section slot="content">
-            <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
+            <h3 class="text-lg mb-4">Type: Default</h3>
             <sds-container class="bg-bgcolor h-64">
               <sds-layout-stacked>
                 <header slot="header" class="border-dashed border">
@@ -69,7 +69,7 @@
             optional.
           </p>
           <section slot="content">
-            <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
+            <h3 class="text-lg mb-4">Type: Default</h3>
             <sds-container class="bg-bgcolor">
               <sds-layout-sidebar>
                 <header slot="sidebar" class="border-dashed border">
@@ -92,7 +92,7 @@
             can override padding with any padding utility class.
           </p>
           <section slot="content">
-            <h3 class="text-lg mb-4 text-gray-600">Type: Default</h3>
+            <h3 class="text-lg mb-4">Type: Default</h3>
             <sds-container class="bg-bgcolor">
               <sds-container class="border-dashed border">
                 Content of container
@@ -111,7 +111,7 @@
             </p>
           </div>
           <section slot="content" class="space-y-4">
-            <h3 class="text-lg text-gray-600">
+            <h3 class="text-lg">
               Nav Type: Default, Nav Right Type: Pill
             </h3>
             <sds-container class="bg-bgcolor">
@@ -131,7 +131,7 @@
               </sds-navbar>
             </sds-container>
 
-            <h3 class="text-lg text-gray-600">
+            <h3 class="text-lg">
               Nav Type: Underline, Right Nav Type: Block, Right Nav Variant:
               Orange
             </h3>
@@ -152,7 +152,7 @@
               </sds-navbar>
             </sds-container>
 
-            <h3 class="text-lg text-gray-600">
+            <h3 class="text-lg">
               Nav Style Type: Pill, Nav Color Variant: Purple, Nav Right Type:
               Underline
             </h3>
@@ -173,7 +173,7 @@
               </sds-navbar>
             </sds-container>
 
-            <h3 class="text-lg text-gray-600">
+            <h3 class="text-lg">
               No Brand, Nav Style Type: Block, Nav Color Variant: Red, Nav Right
               Type: Default
             </h3>
@@ -208,7 +208,7 @@
             </p>
           </div>
           <section slot="content">
-            <h3 class="text-lg mb-4 text-gray-600">
+            <h3 class="text-lg mb-4">
               Type: Default
             </h3>
             <sds-container class="bg-bgcolor mb-4">
@@ -219,7 +219,7 @@
               </sds-nav>
             </sds-container>
 
-            <h3 class="text-lg mb-4 text-gray-600">
+            <h3 class="text-lg mb-4">
               Type: Underline, Variant: Blue
             </h3>
             <sds-container class="bg-bgcolor mb-4">
@@ -230,7 +230,7 @@
               </sds-nav>
             </sds-container>
 
-            <h3 class="text-lg mb-4 text-gray-600">
+            <h3 class="text-lg mb-4">
               Type: Overline, Variant: Pink
             </h3>
             <sds-container class="bg-bgcolor mb-4">
@@ -241,7 +241,7 @@
               </sds-nav>
             </sds-container>
 
-            <h3 class="text-lg mb-4 text-gray-600">
+            <h3 class="text-lg mb-4">
               Type: Pill, Variant: teal
             </h3>
             <sds-container class="bg-bgcolor mb-4">
@@ -252,7 +252,7 @@
               </sds-nav>
             </sds-container>
 
-            <h3 class="text-lg mb-4 text-gray-600">
+            <h3 class="text-lg mb-4">
               Type: Block, Variant: Red
             </h3>
             <sds-container class="bg-bgcolor mb-4">
@@ -272,7 +272,7 @@
             Groups content for easy consumption. All slots are optional.
           </p>
           <section slot="content">
-            <h2 class="text-lg mb-4 text-gray-600">Type: Default</h2>
+            <h2 class="text-lg mb-4">Type: Default</h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-card>
                 <h3 slot="title">Hello There!</h3>
@@ -287,7 +287,7 @@
               </sds-card>
             </sds-container>
 
-            <h2 class="text-lg mb-4 text-gray-600">Type: Simple</h2>
+            <h2 class="text-lg mb-4">Type: Simple</h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-card type="simple">
                 <h3 slot="title">Hello There!</h3>
@@ -302,7 +302,7 @@
               </sds-card>
             </sds-container>
 
-            <h2 class="text-lg mb-4 text-gray-600">Type: Raised</h2>
+            <h2 class="text-lg mb-4">Type: Raised</h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-card type="raised">
                 <h3 slot="title">Hello There!</h3>
@@ -317,7 +317,7 @@
               </sds-card>
             </sds-container>
 
-            <h2 class="text-lg mb-4 text-gray-600">
+            <h2 class="text-lg mb-4">
               Type: Accented
             </h2>
             <sds-container class="bg-bgcolor mb-4">
