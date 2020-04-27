@@ -2,7 +2,7 @@
   <sds-layout-stacked>
     <header slot="header">
       <sds-navbar>
-        <h1 slot="brand">
+        <h1 slot="brand" class="text-lg">
           <router-link to="/" active-class="active" exact>{{
             appName
           }}</router-link>
