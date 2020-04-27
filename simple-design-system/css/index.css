@@ -1,6 +1,6 @@
 /* purgecss start ignore */
-@import "./variables.css";
-@import "./base.css";
+@import "./core/variables.css";
+@import "./core/base.css";
 /* purgecss end ignore */
 
-@import "./tailwind.css";
+@import "./core/tailwind.css";

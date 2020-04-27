@@ -20,6 +20,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "./scripts/build.sh",
+    "release": "./scripts/release.sh",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
