@@ -8,7 +8,7 @@ template.innerHTML = `
 
     :host {
       --color-variant: var(--color-fgcolor);
-      --color-on-variant: var(--color-bg-color);
+      --color-on-variant: var(--color-bgcolor);
     }
 
     :host([variant=blue]) {
