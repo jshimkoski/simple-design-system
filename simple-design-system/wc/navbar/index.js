@@ -102,8 +102,8 @@ template.innerHTML = `
 
         background-color: var(--color-bgcolor);
         border-bottom: var(--border) solid var(--color-gray-300) !important;
-        padding-left: var(--p-8);
-        padding-right: var(--p-8);
+        padding-left: var(--p-6);
+        padding-right: var(--p-6);
       }
 
       :host([hide-brand]) {
@@ -123,8 +123,7 @@ template.innerHTML = `
         display: flex;
         align-items: stretch;
         border: 0 !important;
-        padding-top: var(--p-0);
-        padding-bottom: var(--p-0);
+        padding: var(--p-0);
       }
 
       :host([mobile-menu-open]) ::slotted([slot=nav]),
@@ -175,7 +174,9 @@ class Component extends HTMLElement {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  _close() {
+  _close(e) {
+    const tagName = e.target.tagName.toLowerCase();
+    if (tagName !== "a" && tagName !== "button") return;
     this.mobileMenuOpen = false;
   }
 
