@@ -109,6 +109,10 @@
             <p class="my-2">
               Use an sds-nav element for navigation styles.
             </p>
+            <p>
+              Variant attribute options include blue, green, indigo, orange,
+              pink, purple, red, teal, and yellow
+            </p>
           </div>
           <section slot="content" class="space-y-4">
             <h3 class="text-lg">

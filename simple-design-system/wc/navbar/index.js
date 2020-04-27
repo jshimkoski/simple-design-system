@@ -2,6 +2,54 @@ const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
+  /**
+     * Color variants
+     */
+
+    :host {
+      --color-variant: var(--color-gray-500);
+    }
+
+    :host([variant=blue]) {
+      --color-variant: var(--color-blue);
+    }
+
+    :host([variant=green]) {
+      --color-variant: var(--color-green);
+    }
+
+    :host([variant=indigo]) {
+      --color-variant: var(--color-indigo);
+    }
+
+    :host([variant=orange]) {
+      --color-variant: var(--color-orange);
+    }
+
+    :host([variant=pink]) {
+      --color-variant: var(--color-pink);
+    }
+
+    :host([variant=purple]) {
+      --color-variant: var(--color-purple);
+    }
+
+    :host([variant=red]) {
+      --color-variant: var(--color-red);
+    }
+
+    :host([variant=teal]) {
+      --color-variant: var(--color-teal);
+    }
+
+    :host([variant=yellow]) {
+      --color-variant: var(--color-yellow);
+    }
+
+    /**
+     * Core styles
+     */
+
     :host {
       display: grid;
 
@@ -35,8 +83,7 @@ template.innerHTML = `
     div {
       grid-area: close-btn;
       align-self: center;
-      margin-left: var(--m-4);
-      margin-right: var(--m-4);
+      margin: auto var(--m-2);
     }
 
     :host([hide-brand]) ::slotted([slot=brand]) {
@@ -48,7 +95,7 @@ template.innerHTML = `
       border: var(--border) solid var(--color-transparent);
       border-radius: var(--rounded);
       fill: var(--color-fgcolor);
-      padding: var(--p-1) var(--p-2);
+      padding: var(--p-1);
       margin-top: var(--m-2);
       margin-bottom: var(--m-2);
       cursor: pointer;
@@ -60,11 +107,9 @@ template.innerHTML = `
 
     button:hover,
     button:focus,
-    button:active,
-    :host([mobile-menu-open]) button {
+    button:active {
       outline: none;
-      border-color: var(--color-gray-300);
-      background-color: var(--color-gray-100);
+      fill: var(--color-variant);
     }
 
     ::slotted([slot=nav]) {
