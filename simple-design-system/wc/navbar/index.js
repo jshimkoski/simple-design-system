@@ -14,7 +14,7 @@ template.innerHTML = `
       grid-template-rows: auto auto auto;
 
       background-color: var(--color-bgcolor);
-      border-bottom: var(--border) solid var(--color-gray-300) !important;
+      border-bottom: var(--border) solid var(--color-border) !important;
     }
 
     :host([hide-brand]) {
@@ -79,7 +79,7 @@ template.innerHTML = `
     ::slotted([slot=nav-right]) {
       display: none;
       align-self: center;
-      border-top: var(--border) solid var(--color-gray-300) !important;
+      border-top: var(--border) solid var(--color-border) !important;
       padding: var(--p-4);
       height: var(--h-full);
     }
@@ -100,8 +100,6 @@ template.innerHTML = `
         grid-template-columns: auto 1fr auto;
         grid-template-rows: 1fr;
 
-        background-color: var(--color-bgcolor);
-        border-bottom: var(--border) solid var(--color-gray-300) !important;
         padding-left: var(--p-6);
         padding-right: var(--p-6);
       }

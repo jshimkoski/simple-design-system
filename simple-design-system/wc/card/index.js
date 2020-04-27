@@ -35,13 +35,13 @@ template.innerHTML = `
 
     :host([type=simple]),
     :host([type=raised]) {
-      border: var(--border) solid var(--color-gray-300) !important;
+      border: var(--border) solid var(--color-border) !important;
     }
 
     :host([type=simple]) header,
     :host([type=raised]) header,
     :host([type=accented]) header {
-      border-bottom: var(--border) solid var(--color-gray-300);
+      border-bottom: var(--border) solid var(--color-border);
     }
 
     :host([type=raised]) {

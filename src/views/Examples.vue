@@ -14,13 +14,10 @@
               <input
                 type="text"
                 placeholder="Search"
-                class="bg-gray-100 placeholder-gray-600 focus:outline-none text-fgcolor rounded w-full p-2"
+                class="bg-gray-100 focus:outline-none text-fgcolor rounded w-full p-2"
               />
             </div>
-            <sds-container
-              slot="content"
-              class="p-0 border-t border-gray-200 divide-y divide-gray-200"
-            >
+            <sds-container slot="content" class="p-0 border-t divide-y">
               <sds-card>
                 <h3 slot="title">Tim Cook</h3>
                 <div slot="subtitle">
