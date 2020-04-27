@@ -54,6 +54,10 @@ template.innerHTML = `
       cursor: pointer;
     }
 
+    button svg {
+      margin-top: 2px;
+    }
+
     button:hover,
     button:focus,
     button:active,
@@ -76,8 +80,7 @@ template.innerHTML = `
       display: none;
       align-self: center;
       border-top: var(--border) solid var(--color-gray-300) !important;
-      padding-top: var(--p-4);
-      padding-bottom: var(--p-4);
+      padding: var(--p-4);
       height: var(--h-full);
     }
 

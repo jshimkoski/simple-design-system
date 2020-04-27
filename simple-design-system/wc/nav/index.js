@@ -78,6 +78,10 @@ template.innerHTML = `
       margin-right: var(--m-1) !important;
     }
 
+    ::slotted(button) {
+      width: var(--w-full);
+    }
+
     ::slotted(a:hover),
     ::slotted(a:focus),
     ::slotted(a:active),
