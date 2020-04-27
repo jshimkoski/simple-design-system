@@ -264,6 +264,18 @@
             <td><div class="p-4 bg-bgcolor border" /></td>
           </tr>
           <tr>
+            <td>Border Color</td>
+            <td>--color-border</td>
+            <td>*-border</td>
+            <td><div class="p-4 bg-border border" /></td>
+          </tr>
+          <tr>
+            <td>Placeholder Color</td>
+            <td>--color-placeholder</td>
+            <td>*-placeholder</td>
+            <td><div class="p-4 bg-placeholder border" /></td>
+          </tr>
+          <tr>
             <td>Gray 100</td>
             <td>--color-gray-100</td>
             <td>*-gray-100</td>
