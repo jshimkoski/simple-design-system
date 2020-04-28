@@ -5,11 +5,15 @@ start=$SECONDS
 # clean dist directory
 rm -rf dist/
 
+# copy simple design system source files to dist/src
+mkdir dist/ && mkdir dist/src/
+cp -a simple-design-system/. dist/src/
+
 # build docs
-PURGE_CSS=true npx vue-cli-service build --dest dist/docs
+PURGE_CSS=true npx vue-cli-service build --no-clean --dest dist/docs
 
 # build all web components and css
-npx parcel build simple-design-system/index.js
+npx vue-cli-service build --no-clean --target lib --dest dist/ --name index simple-design-system/index.js
 
 # build non-minified css
 npx parcel build simple-design-system/css/index.css --no-minify -d dist/css
@@ -20,10 +24,10 @@ npx parcel build simple-design-system/css/index.css --out-file index.min.css -d 
 for d in simple-design-system/wc/* ; do
   if [[ "$d" == *"index.js"* ]]; then
     # build all web components
-    npx parcel build $d -d dist/wc
+    npx vue-cli-service build --no-clean --target lib --dest dist/wc/ --name index $d
   else
     # build individual web components
-    npx parcel build $d/index.js -d dist/wc/${d##*/}
+    npx vue-cli-service build --no-clean --target lib --dest dist/wc/${d##*/} --name index $d/index.js
   fi
 done
 

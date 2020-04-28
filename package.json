@@ -2,12 +2,11 @@
   "name": "simple-design-system",
   "version": "0.1.9",
   "description": "A modern design system that is remarkably flexible and easy to use.",
-  "main": "dist/index.js",
+  "main": "dist/index.common.js",
   "style": "dist/index.css",
   "author": "Jason Shimkoski",
   "files": [
-    "dist",
-    "simple-design-system"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -19,7 +18,8 @@
   "homepage": "https://github.com/jshimkoski/simple-design-system/",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "./scripts/build.sh",
+    "build": "PURGE_CSS=true vue-cli-service build",
+    "bundle:release": "./scripts/bundle-release.sh",
     "release": "./scripts/release.sh",
     "lint": "vue-cli-service lint"
   },

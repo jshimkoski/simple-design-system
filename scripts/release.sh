@@ -21,7 +21,7 @@ read -p 'Enter a version type (major, minor, or patch): ' version
 
 if [ "$version" == "major" ] || [ "$version" == "minor" ] || [ "$version" == "patch" ] ;then
     echo Proceeding with $version release...
-    npm run build
+    npm run bundle:release
     npm version $version
     git push --follow-tags
     npm publish
