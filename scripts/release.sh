@@ -23,7 +23,7 @@ if [ "$version" == "major" ] || [ "$version" == "minor" ] || [ "$version" == "pa
     echo Proceeding with $version release...
     npm run build
     npm version $version
-    git push —-tags origin master
+    git push —-tags
     npm publish
 else
     printf "\nCould not process release.\nEnsure to use a version type for this release: major, minor, or patch.\n\n"
