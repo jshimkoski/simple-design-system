@@ -2,8 +2,8 @@
   "name": "simple-design-system",
   "version": "0.1.10",
   "description": "A modern design system that is remarkably flexible and easy to use.",
-  "main": "dist/index.common.js",
-  "style": "dist/index.css",
+  "main": "dist/wc/index.common.js",
+  "style": "dist/css/index.css",
   "author": "Jason Shimkoski",
   "files": [
     "dist"

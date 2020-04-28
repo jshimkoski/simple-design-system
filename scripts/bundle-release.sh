@@ -12,9 +12,6 @@ cp -a simple-design-system/. dist/src/
 # build docs
 PURGE_CSS=true npx vue-cli-service build --no-clean --dest dist/docs
 
-# build all web components and css
-npx vue-cli-service build --no-clean --target lib --dest dist/ --name index simple-design-system/index.js
-
 # build non-minified css
 npx parcel build simple-design-system/css/index.css --no-minify -d dist/css
 
