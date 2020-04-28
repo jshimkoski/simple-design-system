@@ -32,7 +32,7 @@
       <router-view />
     </main>
     <footer slot="footer" class="py-12 text-center text-sm border-t">
-      {{ appName }}, version 1.0.0
+      {{ appName }}
     </footer>
   </sds-layout-stacked>
 </template>
