@@ -1,6 +1,6 @@
 {
   "name": "simple-design-system",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A modern design system that is remarkably flexible and easy to use.",
   "main": "dist/index.js",
   "style": "dist/index.css",
