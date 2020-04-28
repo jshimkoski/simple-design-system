@@ -23,6 +23,8 @@ if [ "$version" == "major" ] || [ "$version" == "minor" ] || [ "$version" == "pa
     echo Proceeding with $version release...
     npm run build
     npm version $version
+    git add -A
+    git commit -m "release: $version"
     git push origin —-tags
     npm publish
 else
