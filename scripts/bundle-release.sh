@@ -28,6 +28,9 @@ for d in simple-design-system/wc/* ; do
   fi
 done
 
+# remove auto-generated demo.html files
+find dist -name "*demo.html" -type f -exec rm {} \;
+
 duration=$(( SECONDS - start ))
 
 printf "\nFinished build in $duration seconds.\n\n"
