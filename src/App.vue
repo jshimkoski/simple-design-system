@@ -31,10 +31,7 @@
     <main slot="content">
       <router-view />
     </main>
-    <footer
-      slot="footer"
-      class="py-12 text-center text-sm bg-gray-100 border-t"
-    >
+    <footer slot="footer" class="py-12 text-center text-sm border-t">
       {{ appName }}, version 1.0.0
     </footer>
   </sds-layout-stacked>

@@ -111,13 +111,16 @@
         Install via npm
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        npm i simple-design-system --save-dev
+        $ npm i simple-design-system --save
       </code>
       <h3 class="block text-xl text-gray-700 my-5">
         Add it to your entry file
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        import "simple-design-system";
+        <p class="text-green darken"># import all web components</p>
+        <p>import "simple-design-system";</p>
+        <p class="text-green darken mt-4"># import purgecss compatible css</p>
+        <p>import "simple-design-system/dist/index.css";</p>
       </code>
     </sds-container>
   </sds-container>

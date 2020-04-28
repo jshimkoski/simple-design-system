@@ -36,34 +36,61 @@
         Install via npm
       </h3>
       <code class="block bg-gray-100 border text-gray-900 rounded p-8 mb-4">
-        npm i simple-design-system --save-dev
+        $ npm i simple-design-system --save
       </code>
       <h3 class="block text-xl mb-2">
         Add it to your entry file
       </h3>
       <code class="block bg-gray-100 border text-gray-900 rounded p-8">
-        import "simple-design-system";
+        <p class="text-green darken"># import all web components</p>
+        <p>import "simple-design-system";</p>
+        <p class="text-green darken mt-4">
+          # or, import individual web components
+        </p>
+        <p class="text-green darken">
+          # import "simple-design-system/dist/wc/navbar";
+        </p>
+        <p class="text-green darken mt-4"># import purgecss compatible css</p>
+        <p>import "simple-design-system/dist/index.css";</p>
+        <p class="text-green darken mt-4">
+          # or, import pre-minified css (not compatible with purgecss)
+        </p>
+        <p class="text-green darken">
+          # import "simple-design-system/dist/index.min.css";
+        </p>
       </code>
       <h3 class="text-2xl font-semibold mt-8 mb-4">Controlling File Size</h3>
+      <p>
+        After gzip compression, the entry CSS file weighs around 80kb. To
+        drastically reduce this filesize, feel free to add
+        <a
+          href="https://purgecss.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-red hover:underline hover:darken"
+          >PurgeCSS</a
+        >
+        to your project. Our entry CSS comes pre-wrapped with special PurgeCSS
+        identifiers so you can be sure that PurgeCSS will function as expected.
+      </p>
       <h3 class="text-2xl font-semibold mt-8 mb-4">Browser Support</h3>
       <p>
-        As a general rule, the SDS targets the latest version of all modern
-        browsers like Chrome, Firefox, Safari, and Edge. IE11 is not supported
-        and you should be ashamed of yourself and your users if you choose to
-        support it.
+        We target the latest version of all modern browsers like Chrome,
+        Firefox, Safari, and Edge. IE11 is not supported.
       </p>
 
       <h3 class="text-2xl font-semibold mt-8 mb-4">Core Concepts</h3>
       <h4 class="text-xl font-semibold mb-4">Utility-First</h4>
       <p>
-        The SDS is built on top of Tailwind CSS, a utility framework for CSS
-        that greatly simplifies development. Please refer to their
+        The {{ appName }} is built on top of
         <a
           href="https://tailwindcss.com/"
-          class="text-blue-500 hover:underline hover:text-blue-700"
-          >documentation</a
-        >
-        for a list of all utility classes for which you can take advantage.
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-red hover:underline hover:darken"
+          >Tailwind CSS</a
+        >. Please refer to their documentation for a complete list of all of the
+        utility classes for which you can take advantage.
       </p>
       <h4 class="text-xl font-semibold my-4">Responsive</h4>
       <p>
