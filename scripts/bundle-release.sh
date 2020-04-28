@@ -13,15 +13,15 @@ cp -a simple-design-system/. dist/src/
 PURGE_CSS=true npx vue-cli-service build --no-clean --dest dist/docs
 
 # build non-minified css
-npx parcel build simple-design-system/css/index.css --no-minify -d dist/css
+npx parcel build simple-design-system/css/index.css --no-minify
 
 # build minified css
-npx parcel build simple-design-system/css/index.css --out-file index.min.css -d dist/css
+npx parcel build simple-design-system/css/index.css --out-file index.min.css
 
 for d in simple-design-system/wc/* ; do
   if [[ "$d" == *"index.js"* ]]; then
     # build all web components
-    npx vue-cli-service build --no-clean --target lib --dest dist/wc/ --name index $d
+    npx vue-cli-service build --no-clean --target lib --dest dist/ --name index $d
   else
     # build individual web components
     npx vue-cli-service build --no-clean --target lib --dest dist/wc/${d##*/} --name index $d/index.js
