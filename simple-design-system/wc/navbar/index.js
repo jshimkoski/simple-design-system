@@ -182,12 +182,12 @@ template.innerHTML = `
   </style>
   <slot name="brand"></slot>
   <div>
-    <button>
+    <button id="navbarMenuButton">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/></svg>
     </button>
   </div>
-  <slot name="nav"></slot>
-  <slot name="nav-right"></slot>
+  <slot name="nav" aria-labelledby="navbarMenuButton"></slot>
+  <slot name="nav-right" aria-labelledby="navbarMenuButton"></slot>
 `;
 
 class Component extends HTMLElement {
@@ -204,6 +204,11 @@ class Component extends HTMLElement {
 
     this.$menuBtn = this._root.querySelector("button");
     this.$menuBtn.addEventListener("click", this._toggleFn);
+    this.$menuBtn.setAttribute("type", "button");
+    this.$menuBtn.setAttribute("aria-label", "navbar menu toggle");
+    this.$menuBtn.setAttribute("aria-haspopup", true);
+    this.$menuBtn.setAttribute("aria-expanded", this.mobileMenuOpen);
+
     this.$nav = this._root.querySelector('slot[name="nav"]');
     this.$nav.addEventListener("click", this._closeFn);
     this.$navRight = this._root.querySelector('slot[name="nav-right"]');
@@ -216,6 +221,7 @@ class Component extends HTMLElement {
 
   _toggle() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+    this.$menuBtn.setAttribute("aria-expanded", this.mobileMenuOpen);
   }
 
   _close(e) {
