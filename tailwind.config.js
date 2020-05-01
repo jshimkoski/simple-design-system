@@ -1,6 +1,7 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
+  purge: false,
   theme: {
     colors: {
       // Static colors
