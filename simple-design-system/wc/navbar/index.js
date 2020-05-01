@@ -3,50 +3,6 @@ const template = document.createElement("template");
 template.innerHTML = `
   <style>
     /**
-     * Color variants
-     */
-
-    :host {
-      --color-variant: var(--color-gray-500);
-    }
-
-    :host([variant=blue]) {
-      --color-variant: var(--color-blue);
-    }
-
-    :host([variant=green]) {
-      --color-variant: var(--color-green);
-    }
-
-    :host([variant=indigo]) {
-      --color-variant: var(--color-indigo);
-    }
-
-    :host([variant=orange]) {
-      --color-variant: var(--color-orange);
-    }
-
-    :host([variant=pink]) {
-      --color-variant: var(--color-pink);
-    }
-
-    :host([variant=purple]) {
-      --color-variant: var(--color-purple);
-    }
-
-    :host([variant=red]) {
-      --color-variant: var(--color-red);
-    }
-
-    :host([variant=teal]) {
-      --color-variant: var(--color-teal);
-    }
-
-    :host([variant=yellow]) {
-      --color-variant: var(--color-yellow);
-    }
-
-    /**
      * Core styles
      */
 
@@ -98,11 +54,15 @@ template.innerHTML = `
       padding: var(--p-1);
       margin-top: var(--m-2);
       margin-bottom: var(--m-2);
+      height: var(--h-10);
+      width: var(--w-10);
       cursor: pointer;
     }
 
     button svg {
-      margin-top: 3px;
+      margin-top: var(--m-1);
+      width: var(--w-6);
+      height: var(--w-6);
     }
 
     button:hover,
@@ -110,7 +70,8 @@ template.innerHTML = `
     button:active,
     :host([mobile-menu-open]) button {
       outline: none;
-      fill: var(--color-variant);
+      background-color: var(--color-gray-100);
+      border-radius: var(--rounded-full);
     }
 
     ::slotted([slot=nav]) {

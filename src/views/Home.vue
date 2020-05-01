@@ -6,10 +6,9 @@
           A modern design system that is remarkably flexible and easy to use.
         </h2>
         <p class="py-8 text-gray-600 text-lg">
-          The SDS is built with UX best practices, accessibility, and ease of
-          use in mind. Its collection of beautiful native Web Components are
-          compatible with any JavaScript library or CSS framework out of the
-          box. Check out the
+          The {{ appName }} is easy to use, accessible, flexible, and future
+          proof. Get the boilerplate out of the way and start coding. Check out
+          the
           <router-link to="/guide" class="text-red hover:underline hover:darken"
             >Getting Started Guide</router-link
           >
@@ -39,47 +38,44 @@
         </ul>
       </div>
       <div class="border p-4 text-gray-500 bg-gray-100 mt-5 md:mt-0">
-        Getting Started Video
+        Getting Started Video Coming Soon...
       </div>
     </sds-container>
     <sds-container class="bg-bgcolor grid md:grid-cols-3 gap-8">
       <div>
         <h3 class="text-lg mb-2">
-          Clean Semantic Markup
-        </h3>
-        <p class="text-gray-600">
-          Nesting div elements is now an annoyance of the past. Our components
-          use modern CSS and a common sense design approach to allow for
-          beatifully semantic HTML.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-lg mb-2">
           Easy to Use
         </h3>
         <p class="text-gray-600">
-          Our simple to use components cover the most common layout, user
-          interaction, and form field requirements. Its so easy to use you'll be
-          amazed.
+          Our components cover the most common layout, user interaction, and
+          form field requirements.
         </p>
       </div>
       <div>
         <h3 class="text-lg mb-2">
-          Future Proof and Library Free
+          Semantic Markup
         </h3>
         <p class="text-gray-600">
-          Every component is a native Web Component built to w3c specification.
-          Compatibility with every JavaScript library and framework comes
-          standard out of the box.
+          Each component uses modern CSS and a common sense design approach to
+          allow for beatifully semantic HTML.
         </p>
       </div>
       <div>
         <h3 class="text-lg mb-2">
-          Fully Accessible
+          Future Proof
         </h3>
         <p class="text-gray-600">
-          Who has time to memorize all of the rules and complexities of building
-          an accessible application? SDS components handle this for you.
+          Our components are compatible with every JavaScript library and
+          framework out of the box.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg mb-2">
+          Accessibility
+        </h3>
+        <p class="text-gray-600">
+          Every component is tested with screen readers to ensure a great
+          experience for disabled users.
         </p>
       </div>
       <div>
@@ -87,9 +83,8 @@
           Customizable Theme
         </h3>
         <p class="text-gray-600">
-          Our components include multiple types, variants, built-in support for
-          automatic or manual theme switching, and a color palette fully
-          customizable via CSS variables.
+          Every component include multiple types, variants, built-in support for
+          automatic or manual theme switching.
         </p>
       </div>
       <div>
@@ -97,9 +92,8 @@
           Best Practices
         </h3>
         <p class="text-gray-600">
-          The SDS is built using recommended usability and development
-          practices. You can guarantee your app will function as beautifully as
-          it looks.
+          Every component is built using recommended usability and development
+          practices.
         </p>
       </div>
     </sds-container>
@@ -127,12 +121,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Home",
   metaInfo() {
     return {
       title: "Home",
     };
+  },
+  computed: {
+    ...mapGetters(["appName"]),
   },
 };
 </script>

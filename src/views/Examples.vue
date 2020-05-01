@@ -6,7 +6,7 @@
       <p slot="subtitle">
         Apple, is that you?
       </p>
-      <section slot="content">
+      <section slot="content" class="lg:w-10/12">
         <sds-container class="bg-gray-100">
           <sds-card class="rounded">
             <h2 slot="title" class="text-4xl font-medium">Inbox</h2>
@@ -14,7 +14,7 @@
               <input
                 type="text"
                 placeholder="Search"
-                class="bg-gray-100 focus:outline-none text-fgcolor rounded w-full p-2"
+                class="form-control border-0 bg-gray-100 shadow-none placeholder-gray-500"
               />
             </div>
             <sds-container slot="content" class="p-0 border-t divide-y">
