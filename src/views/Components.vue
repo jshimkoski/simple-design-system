@@ -164,7 +164,7 @@
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
                 </sds-nav>
-                <sds-nav slot="nav-right" type="block btn-orange">
+                <sds-nav slot="nav-right" type="block" variant="orange">
                   <a slot="item" href="#">Profile</a>
                   <a slot="item" href="#">Sign out</a>
                 </sds-nav>
@@ -180,7 +180,7 @@
                 <h1 slot="brand">
                   Brand
                 </h1>
-                <sds-nav slot="nav" type="pill btn-purple">
+                <sds-nav slot="nav" type="pill" variant="purple">
                   <a slot="item" href="#" class="active">Home</a>
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
@@ -198,7 +198,7 @@
             </h3>
             <sds-container class="bg-bgcolor mb-4">
               <sds-navbar hide-brand>
-                <sds-nav slot="nav" type="block btn-red">
+                <sds-nav slot="nav" type="block" variant="red">
                   <a slot="item" href="#" class="active">Home</a>
                   <a slot="item" href="#">About</a>
                   <a slot="item" href="#">Contact</a>
@@ -242,7 +242,7 @@
               Type: Underline, Variant: Blue
             </h3>
             <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="underline btn-blue">
+              <sds-nav type="underline" variant="blue">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
@@ -253,7 +253,7 @@
               Type: Overline, Variant: Pink
             </h3>
             <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="overline btn-pink">
+              <sds-nav type="overline" variant="pink">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
@@ -264,7 +264,7 @@
               Type: Pill, Variant: teal
             </h3>
             <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="pill btn-teal">
+              <sds-nav type="pill" variant="teal">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
@@ -275,7 +275,7 @@
               Type: Block, Variant: Red
             </h3>
             <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="block btn-red">
+              <sds-nav type="block" variant="red">
                 <a slot="item" href="#" class="active">Home</a>
                 <a slot="item" href="#">About</a>
                 <a slot="item" href="#">Contact</a>
