@@ -21,6 +21,18 @@ template.innerHTML = `
       border-bottom: var(--border) solid var(--color-border) !important;
     }
 
+    :host([sticky-top]) {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-10);
+    }
+
+    :host([sticky-bottom]) {
+      position: sticky;
+      bottom: 0;
+      z-index: var(--z-10);
+    }
+
     :host([hide-brand]) {
       grid-template-areas:
         "close-btn spacer"

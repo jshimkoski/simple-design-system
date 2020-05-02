@@ -13,8 +13,8 @@ template.innerHTML = `
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr auto;
 
-      height: 100%;
-      width: 100%;
+      min-height: var(--min-h-screen);
+      width: var(--w-full);
     }
 
     ::slotted([slot=header]) {

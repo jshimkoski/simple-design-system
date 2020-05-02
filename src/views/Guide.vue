@@ -2,45 +2,43 @@
   <section class="guide">
     <sds-layout-sidebar class="md:divide-x">
       <aside slot="sidebar" class="hidden md:block">
-        <div class="sticky top-0">
-          <nav class="p-8 pb-4 text-sm space-y-2 sticky-top-0">
-            <a
-              href="#introduction"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Introduction</a
-            >
-            <a
-              href="#installation"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Installation</a
-            >
-            <a
-              href="#controlling-file-size"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Controlling File Size</a
-            >
-            <a
-              href="#browser-support"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Browser Support</a
-            >
-            <a
-              href="#core-concepts"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Core Concepts</a
-            >
-            <a
-              href="#static-color-palette"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Static Color Palette</a
-            >
-            <a
-              href="#dynamic-color-palette"
-              class="block hover:text-red focus:text-red focus:outline-none"
-              >Dynamic Color Palette</a
-            >
-          </nav>
-        </div>
+        <nav class="p-8 pb-4 text-sm space-y-2">
+          <a
+            href="#introduction"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Introduction</a
+          >
+          <a
+            href="#installation"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Installation</a
+          >
+          <a
+            href="#controlling-file-size"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Controlling File Size</a
+          >
+          <a
+            href="#browser-support"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Browser Support</a
+          >
+          <a
+            href="#core-concepts"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Core Concepts</a
+          >
+          <a
+            href="#static-color-palette"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Static Color Palette</a
+          >
+          <a
+            href="#dynamic-color-palette"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Dynamic Color Palette</a
+          >
+        </nav>
       </aside>
       <section slot="content" class="space-y-8 p-4 md:py-6 md:px-8 lg:w-10/12">
         <h2 class="text-4xl mb-4">Guide</h2>

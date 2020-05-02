@@ -1,33 +1,31 @@
 <template>
   <sds-layout-stacked>
-    <header slot="header">
-      <sds-navbar>
-        <h1 slot="brand" class="text-lg">
-          <router-link to="/" active-class="active" exact>{{
-            appName
-          }}</router-link>
-        </h1>
-        <sds-nav slot="nav" type="underline" variant="red">
-          <router-link slot="item" to="/" active-class="active" exact
-            >Home</router-link
-          >
-          <router-link slot="item" to="/guide" active-class="active"
-            >Guide</router-link
-          >
-          <router-link slot="item" to="/components" active-class="active"
-            >Components</router-link
-          >
-          <router-link slot="item" to="/examples" active-class="active"
-            >Examples</router-link
-          >
-        </sds-nav>
-        <sds-nav slot="nav-right" type="pill" variant="red">
-          <button slot="item" @click="toggleTheme" class="capitalize">
-            {{ theme }} theme
-          </button>
-        </sds-nav>
-      </sds-navbar>
-    </header>
+    <sds-navbar slot="header" sticky-top>
+      <h1 slot="brand" class="text-lg">
+        <router-link to="/" active-class="active" exact>{{
+          appName
+        }}</router-link>
+      </h1>
+      <sds-nav slot="nav" type="underline" variant="red">
+        <router-link slot="item" to="/" active-class="active" exact
+          >Home</router-link
+        >
+        <router-link slot="item" to="/guide" active-class="active"
+          >Guide</router-link
+        >
+        <router-link slot="item" to="/components" active-class="active"
+          >Components</router-link
+        >
+        <router-link slot="item" to="/examples" active-class="active"
+          >Examples</router-link
+        >
+      </sds-nav>
+      <sds-nav slot="nav-right" type="pill" variant="red">
+        <button slot="item" @click="toggleTheme" class="capitalize">
+          {{ theme }} theme
+        </button>
+      </sds-nav>
+    </sds-navbar>
     <main slot="content">
       <router-view />
     </main>
