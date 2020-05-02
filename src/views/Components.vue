@@ -360,10 +360,12 @@
           <div slot="subtitle">
             <p>Pre-defined buttons via a <code>.btn</code> class.</p>
             <p class="mt-2">
-              Variants include: <code>.btn-blue</code>, <code>.btn-green</code>,
-              <code>.btn-indigo</code>, <code>.btn-orange</code>,
-              <code>.btn-pink</code>, <code>.btn-purple</code>,
-              <code>.btn-red</code>, <code>.btn-teal</code>,
+              Variants include: <code>.btn-white</code>,
+              <code>.btn-black</code>, <code>.btn-blue</code>,
+              <code>.btn-green</code>, <code>.btn-indigo</code>,
+              <code>.btn-orange</code>, <code>.btn-pink</code>,
+              <code>.btn-purple</code>, <code>.btn-red</code>,
+              <code>.btn-teal</code>,
               <code>.btn-yellow</code>
             </p>
             <p class="mt-2">
@@ -383,6 +385,8 @@
             <h3 class="text-lg mb-4">Type: Default</h3>
             <div class="space-x-2 space-y-2">
               <button class="btn">Default</button>
+              <button class="btn btn-white">White</button>
+              <button class="btn btn-black">Black</button>
               <button class="btn btn-blue">Blue</button>
               <button class="btn btn-green">Green</button>
               <button class="btn btn-indigo">Indigo</button>
@@ -397,6 +401,12 @@
             <h3 class="text-lg my-4">Type: Outline</h3>
             <div class="space-x-2 space-y-2">
               <button class="btn btn-outline">Default</button>
+              <button class="btn btn-white btn-outline">
+                White
+              </button>
+              <button class="btn btn-black btn-outline">
+                Black
+              </button>
               <button class="btn btn-blue btn-outline">
                 Blue
               </button>
@@ -413,6 +423,8 @@
             <h3 class="text-lg my-4">Type: Default, Disabled attriblte</h3>
             <div class="space-x-2 space-y-2">
               <button disabled class="btn">Default</button>
+              <button disabled class="btn btn-white">White</button>
+              <button disabled class="btn btn-black">Black</button>
               <button disabled class="btn btn-blue">Blue</button>
               <button disabled class="btn btn-green">Green</button>
               <button disabled class="btn btn-indigo">Indigo</button>
@@ -429,6 +441,8 @@
             </h3>
             <div class="space-x-2 space-y-2">
               <a href="#" tabindex="-1" class="btn disabled">Default</a>
+              <a href="#" tabindex="-1" class="btn btn-white disabled">White</a>
+              <a href="#" tabindex="-1" class="btn btn-black disabled">Black</a>
               <a href="#" tabindex="-1" class="btn btn-blue disabled">Blue</a>
               <a href="#" tabindex="-1" class="btn btn-green disabled">Green</a>
               <a href="#" tabindex="-1" class="btn btn-indigo disabled"
@@ -451,6 +465,8 @@
             <h3 class="text-lg my-4">Type: Default, Block</h3>
             <div class="space-y-2">
               <button class="btn btn-block">Default</button>
+              <button class="btn btn-white btn-block">White</button>
+              <button class="btn btn-black btn-block">Black</button>
               <button class="btn btn-blue btn-block">Blue</button>
               <button class="btn btn-green btn-block">Green</button>
               <button class="btn btn-indigo btn-block">Indigo</button>

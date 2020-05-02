@@ -3,6 +3,16 @@
   --btn-variant-on: var(--color-white);
 }
 
+.btn-white {
+  --btn-variant: var(--color-white);
+  --btn-variant-on: var(--color-static-gray-900);
+}
+
+.btn-black {
+  --btn-variant: var(--color-black);
+  --btn-variant-on: var(--color-static-gray-100);
+}
+
 .btn-blue {
   --btn-variant: var(--color-blue);
   --btn-variant-on: var(--color-white);
@@ -49,7 +59,8 @@
 }
 
 .btn {
-  @apply inline-block py-2 px-4 rounded select-none;
+  @apply border inline-block py-2 px-4 rounded select-none;
+  border-color: var(--btn-variant);
   background-color: var(--btn-variant);
   color: var(--btn-variant-on);
 }
@@ -57,8 +68,11 @@
 .btn-outline {
   background-color: var(--btn-transparent);
   color: var(--btn-variant);
-  border-color: var(--btn-variant);
-  border-width: var(--border);
+
+  &:hover {
+    color: var(--btn-variant-on);
+    background-color: var(--btn-variant);
+  }
 }
 
 .btn-block {
@@ -77,8 +91,4 @@
 .btn.disabled,
 .btn[disabled] {
   @apply opacity-50 pointer-events-none;
-}
-
-.btn-outline:hover {
-  @apply bg-gray-100;
 }
