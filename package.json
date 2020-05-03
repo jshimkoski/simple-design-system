@@ -42,7 +42,7 @@
     "prerender-spa-plugin": "^3.2.1",
     "prettier": "^2.0.5",
     "tailwind-css-variables": "^2.0.3",
-    "tailwindcss": "^1.4.2",
+    "tailwindcss": "^1.4.4",
     "vue": "^2.6.11",
     "vue-cli-plugin-prerender-spa": "~1.1.6",
     "vue-meta": "^2.3.3",
