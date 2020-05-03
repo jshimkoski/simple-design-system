@@ -199,7 +199,10 @@ class Component extends HTMLElement {
 
   _close(e) {
     const tagName = e.target.tagName.toLowerCase();
-    if (tagName !== "a" && tagName !== "button") return;
+    const type = e.target.getAttribute("type");
+    const isInput = tagName === "input" && type === "text";
+    const isNav = tagName === "sds-nav" || tagName === "nav";
+    if (isInput || isNav) return;
     this.mobileMenuOpen = false;
   }
 
