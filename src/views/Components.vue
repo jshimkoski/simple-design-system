@@ -60,9 +60,14 @@
         <!-- Layout Stacked -->
         <sds-card id="layout-stacked" class="bg-gray-100">
           <h2 slot="title" class="text-3xl">Layout Stacked</h2>
-          <p slot="subtitle">
-            A traditional header/content/footer layout. All slots are optional.
-          </p>
+          <div slot="subtitle">
+            <p>
+              A traditional header/content/footer layout.
+            </p>
+            <p class="my-2">
+              Slots are optional and include: header, content, footer.
+            </p>
+          </div>
           <section slot="content">
             <h3 class="text-lg mb-4">Type: Default</h3>
             <sds-container class="bg-bgcolor">
@@ -82,10 +87,12 @@
         <!-- Layout Sidebar -->
         <sds-card id="layout-sidebar" class="bg-gray-100">
           <h2 slot="title" class="text-3xl">Layout Sidebar</h2>
-          <p slot="subtitle">
-            A traditional sidebar/content/right sidebar layout. All slots are
-            optional.
-          </p>
+          <div slot="subtitle">
+            <p>A traditional sidebar/content/right sidebar layout.</p>
+            <p class="my-2">
+              Slots are optional and include: sidebar, content, sidebar-right.
+            </p>
+          </div>
           <section slot="content">
             <h3 class="text-lg mb-4">Type: Default</h3>
             <sds-container class="bg-bgcolor">
@@ -123,13 +130,15 @@
         <sds-card id="navbar" class="bg-gray-100">
           <h2 slot="title" class="text-3xl">Navbar</h2>
           <div slot="subtitle" class="w-2/3">
-            <p>A horizontal navigation bar. All slots are optional.</p>
+            <p>A horizontal navigation bar.</p>
             <p class="my-2">
               Use an sds-nav element for navigation styles.
             </p>
-            <p>
-              Variant attribute options include blue, green, indigo, orange,
-              pink, purple, red, teal, and yellow
+            <p class="my-2">
+              Slots are optional and include: brand, nav, nav-right.
+            </p>
+            <p class="my-2">
+              Use <code>hide-brand</code> attribute to hide the brand slot.
             </p>
           </div>
           <section slot="content" class="space-y-4">
@@ -228,6 +237,9 @@
               Variant attribute options include blue, green, indigo, orange,
               pink, purple, red, teal, and yellow
             </p>
+            <p class="my-2">
+              Slots include: item.
+            </p>
           </div>
           <section slot="content">
             <h3 class="text-lg mb-4">
@@ -290,9 +302,14 @@
         <!-- Card -->
         <sds-card id="card" class="bg-gray-100 p-4 pb-6">
           <h2 slot="title" class="text-3xl">Card</h2>
-          <p slot="subtitle">
-            Groups content for easy consumption. All slots are optional.
-          </p>
+          <div slot="subtitle">
+            <p>
+              Groups content for easy consumption.
+            </p>
+            <p class="my-2">
+              Slots are optional and include: title, subtitle, nav, content.
+            </p>
+          </div>
           <section slot="content">
             <h2 class="text-lg mb-4">Type: Default</h2>
             <sds-container class="bg-bgcolor mb-4">
