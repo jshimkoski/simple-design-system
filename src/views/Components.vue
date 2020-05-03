@@ -34,6 +34,11 @@
             class="block hover:text-red focus:text-red focus:outline-none"
             >Card</a
           >
+          <a
+            href="#modal"
+            class="block hover:text-red focus:text-red focus:outline-none"
+            >Modal</a
+          >
         </nav>
         <nav class="py-4 px-8 text-sm space-y-2">
           <h2 class="font-medium text-base">CSS Components</h2>
@@ -353,6 +358,31 @@
           </section>
         </sds-card>
 
+        <!-- Modal -->
+        <sds-card id="modal" class="bg-gray-100 p-4 pb-6">
+          <h2 slot="title" class="text-3xl">Modal</h2>
+          <p slot="subtitle">
+            A traditional modal dialog.
+          </p>
+          <section slot="content">
+            <h2 class="text-lg mb-4">Type: Default</h2>
+            <sds-container class="bg-bgcolor mb-4">
+              <button class="btn" @click="openModal = true">Open Modal</button>
+              <sds-modal :open="openModal" @open="openModal = $event.detail">
+                <h3 slot="header">Header</h3>
+                <section slot="content">
+                  <p>This is the content of the modal.</p>
+                </section>
+                <footer slot="footer">
+                  <button class="btn btn-red" @click="openModal = false">
+                    Close Modal
+                  </button>
+                </footer>
+              </sds-modal>
+            </sds-container>
+          </section>
+        </sds-card>
+
         <h3 class="text-3xl">CSS Components</h3>
         <!-- Buttons -->
         <sds-card id="button" class="bg-gray-100">
@@ -592,6 +622,11 @@ export default {
   metaInfo() {
     return {
       title: "Components",
+    };
+  },
+  data() {
+    return {
+      openModal: false,
     };
   },
 };
