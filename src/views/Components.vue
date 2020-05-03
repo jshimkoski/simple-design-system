@@ -361,15 +361,20 @@
         <!-- Modal -->
         <sds-card id="modal" class="bg-gray-100 p-4 pb-6">
           <h2 slot="title" class="text-3xl">Modal</h2>
-          <p slot="subtitle">
-            A traditional modal dialog.
-          </p>
+          <div slot="subtitle">
+            <p>A traditional modal dialog.</p>
+            <p class="my-2">
+              Slots are optional and include: title, content, footer.
+            </p>
+            <p>Use an <code>open</code> attribute to display the modal.</p>
+            <p class="my-2">Emits an <code>open</code> event.</p>
+          </div>
           <section slot="content">
             <h2 class="text-lg mb-4">Type: Default</h2>
             <sds-container class="bg-bgcolor mb-4">
               <button class="btn" @click="openModal = true">Open Modal</button>
               <sds-modal :open="openModal" @open="openModal = $event.detail">
-                <h3 slot="header">Header</h3>
+                <h3 slot="title">Header</h3>
                 <section slot="content">
                   <p>This is the content of the modal.</p>
                 </section>

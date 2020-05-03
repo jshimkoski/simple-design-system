@@ -76,10 +76,7 @@ template.innerHTML = `
       padding: var(--p-6) var(--p-6) var(--p-8);
     }
 
-    footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+    ::slotted([slot=footer]) {
       padding: var(--p-4) var(--p-6);
       border-radius: var(--rounded-b);
       border-top: 1px solid var(--color-border) !important;
@@ -95,15 +92,13 @@ template.innerHTML = `
   <div class="backdrop">
     <div class="modal">
       <header>
-        <div class="title"><slot name="header"></slot></div>
+        <div class="title"><slot name="title"></slot></div>
         <button aria-label="close" class="close-btn">
           <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </header>
       <slot name="content"></slot>
-      <footer>
-        <slot name="footer"></slot>
-      </footer>
+      <slot name="footer"></slot>
     </div>
   </div>
 `;
