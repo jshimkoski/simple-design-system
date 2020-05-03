@@ -17,7 +17,7 @@ template.innerHTML = `
       left: 0;
       bottom: 0;
       right: 0;
-      height: var(--h-screen);
+      height: var(--h-full);
       padding: var(--p-0) var(--p-4);
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.7);
