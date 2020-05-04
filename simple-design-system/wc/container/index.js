@@ -1,20 +1,6 @@
-const template = document.createElement("template");
-
-template.innerHTML = `
-  <style>
-    :host {
-      display: block;
-      padding: var(--p-8) var(--p-4);
-    }
-
-    @media screen and (min-width: 768px) {
-      :host {
-        padding: var(--p-8);
-      }
-    }
-  </style>
-  <slot></slot>
-`;
+import template from "./template.html";
+const templateEl = document.createElement("template");
+templateEl.innerHTML = template;
 
 class Component extends HTMLElement {
   constructor() {
@@ -23,7 +9,7 @@ class Component extends HTMLElement {
   }
 
   connectedCallback() {
-    this._root.appendChild(template.content.cloneNode(true));
+    this._root.appendChild(templateEl.content.cloneNode(true));
   }
 
   disconnectedCallback() {}

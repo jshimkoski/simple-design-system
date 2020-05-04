@@ -8,4 +8,15 @@ module.exports = {
   //     onlyProduction: true,
   //   },
   // },
+  chainWebpack: (config) => {
+    config.module
+      .rule("html-templates")
+      .test(/template\.html$/)
+      .use("html-loader")
+      .loader("html-loader")
+      .options({
+        // attributes: false,
+      })
+      .end();
+  },
 };
