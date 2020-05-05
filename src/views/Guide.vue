@@ -93,7 +93,7 @@
           Install via npm
         </h4>
         <code class="block bg-gray-100 border text-gray-900 rounded p-8 mb-4">
-          $ npm i simple-design-system --save
+          $ npm i simple-design-system --save-dev
         </code>
         <h4 class="block text-xl mb-2">
           Add it to your entry file

@@ -105,7 +105,7 @@
         Install via npm
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        $ npm i simple-design-system --save
+        $ npm i simple-design-system --save-dev
       </code>
       <h3 class="block text-xl text-gray-700 my-5">
         Add it to your entry file

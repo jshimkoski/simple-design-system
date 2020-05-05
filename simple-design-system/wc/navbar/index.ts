@@ -71,10 +71,6 @@ class Component extends HTMLElement {
     this.mobileMenuOpen = false;
   }
 
-  static get observedAttributes() {
-    return ["mobile-menu-open"];
-  }
-
   set mobileMenuOpen(val) {
     if (val) {
       this.setAttribute("mobile-menu-open", "");
