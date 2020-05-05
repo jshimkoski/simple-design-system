@@ -99,23 +99,23 @@
           Add it to your entry file
         </h4>
         <code class="block bg-gray-100 border text-gray-900 rounded p-8">
-          <p class="text-green darken"># import all web components</p>
+          <p class="text-green darken">// import all web components</p>
           <p>import "simple-design-system";</p>
           <p class="text-green darken mt-4">
-            # or, import individual web components
+            // or, import individual web components
           </p>
           <p class="text-green darken">
-            # import "simple-design-system/dist/wc/navbar";
+            // import "simple-design-system/dist/wc/navbar";
           </p>
           <p class="text-green darken mt-4">
-            # import purgecss compatible css
+            // import purgecss compatible css
           </p>
           <p>import "simple-design-system/dist/index.css";</p>
           <p class="text-green darken mt-4">
-            # or, import pre-minified css (not compatible with purgecss)
+            // or, import pre-minified css (not compatible with purgecss)
           </p>
           <p class="text-green darken">
-            # import "simple-design-system/dist/index.min.css";
+            // import "simple-design-system/dist/index.min.css";
           </p>
         </code>
         <h3
@@ -464,10 +464,11 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { mapGetters } from "vuex";
 
-export default {
+export default Vue.extend({
   name: "Guide",
   metaInfo() {
     return {
@@ -477,5 +478,5 @@ export default {
   computed: {
     ...mapGetters(["appName"]),
   },
-};
+});
 </script>

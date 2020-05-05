@@ -35,10 +35,11 @@
   </sds-layout-stacked>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 
-export default {
+export default Vue.extend({
   computed: {
     ...mapGetters(["theme", "appName"]),
   },
@@ -53,5 +54,5 @@ export default {
   methods: {
     ...mapActions(["toggleTheme"]),
   },
-};
+});
 </script>

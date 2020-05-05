@@ -19,12 +19,12 @@ npx parcel build simple-design-system/css/index.css --no-minify
 npx parcel build simple-design-system/css/index.css --out-file index.min.css
 
 for d in simple-design-system/wc/* ; do
-  if [[ "$d" == *"index.js"* ]]; then
+  if [[ "$d" == *"index.ts"* ]]; then
     # build all web components
     npx vue-cli-service build --no-clean --target lib --dest dist/ --name index $d
   else
     # build individual web components
-    npx vue-cli-service build --no-clean --target lib --dest dist/wc/${d##*/} --name index $d/index.js
+    npx vue-cli-service build --no-clean --target lib --dest dist/wc/${d##*/} --name index $d/index.ts
   fi
 done
 

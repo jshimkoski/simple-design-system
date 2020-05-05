@@ -2,35 +2,30 @@
   "name": "simple-design-system",
   "version": "0.4.4",
   "description": "A modern design system that is remarkably flexible and easy to use.",
-  "main": "dist/index.common.js",
-  "style": "dist/index.css",
   "author": "Jason Shimkoski",
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jshimkoski/simple-design-system.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jshimkoski/simple-design-system/issues"
-  },
-  "homepage": "https://github.com/jshimkoski/simple-design-system/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "PURGE_CSS=true vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "bundle:release": "./scripts/bundle-release.sh",
-    "release": "./scripts/release.sh",
-    "lint": "vue-cli-service lint"
+    "release": "./scripts/release.sh"
   },
+  "main": "dist/index.common.js",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
     "@vue/cli-plugin-router": "^4.3.1",
+    "@vue/cli-plugin-typescript": "^4.3.1",
     "@vue/cli-plugin-vuex": "^4.3.1",
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.0.3",
     "core-js": "^3.6.5",
     "eslint": "^6.7.2",
@@ -44,12 +39,24 @@
     "prettier": "^2.0.5",
     "tailwind-css-variables": "^2.0.3",
     "tailwindcss": "^1.4.4",
+    "typescript": "~3.8.3",
     "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
     "vue-cli-plugin-prerender-spa": "~1.1.6",
     "vue-meta": "^2.3.3",
+    "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.1.5",
     "vue-template-compiler": "^2.6.11",
     "vuex": "^3.3.0"
   },
-  "license": "MIT"
+  "bugs": {
+    "url": "https://github.com/jshimkoski/simple-design-system/issues"
+  },
+  "homepage": "https://github.com/jshimkoski/simple-design-system/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jshimkoski/simple-design-system.git"
+  },
+  "style": "dist/index.css"
 }

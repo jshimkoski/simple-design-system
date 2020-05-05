@@ -638,8 +638,10 @@
   </sds-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   name: "Components",
   metaInfo() {
     return {
@@ -651,5 +653,5 @@ export default {
       openModal: false,
     };
   },
-};
+});
 </script>

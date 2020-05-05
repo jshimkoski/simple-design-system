@@ -111,19 +111,20 @@
         Add it to your entry file
       </h3>
       <code class="block bg-bgcolor border text-gray-900 rounded p-8">
-        <p class="text-green darken"># import all web components</p>
+        <p class="text-green darken">// import all web components</p>
         <p>import "simple-design-system";</p>
-        <p class="text-green darken mt-4"># import purgecss compatible css</p>
+        <p class="text-green darken mt-4">// import purgecss compatible css</p>
         <p>import "simple-design-system/dist/index.css";</p>
       </code>
     </sds-container>
   </sds-container>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { mapGetters } from "vuex";
 
-export default {
+export default Vue.extend({
   name: "Home",
   metaInfo() {
     return {
@@ -133,5 +134,5 @@ export default {
   computed: {
     ...mapGetters(["appName"]),
   },
-};
+});
 </script>
