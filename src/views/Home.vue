@@ -1,11 +1,11 @@
 <template>
   <sds-container class="home p-0">
-    <sds-container class="block md:grid md:grid-cols-2 md:gap-8 bg-gray-100">
-      <div>
+    <sds-container class="block bg-gray-100">
+      <div class="md:w-4/6">
         <h2 class="text-gray-900 text-3xl leading-snug">
           A modern design system that is remarkably flexible and easy to use.
         </h2>
-        <p class="py-8 text-gray-600 text-lg">
+        <p class="py-6 text-gray-600 text-lg">
           The {{ appName }} is easy to use, accessible, flexible, and future
           proof. Get the boilerplate out of the way and start coding. Check out
           the
@@ -21,24 +21,27 @@
           to get started.
         </p>
         <ul>
-          <li class="pb-4">
-            <router-link
-              to="/guide"
-              class="text-red hover:underline hover:darken uppercase text-xl"
-              >Getting Started Guide</router-link
-            >
-          </li>
           <li>
-            <router-link
-              to="/components"
-              class="text-red hover:underline hover:darken uppercase text-xl"
-              >Component Documentation</router-link
+            <external-link
+              href="https://github.com/jshimkoski/simple-design-system"
+              class="text-lg uppercase btn btn-white"
+              ><svg
+                class="inline-block h-5 fill-current align-middle mr-2"
+                alt="GitHub"
+                viewBox="0 0 16 16"
+                version="1.1"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path></svg
+              ><span class="align-middle mr-2"
+                >Visit our GitHub page</span
+              ></external-link
             >
           </li>
         </ul>
-      </div>
-      <div class="border p-4 text-gray-500 bg-gray-100 mt-5 md:mt-0">
-        Getting Started Video Coming Soon...
       </div>
     </sds-container>
     <sds-container class="bg-bgcolor grid md:grid-cols-3 gap-8">
@@ -123,9 +126,13 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
+import ExternalLink from "@/components/ExternalLink.vue";
 
 export default Vue.extend({
   name: "Home",
+  components: {
+    ExternalLink,
+  },
   metaInfo() {
     return {
       title: "Home",

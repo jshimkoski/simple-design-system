@@ -25,20 +25,20 @@ class Component extends HTMLElement {
     this.#boundKeyCloseFn = this._keyClose.bind(this);
 
     this.#$menuBtn = <HTMLButtonElement>this.#root.querySelector("button");
-    this.#$menuBtn.addEventListener("click", this.#boundToggleFn);
     this.#$menuBtn.setAttribute("type", "button");
     this.#$menuBtn.setAttribute("aria-label", "navbar menu toggle");
     this.#$menuBtn.setAttribute("aria-haspopup", "true");
     this.#$menuBtn.setAttribute("aria-expanded", `${this.mobileMenuOpen}`);
 
     this.#$nav = <HTMLElement>this.#root.querySelector('slot[name="nav"]');
-    this.#$nav.addEventListener("click", this.#boundCloseFn);
 
     this.#$navRight = <HTMLElement>(
       this.#root.querySelector('slot[name="nav-right"]')
     );
-    this.#$navRight.addEventListener("click", this.#boundCloseFn);
 
+    this.#$menuBtn.addEventListener("click", this.#boundToggleFn);
+    this.#$nav.addEventListener("click", this.#boundCloseFn);
+    this.#$navRight.addEventListener("click", this.#boundCloseFn);
     document.addEventListener("keyup", this.#boundKeyCloseFn);
   }
 
@@ -47,6 +47,15 @@ class Component extends HTMLElement {
       "click",
       this.#boundToggleFn
     );
+    (this.#$nav as HTMLElement).removeEventListener(
+      "click",
+      this.#boundCloseFn
+    );
+    (this.#$navRight as HTMLElement).removeEventListener(
+      "click",
+      this.#boundCloseFn
+    );
+    document.removeEventListener("keyup", this.#boundKeyCloseFn);
   }
 
   private _toggle() {
@@ -77,6 +86,10 @@ class Component extends HTMLElement {
     } else {
       this.removeAttribute("mobile-menu-open");
     }
+    const event = new CustomEvent("mobile-menu-open", {
+      detail: val,
+    });
+    this.dispatchEvent(event);
   }
 
   get mobileMenuOpen() {

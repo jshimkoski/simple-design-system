@@ -2,45 +2,52 @@
   <section class="guide">
     <sds-layout-sidebar class="md:divide-x">
       <aside slot="sidebar" class="hidden md:block">
-        <nav class="p-8 pb-4 text-sm space-y-2">
-          <a
-            href="#introduction"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Introduction</a
-          >
-          <a
-            href="#installation"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Installation</a
-          >
-          <a
-            href="#controlling-file-size"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Controlling File Size</a
-          >
-          <a
-            href="#browser-support"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Browser Support</a
-          >
-          <a
-            href="#core-concepts"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Core Concepts</a
-          >
-          <a
-            href="#static-color-palette"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Static Color Palette</a
-          >
-          <a
-            href="#dynamic-color-palette"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Dynamic Color Palette</a
-          >
-        </nav>
+        <div class="sticky top-0 pt-10 -mt-10">
+          <nav class="p-8 pb-4 text-sm space-y-2">
+            <a
+              href="#introduction"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Introduction</a
+            >
+            <a
+              href="#installation"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Installation</a
+            >
+            <a
+              href="#controlling-file-size"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Controlling File Size</a
+            >
+            <a
+              href="#browser-support"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Browser Support</a
+            >
+            <a
+              href="#core-concepts"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Core Concepts</a
+            >
+            <a
+              href="#overriding-colors"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Overriding Colors</a
+            >
+            <a
+              href="#static-color-palette"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Static Color Palette</a
+            >
+            <a
+              href="#dynamic-color-palette"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Dynamic Color Palette</a
+            >
+          </nav>
+        </div>
       </aside>
-      <section slot="content" class="space-y-8 p-4 md:py-6 md:px-8 lg:w-10/12">
+      <section slot="content" class="space-y-6 p-4 md:py-6 md:px-8 lg:w-10/12">
         <h2 class="text-4xl mb-4">Guide</h2>
         <h3 id="introduction" class="text-3xl font-semibold mb-2">
           Introduction
@@ -61,12 +68,10 @@
           </li>
           <li class="my-2">
             Utility classes provided by
-            <a
+            <external-link
               href="https://tailwindcss.com/"
-              target="_blank"
-              rel="noopener noreferrer"
               class="text-red hover:underline hover:darken"
-              >Tailwind CSS</a
+              >Tailwind CSS</external-link
             >
             control styling so no custom CSS is ever required.
           </li>
@@ -76,12 +81,10 @@
           </li>
           <li class="my-2">
             You can take full advantage of
-            <a
+            <external-link
               href="https://purgecss.com/"
-              target="_blank"
-              rel="noopener noreferrer"
               class="text-red hover:underline hover:darken"
-              >PurgeCSS</a
+              >PurgeCSS</external-link
             >
             so the size of your CSS files are ridiculously small.
           </li>
@@ -127,12 +130,10 @@
         <p>
           After gzip compression, the entry CSS file weighs around 80kb. Feel
           free to add
-          <a
+          <external-link
             href="https://purgecss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
             class="text-red hover:underline hover:darken"
-            >PurgeCSS</a
+            >PurgeCSS</external-link
           >
           to your project to drastically reduce this filesize. Our CSS comes
           pre-wrapped with special identifiers so you can be sure that PurgeCSS
@@ -152,12 +153,10 @@
         <h4 class="text-2xl mb-4">Utility-First</h4>
         <p>
           The {{ appName }} is built on top of
-          <a
+          <external-link
             href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
             class="text-red hover:underline hover:darken"
-            >Tailwind CSS</a
+            >Tailwind CSS</external-link
           >. Please refer to their documentation for a complete list of all of
           the utility classes for which you can take advantage.
         </p>
@@ -207,10 +206,18 @@
           limitations or disabilities. Practice due diligence to ensure your
           application is accessible to them.
         </p>
+        <h3 id="overriding-colors" class="text-3xl font-semibold mt-8 mb-4">
+          Overriding Colors
+        </h3>
+        <p>
+          Every color found in both the static and the dynamic color palette can
+          be overridden by replacing the value for its CSS variable. Just be
+          certain that your override come after the included CSS file.
+        </p>
         <h3 id="static-color-palette" class="text-3xl font-semibold mt-8 mb-4">
           Static Color Palette
         </h3>
-        <p class="text-gray-700">
+        <p>
           The static color palette uses specific colors no matter if in dark or
           light mode. You can be sure that if you use a static color, it will
           always remain the same.
@@ -218,9 +225,9 @@
         <table class="my-8 w-full">
           <thead class="border-b">
             <tr>
-              <th>Color Name</th>
-              <th>CSS Variable Name</th>
-              <th>Utility Class Name</th>
+              <th>Color</th>
+              <th>CSS Variable</th>
+              <th>Utility Class</th>
               <th>Example</th>
             </tr>
           </thead>
@@ -308,7 +315,7 @@
         <h3 id="dynamic-color-palette" class="text-3xl font-semibold mt-8 mb-4">
           Dynamic Color Palette
         </h3>
-        <p class="text-gray-700">
+        <p>
           The dynamic color palette automatically adjusts to the current theme.
           Typically, you can design your apps against either theme and it'll
           just look good whether in light or dark mode. That said, be sure to
@@ -318,9 +325,9 @@
         <table class="my-8 w-full">
           <thead class="border-b">
             <tr>
-              <th>Color Name</th>
-              <th>CSS Variable Name</th>
-              <th>Utility Class Name</th>
+              <th>Color</th>
+              <th>CSS Variable</th>
+              <th>Utility Class</th>
               <th>Example</th>
             </tr>
           </thead>
@@ -467,9 +474,13 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
+import ExternalLink from "@/components/ExternalLink.vue";
 
 export default Vue.extend({
   name: "Guide",
+  components: {
+    ExternalLink,
+  },
   metaInfo() {
     return {
       title: "Guide",

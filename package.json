@@ -33,6 +33,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "html-loader": "^1.1.0",
     "parcel-bundler": "^1.12.4",
+    "postcss-html-loader": "^1.1.0",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "prerender-spa-plugin": "^3.2.1",

@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  padding: var(--p-8) var(--p-4);
+}
+
+@screen md {
+  :host {
+    padding: var(--p-8);
+  }
+}

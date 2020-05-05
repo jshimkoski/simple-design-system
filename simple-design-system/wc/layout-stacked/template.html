@@ -1,32 +1,5 @@
+<postcss src="./style.css"></postcss>
+
 <slot name="header"></slot>
 <slot name="content"></slot>
 <slot name="footer"></slot>
-
-<style>
-  :host {
-    display: grid;
-
-    grid-template-areas:
-      "header"
-      "content"
-      "footer";
-
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-
-    min-height: var(--min-h-screen);
-    width: var(--w-full);
-  }
-
-  ::slotted([slot=header]) {
-    grid-area: header;
-  }
-
-  ::slotted([slot=content]) {
-    grid-area: content;
-  }
-
-  ::slotted([slot=footer]) {
-    grid-area: footer;
-  }
-</style>

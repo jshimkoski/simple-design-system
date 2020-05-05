@@ -2,57 +2,59 @@
   <sds-container class="components p-0">
     <sds-layout-sidebar class="md:divide-x">
       <aside slot="sidebar" class="hidden md:block">
-        <nav class="p-8 pb-4 text-sm space-y-2">
-          <h2 class="font-medium text-base">Web Components</h2>
-          <a
-            href="#layout-stacked"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Layout Stacked</a
-          >
-          <a
-            href="#layout-sidebar"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Layout Sidebar</a
-          >
-          <a
-            href="#container"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Container</a
-          >
-          <a
-            href="#navbar"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Navbar</a
-          >
-          <a
-            href="#nav"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Nav</a
-          >
-          <a
-            href="#card"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Card</a
-          >
-          <a
-            href="#modal"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Modal</a
-          >
-        </nav>
-        <nav class="py-4 px-8 text-sm space-y-2">
-          <h2 class="font-medium text-base">CSS Components</h2>
-          <a
-            href="#button"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Button</a
-          >
-          <a
-            href="#form-control"
-            class="block hover:text-red focus:text-red focus:outline-none"
-            >Form Control</a
-          >
-        </nav>
+        <div class="sticky top-0 pt-10 -mt-10">
+          <nav class="p-8 pb-4 text-sm space-y-2">
+            <h2 class="font-medium text-base">Web Components</h2>
+            <a
+              href="#layout-stacked"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Layout Stacked</a
+            >
+            <a
+              href="#layout-sidebar"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Layout Sidebar</a
+            >
+            <a
+              href="#container"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Container</a
+            >
+            <a
+              href="#navbar"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Navbar</a
+            >
+            <a
+              href="#nav"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Nav</a
+            >
+            <a
+              href="#card"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Card</a
+            >
+            <a
+              href="#modal"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Modal</a
+            >
+          </nav>
+          <nav class="py-4 px-8 text-sm space-y-2">
+            <h2 class="font-medium text-base">CSS Components</h2>
+            <a
+              href="#button"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Button</a
+            >
+            <a
+              href="#form-control"
+              class="block hover:text-red focus:text-red focus:outline-none"
+              >Form Control</a
+            >
+          </nav>
+        </div>
       </aside>
       <div slot="content" class="space-y-8 p-4 md:py-6 md:px-8 lg:w-10/12">
         <h2 class="text-4xl">Components</h2>
@@ -139,6 +141,10 @@
             </p>
             <p class="my-2">
               Use <code>hide-brand</code> attribute to hide the brand slot.
+            </p>
+            <p class="my-2">
+              Emits a <code>mobile-menu-open</code> CustomEvent when the value
+              of its <code>mobile-menu-open</code> attribute changes.
             </p>
           </div>
           <section slot="content" class="space-y-4">
@@ -384,7 +390,10 @@
               Slots are optional and include: title, content, footer.
             </p>
             <p>Use an <code>open</code> attribute to display the modal.</p>
-            <p class="my-2">Emits an <code>open</code> event.</p>
+            <p class="my-2">
+              Emits an <code>open</code> CustomEvent when the value of its
+              <code>open</code> attribute changes.
+            </p>
           </div>
           <section slot="content">
             <h2 class="text-lg mb-4">Type: Default</h2>

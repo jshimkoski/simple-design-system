@@ -22,11 +22,10 @@ class Component extends HTMLElement {
     this.#boundKeyCloseFn = this._keyClose.bind(this);
 
     this.#$closeBtn = <HTMLButtonElement>this.#root.querySelector(".close-btn");
-    this.#$closeBtn.addEventListener("click", this.#boundCloseFn);
-
     this.#$backdrop = <HTMLElement>this.#root.querySelector(".backdrop");
-    this.#$backdrop.addEventListener("click", this.#boundCloseFn);
 
+    this.#$closeBtn.addEventListener("click", this.#boundCloseFn);
+    this.#$backdrop.addEventListener("click", this.#boundCloseFn);
     document.addEventListener("keyup", this.#boundKeyCloseFn);
   }
 

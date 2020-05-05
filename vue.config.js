@@ -14,9 +14,9 @@ module.exports = {
       .test(/template\.html$/)
       .use("html-loader")
       .loader("html-loader")
-      .options({
-        // attributes: false,
-      })
+      .end()
+      .use("postcss-html-loader")
+      .loader("postcss-html-loader")
       .end();
   },
 };
