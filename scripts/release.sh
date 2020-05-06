@@ -8,14 +8,6 @@ then
     exit 0
 fi
 
-# are you sure confirm prompt
-read -p "Are you sure you want to continue? (y,n) " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit 0
-fi
-
 # version type confirm prompt
 read -p 'Enter a version type (major, minor, or patch): ' version
 

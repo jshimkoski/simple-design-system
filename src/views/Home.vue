@@ -5,7 +5,7 @@
         <h2 class="text-gray-900 text-3xl leading-snug">
           A modern design system that is remarkably flexible and easy to use.
         </h2>
-        <p class="py-6 text-gray-600 text-lg">
+        <p class="pt-6 pb-12 text-gray-600 text-lg">
           The {{ appName }} is easy to use, accessible, flexible, and future
           proof. Get the boilerplate out of the way and start coding. Check out
           the
