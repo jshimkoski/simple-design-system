@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 /**
  * Color variants
  */
@@ -204,3 +206,5 @@
   color: var(--color-on-variant) !important;
   background-color: var(--color-variant) !important;
 }
+
+/* purgecss end ignore */

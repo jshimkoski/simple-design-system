@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 :host {
   display: none;
 }
@@ -84,3 +86,5 @@ header button:focus {
     margin: var(--m-16) var(--m-auto);
   }
 }
+
+/* purgecss end ignore */

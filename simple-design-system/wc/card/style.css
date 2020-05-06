@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 :host {
   display: block;
   background-color: var(--color-bgcolor);
@@ -49,3 +51,5 @@ header {
 :host([type=accented]) header {
   border-top: var(--border-2) solid var(--color-fgcolor);
 }
+
+/* purgecss end ignore */

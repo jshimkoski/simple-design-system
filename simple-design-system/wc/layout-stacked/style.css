@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 :host {
   display: grid;
 
@@ -24,3 +26,5 @@
 ::slotted([slot=footer]) {
   grid-area: footer;
 }
+
+/* purgecss end ignore */

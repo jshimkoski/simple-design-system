@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 :host {
   display: block;
   padding: var(--p-8) var(--p-4);
@@ -8,3 +10,5 @@
     padding: var(--p-8);
   }
 }
+
+/* purgecss end ignore */

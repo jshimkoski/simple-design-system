@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 :host {
   display: grid;
 
@@ -22,3 +24,5 @@
 ::slotted([slot=sidebar-right]) {
   grid-area: sidebar-right;
 }
+
+/* purgecss end ignore */
