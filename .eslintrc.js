@@ -5,10 +5,8 @@ module.exports = {
     node: true,
   },
 
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
-
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: "@typescript-eslint/parser",
   },
 
   rules: {
@@ -16,10 +14,10 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
   },
 
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/prettier',
-    '@vue/typescript'
+  extends: [
+    "plugin:vue/essential",
+    "eslint:recommended",
+    "@vue/prettier",
+    "@vue/typescript"
   ]
 };

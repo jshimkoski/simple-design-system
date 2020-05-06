@@ -59,7 +59,7 @@
 }
 
 .btn {
-  @apply border inline-block py-2 px-4 rounded select-none;
+  @apply border inline-block py-2 px-4 rounded select-none shadow;
   border-color: var(--btn-variant);
   background-color: var(--btn-variant);
   color: var(--btn-variant-on);
@@ -81,7 +81,7 @@
 
 .btn:hover,
 .btn:focus {
-  @apply lighten shadow;
+  @apply lighten shadow-md;
 }
 
 .btn:focus {
