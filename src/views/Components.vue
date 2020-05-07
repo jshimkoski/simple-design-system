@@ -1,56 +1,56 @@
 <template>
   <sds-container class="components p-0">
-    <sds-layout-sidebar class="md:divide-x">
+    <sds-layout-sidebar>
       <aside slot="sidebar" class="hidden md:block">
         <div class="sticky top-0 pt-10 -mt-10">
           <nav class="p-8 pb-4 text-sm space-y-2">
-            <h2 class="font-medium text-base">Web Components</h2>
+            <h2 class="font-medium">Web Components</h2>
             <a
               href="#layout-stacked"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Layout Stacked</a
             >
             <a
               href="#layout-sidebar"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Layout Sidebar</a
             >
             <a
               href="#container"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Container</a
             >
             <a
               href="#navbar"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Navbar</a
             >
             <a
               href="#nav"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Nav</a
             >
             <a
               href="#card"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Card</a
             >
             <a
               href="#modal"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Modal</a
             >
           </nav>
           <nav class="py-4 px-8 text-sm space-y-2">
-            <h2 class="font-medium text-base">CSS Components</h2>
+            <h2 class="font-medium">CSS Components</h2>
             <a
               href="#button"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Button</a
             >
             <a
               href="#form-control"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Form Control</a
             >
           </nav>

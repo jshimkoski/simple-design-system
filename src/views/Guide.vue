@@ -1,47 +1,47 @@
 <template>
   <section class="guide">
-    <sds-layout-sidebar class="md:divide-x">
+    <sds-layout-sidebar>
       <aside slot="sidebar" class="hidden md:block">
         <div class="sticky top-0 pt-10 -mt-10">
           <nav class="p-8 pb-4 text-sm space-y-2">
             <a
               href="#introduction"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Introduction</a
             >
             <a
               href="#installation"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Installation</a
             >
             <a
               href="#controlling-file-size"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Controlling File Size</a
             >
             <a
               href="#browser-support"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Browser Support</a
             >
             <a
               href="#core-concepts"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Core Concepts</a
             >
             <a
               href="#overriding-colors"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Overriding Colors</a
             >
             <a
               href="#static-color-palette"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Static Color Palette</a
             >
             <a
               href="#dynamic-color-palette"
-              class="block hover:text-red focus:text-red focus:outline-none"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Dynamic Color Palette</a
             >
           </nav>

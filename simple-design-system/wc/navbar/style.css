@@ -113,8 +113,8 @@ button:active,
     grid-template-columns: auto 1fr auto;
     grid-template-rows: 1fr;
 
-    padding-left: var(--p-6);
-    padding-right: var(--p-6);
+    padding-left: var(--p-8);
+    padding-right: var(--p-8);
   }
 
   :host([hide-brand]) {
