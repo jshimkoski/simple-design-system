@@ -58,6 +58,7 @@ class Component extends HTMLElement {
         document.removeEventListener("keyup", this._keyClose);
         document.removeEventListener("click", this._outsideClose);
       }
+      this._forceDomUpdate();
     }
   }
 
@@ -79,6 +80,16 @@ class Component extends HTMLElement {
   private _keyClose(e: KeyboardEvent) {
     if (e.keyCode !== 27) return;
     this.open = false;
+  }
+
+  private _forceDomUpdate() {
+    /**
+     * This is dumb since the open attr
+     * handles this for other browsers but
+     * Safari on mac and iOS don't update
+     * properly unless we change a style
+     */
+    (this.#$nav as HTMLElement).style.display = this.open ? "block" : "none";
   }
 
   set open(val) {
