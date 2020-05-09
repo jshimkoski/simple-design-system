@@ -19,16 +19,18 @@
           >
           to get started.
         </p>
-        <ul class="flex space-x-4">
+        <ul class="sm:flex space-y-8 sm:space-y-0 sm:space-x-4">
           <li>
-            <router-link to="/guide" class="text-lg uppercase btn btn-red"
+            <router-link
+              to="/guide"
+              class="text-lg uppercase btn btn-red w-full sm:w-auto"
               >Get Started</router-link
             >
           </li>
           <li>
             <external-link
               href="https://github.com/jshimkoski/simple-design-system"
-              class="text-lg uppercase btn btn-white"
+              class="text-lg uppercase btn btn-white w-full sm:w-auto"
               ><svg
                 class="inline-block h-5 fill-current align-middle mr-2"
                 alt="GitHub"
