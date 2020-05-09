@@ -50,7 +50,7 @@
 
 .btn-teal {
   --btn-variant: var(--color-teal);
-  --btn-variant-on: var(--color-black);
+  --btn-variant-on: var(--color-white);
 }
 
 .btn-yellow {

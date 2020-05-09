@@ -8,10 +8,6 @@ class Component extends HTMLElement {
   #$nav?: HTMLElement;
   #$navRight?: HTMLElement;
 
-  #boundCloseFn: any;
-  #boundToggleFn: any;
-  #boundKeyCloseFn: any;
-
   constructor() {
     super();
     this.#root = this.attachShadow({ mode: "open" });
@@ -20,9 +16,9 @@ class Component extends HTMLElement {
   connectedCallback() {
     this.#root.appendChild(templateEl.content.cloneNode(true));
 
-    this.#boundCloseFn = this._close.bind(this);
-    this.#boundToggleFn = this._toggle.bind(this);
-    this.#boundKeyCloseFn = this._keyClose.bind(this);
+    this._close = this._close.bind(this);
+    this._toggle = this._toggle.bind(this);
+    this._keyClose = this._keyClose.bind(this);
 
     this.#$menuBtn = <HTMLButtonElement>this.#root.querySelector("button");
     this.#$menuBtn.setAttribute("type", "button");
@@ -36,26 +32,37 @@ class Component extends HTMLElement {
       this.#root.querySelector('slot[name="nav-right"]')
     );
 
-    this.#$menuBtn.addEventListener("click", this.#boundToggleFn);
-    this.#$nav.addEventListener("click", this.#boundCloseFn);
-    this.#$navRight.addEventListener("click", this.#boundCloseFn);
-    document.addEventListener("keyup", this.#boundKeyCloseFn);
+    this.#$menuBtn.addEventListener("click", this._toggle);
+    this.#$nav.addEventListener("click", this._close);
+    this.#$navRight.addEventListener("click", this._close);
   }
 
   disconnectedCallback() {
     (this.#$menuBtn as HTMLButtonElement).removeEventListener(
       "click",
-      this.#boundToggleFn
+      this._toggle
     );
-    (this.#$nav as HTMLElement).removeEventListener(
-      "click",
-      this.#boundCloseFn
-    );
-    (this.#$navRight as HTMLElement).removeEventListener(
-      "click",
-      this.#boundCloseFn
-    );
-    document.removeEventListener("keyup", this.#boundKeyCloseFn);
+    (this.#$nav as HTMLElement).removeEventListener("click", this._close);
+    (this.#$navRight as HTMLElement).removeEventListener("click", this._close);
+    document.removeEventListener("keyup", this._keyClose);
+  }
+
+  static get observedAttributes() {
+    return ["mobile-menu-open"];
+  }
+
+  attributeChangedCallback(attr: String, oldVal: String, newVal: String) {
+    if (attr === "mobile-menu-open") {
+      if (newVal !== null) {
+        // wait for next pass before listening for events
+        // on document
+        setTimeout(() => {
+          document.addEventListener("keyup", this._keyClose);
+        }, 0);
+      } else {
+        document.removeEventListener("keyup", this._keyClose);
+      }
+    }
   }
 
   private _toggle() {

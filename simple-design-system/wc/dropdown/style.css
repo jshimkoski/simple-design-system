@@ -1,0 +1,29 @@
+/* purgecss start ignore */
+
+:host {
+  @apply inline-block relative;
+}
+
+::slotted([slot=nav]) {
+  @apply absolute p-1 rounded shadow z-10 whitespace-no-wrap;
+  display: none !important;
+  margin-top: var(--m-1) !important;
+  margin-bottom: var(--m-1) !important;
+  background-color: var(--color-gray-100) !important;
+  border: var(--border) solid var(--color-border) !important;
+  min-width: var(--w-48);
+}
+
+:host([open]) ::slotted([slot=nav]) {
+  display: block !important;
+}
+
+:host([right]) ::slotted([slot=nav]) {
+  @apply right-0;
+}
+
+:host([up]) ::slotted([slot=nav]) {
+  bottom: 100%;
+}
+
+/* purgecss end ignore */

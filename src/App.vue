@@ -6,30 +6,54 @@
           appName
         }}</router-link>
       </h1>
-      <sds-nav slot="nav" type="underline" variant="red">
-        <router-link slot="item" to="/" active-class="active" exact
+      <nav slot="nav" class="nav-group">
+        <router-link
+          slot="item"
+          to="/"
+          active-class="active"
+          class="nav nav-red nav-underline"
+          exact
           >Home</router-link
         >
-        <router-link slot="item" to="/guide" active-class="active"
+        <router-link
+          slot="item"
+          to="/guide"
+          active-class="active"
+          class="nav nav-red nav-underline"
           >Guide</router-link
         >
-        <router-link slot="item" to="/components" active-class="active"
+        <router-link
+          slot="item"
+          to="/components"
+          active-class="active"
+          class="nav nav-red nav-underline"
           >Components</router-link
         >
-        <router-link slot="item" to="/examples" active-class="active"
+        <router-link
+          slot="item"
+          to="/examples"
+          active-class="active"
+          class="nav nav-red nav-underline"
           >Examples</router-link
         >
-      </sds-nav>
-      <sds-nav slot="nav-right" type="pill" variant="red">
-        <button slot="item" @click="toggleTheme" class="capitalize">
+      </nav>
+      <nav slot="nav-right" class="nav-group md:py-1">
+        <button
+          slot="item"
+          @click="toggleTheme"
+          class="capitalize nav nav-red nav-pill"
+        >
           {{ theme }} theme
         </button>
-      </sds-nav>
+      </nav>
     </sds-navbar>
     <main slot="content">
       <router-view />
     </main>
-    <footer slot="footer" class="py-12 text-center text-sm border-t">
+    <footer
+      slot="footer"
+      class="py-12 bg-gray-100 text-gray-700 text-center text-sm"
+    >
       {{ appName }}
     </footer>
   </sds-layout-stacked>

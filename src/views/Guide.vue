@@ -47,7 +47,7 @@
           </nav>
         </div>
       </aside>
-      <section slot="content" class="space-y-6 p-4 md:py-6 md:px-8 lg:w-10/12">
+      <section slot="content" class="p-4 md:py-6 md:px-8 lg:w-10/12">
         <h2 class="text-4xl mb-4">Guide</h2>
         <h3 id="introduction" class="text-3xl font-semibold mb-2">
           Introduction
@@ -89,19 +89,19 @@
             so the size of your CSS files are ridiculously small.
           </li>
         </ul>
-        <h3 id="installation" class="text-3xl font-semibold mt-12 mb-2">
+        <h3 id="installation" class="text-3xl font-semibold mt-16 mb-2">
           Installation
         </h3>
-        <h4 class="block text-xl mb-2">
+        <h4 class="block text-lg font-light my-5">
           Install via npm
         </h4>
-        <code class="block bg-gray-100 border text-gray-900 rounded p-8 mb-4">
+        <code class="block bg-gray-100 text-gray-900 rounded p-8 mb-4">
           $ npm i simple-design-system --save-dev
         </code>
-        <h4 class="block text-xl mb-2">
+        <h4 class="block text-lg font-light mt-8 mb-5">
           Add it to your entry file
         </h4>
-        <code class="block bg-gray-100 border text-gray-900 rounded p-8">
+        <code class="block bg-gray-100 text-gray-900 rounded p-8">
           <p class="text-green darken">// import all web components</p>
           <p>import "simple-design-system";</p>
           <p class="text-green darken mt-4">
@@ -123,7 +123,7 @@
         </code>
         <h3
           id="controlling-file-size"
-          class="text-3xl font-semibold mt-12 mb-4"
+          class="text-3xl font-semibold mt-16 mb-4"
         >
           Controlling File Size
         </h3>
@@ -139,7 +139,7 @@
           pre-wrapped with special identifiers so you can be sure that PurgeCSS
           will function as expected.
         </p>
-        <h3 id="browser-support" class="text-3xl font-semibold mt-12 mb-4">
+        <h3 id="browser-support" class="text-3xl font-semibold mt-16 mb-4">
           Browser Support
         </h3>
         <p>
@@ -147,7 +147,7 @@
           Firefox, Safari, and Edge. IE11 is not supported.
         </p>
 
-        <h3 id="core-concepts" class="text-3xl font-semibold mt-12 mb-4">
+        <h3 id="core-concepts" class="text-3xl font-semibold mt-16 mb-4">
           Core Concepts
         </h3>
         <h4 class="text-2xl mb-4">Utility-First</h4>
@@ -206,7 +206,7 @@
           limitations or disabilities. Practice due diligence to ensure your
           application is accessible to them.
         </p>
-        <h3 id="overriding-colors" class="text-3xl font-semibold mt-8 mb-4">
+        <h3 id="overriding-colors" class="text-3xl font-semibold mt-16 mb-4">
           Overriding Colors
         </h3>
         <p>
@@ -214,7 +214,7 @@
           be overridden by replacing the value for its CSS variable. Just be
           certain that your override come after the included CSS file.
         </p>
-        <h3 id="static-color-palette" class="text-3xl font-semibold mt-8 mb-4">
+        <h3 id="static-color-palette" class="text-3xl font-semibold mt-16 mb-4">
           Static Color Palette
         </h3>
         <p>
@@ -312,7 +312,10 @@
             </tr>
           </tbody>
         </table>
-        <h3 id="dynamic-color-palette" class="text-3xl font-semibold mt-8 mb-4">
+        <h3
+          id="dynamic-color-palette"
+          class="text-3xl font-semibold mt-16 mb-4"
+        >
           Dynamic Color Palette
         </h3>
         <p>

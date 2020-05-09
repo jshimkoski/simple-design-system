@@ -18,13 +18,15 @@
 :host([sticky-top]) {
   position: sticky;
   top: 0;
-  z-index: var(--z-10);
+  z-index: var(--z-20);
+  box-shadow: var(--shadows);
 }
 
 :host([sticky-bottom]) {
   position: sticky;
   bottom: 0;
-  z-index: var(--z-10);
+  z-index: var(--z-20);
+  box-shadow: var(--shadows);
 }
 
 :host([hide-brand]) {
@@ -49,7 +51,7 @@ div {
 }
 
 :host([hide-brand]) ::slotted([slot=brand]) {
-  display: none;
+  display: none !important;
 }
 
 button {
@@ -90,7 +92,7 @@ button:active,
 
 ::slotted([slot=nav]),
 ::slotted([slot=nav-right]) {
-  display: none;
+  display: none !important;
   align-self: center;
   border-top: var(--border) solid var(--color-border) !important;
   padding: var(--p-4);
@@ -99,7 +101,7 @@ button:active,
 
 :host([mobile-menu-open]) ::slotted([slot=nav]),
 :host([mobile-menu-open]) ::slotted([slot=nav-right]) {
-  display: block;
+  display: block !important;
 }
 
 @screen md {
@@ -131,15 +133,14 @@ button:active,
 
   ::slotted([slot=nav]),
   ::slotted([slot=nav-right]) {
-    display: flex;
-    align-items: stretch;
+    display: grid !important;
     border: 0 !important;
     padding: var(--p-0);
   }
 
   :host([mobile-menu-open]) ::slotted([slot=nav]),
   :host([mobile-menu-open]) ::slotted([slot=nav-right]) {
-    display: flex;
+    display: grid !important;
   }
 
   div {

@@ -26,11 +26,6 @@
               >Navbar</a
             >
             <a
-              href="#nav"
-              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
-              >Nav</a
-            >
-            <a
               href="#card"
               class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Card</a
@@ -40,9 +35,19 @@
               class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Modal</a
             >
+            <a
+              href="#dropdown"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
+              >Dropdown</a
+            >
           </nav>
           <nav class="py-4 px-8 text-sm space-y-2">
             <h2 class="font-medium">CSS Components</h2>
+            <a
+              href="#nav"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
+              >Nav</a
+            >
             <a
               href="#button"
               class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
@@ -131,10 +136,10 @@
         <!-- Navbar -->
         <sds-card id="navbar" class="bg-gray-100">
           <h2 slot="title" class="text-3xl">Navbar</h2>
-          <div slot="subtitle" class="w-2/3">
-            <p>A horizontal navigation bar.</p>
-            <p class="my-2">
-              Use an sds-nav element for navigation styles.
+          <div slot="subtitle">
+            <p>
+              A horizontal navigation bar. Mobile version ends at
+              <code>md</code> breakpoint.
             </p>
             <p class="my-2">
               Slots are optional and include: brand, nav, nav-right.
@@ -143,28 +148,38 @@
               Use <code>hide-brand</code> attribute to hide the brand slot.
             </p>
             <p class="my-2">
+              Use <code>sticky-top</code> attribute to stick to top of viewport.
+            </p>
+            <p class="my-2">
+              Use <code>sticky-bottom</code> attribute to stick to bottom of
+              viewport.
+            </p>
+            <p class="my-2">
+              Use <code>mobile-menu-open</code> attribute to toggle mobile menu.
+            </p>
+            <p class="my-2">
               Emits a <code>mobile-menu-open</code> CustomEvent when the value
               of its <code>mobile-menu-open</code> attribute changes.
             </p>
           </div>
           <section slot="content" class="space-y-4">
             <h3 class="text-lg">
-              Nav Type: Default, Nav Right Type: Pill
+              Nav Type: Default, No Gap, Nav Right Type: Pill
             </h3>
             <sds-container class="bg-bgcolor">
               <sds-navbar>
                 <h1 slot="brand">
                   Brand
                 </h1>
-                <sds-nav slot="nav">
-                  <a slot="item" href="#" class="active">Home</a>
-                  <a slot="item" href="#">About</a>
-                  <a slot="item" href="#">Contact</a>
-                </sds-nav>
-                <sds-nav slot="nav-right" type="pill">
-                  <a slot="item" href="#">Profile</a>
-                  <a slot="item" href="#">Sign out</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group" no-gap>
+                  <a slot="item" href="#" class="nav active">Home</a>
+                  <a slot="item" href="#" class="nav">About</a>
+                  <a slot="item" href="#" class="nav">Contact</a>
+                </nav>
+                <nav slot="nav-right" class="nav-group md:py-1">
+                  <a slot="item" href="#" class="nav nav-pill">Profile</a>
+                  <a slot="item" href="#" class="nav nav-pill">Sign out</a>
+                </nav>
               </sds-navbar>
             </sds-container>
 
@@ -177,15 +192,21 @@
                 <h1 slot="brand">
                   Brand
                 </h1>
-                <sds-nav slot="nav" type="underline">
-                  <a slot="item" href="#" class="active">Home</a>
-                  <a slot="item" href="#">About</a>
-                  <a slot="item" href="#">Contact</a>
-                </sds-nav>
-                <sds-nav slot="nav-right" type="block" variant="orange">
-                  <a slot="item" href="#">Profile</a>
-                  <a slot="item" href="#">Sign out</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-underline active"
+                    >Home</a
+                  >
+                  <a slot="item" href="#" class="nav nav-underline">About</a>
+                  <a slot="item" href="#" class="nav nav-underline">Contact</a>
+                </nav>
+                <nav slot="nav-right" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-block nav-orange"
+                    >Profile</a
+                  >
+                  <a slot="item" href="#" class="nav nav-block nav-orange"
+                    >Sign out</a
+                  >
+                </nav>
               </sds-navbar>
             </sds-container>
 
@@ -198,109 +219,46 @@
                 <h1 slot="brand">
                   Brand
                 </h1>
-                <sds-nav slot="nav" type="pill" variant="purple">
-                  <a slot="item" href="#" class="active">Home</a>
-                  <a slot="item" href="#">About</a>
-                  <a slot="item" href="#">Contact</a>
-                </sds-nav>
-                <sds-nav slot="nav-right" type="underline">
-                  <a slot="item" href="#">Profile</a>
-                  <a slot="item" href="#">Sign out</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group md:py-1">
+                  <a slot="item" href="#" class="nav nav-pill nav-purple active"
+                    >Home</a
+                  >
+                  <a slot="item" href="#" class="nav nav-pill nav-purple"
+                    >About</a
+                  >
+                  <a slot="item" href="#" class="nav nav-pill nav-purple"
+                    >Contact</a
+                  >
+                </nav>
+                <nav slot="nav-right" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-underline">Profile</a>
+                  <a slot="item" href="#" class="nav nav-underline">Sign out</a>
+                </nav>
               </sds-navbar>
             </sds-container>
 
             <h3 class="text-lg">
-              No Brand, Nav Style Type: Block, Nav Color Variant: Red, Nav Right
-              Type: Default
+              No Brand, Nav Style Type: Block, Nav Color Variant: Red, Nav Has
+              No Gap, Nav Right Type: Default
             </h3>
             <sds-container class="bg-bgcolor mb-4">
               <sds-navbar hide-brand>
-                <sds-nav slot="nav" type="block" variant="red">
-                  <a slot="item" href="#" class="active">Home</a>
-                  <a slot="item" href="#">About</a>
-                  <a slot="item" href="#">Contact</a>
-                </sds-nav>
-                <sds-nav slot="nav-right">
-                  <a slot="item" href="#">Profile</a>
-                  <a slot="item" href="#">Sign out</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group" no-gap>
+                  <a slot="item" href="#" class="nav nav-block nav-red active"
+                    >Home</a
+                  >
+                  <a slot="item" href="#" class="nav nav-block nav-red"
+                    >About</a
+                  >
+                  <a slot="item" href="#" class="nav nav-block nav-red"
+                    >Contact</a
+                  >
+                </nav>
+                <nav slot="nav-right" class="nav-group">
+                  <a slot="item" href="#" class="nav">Profile</a>
+                  <a slot="item" href="#" class="nav">Sign out</a>
+                </nav>
               </sds-navbar>
-            </sds-container>
-          </section>
-        </sds-card>
-
-        <!-- Nav -->
-        <sds-card id="nav" class="bg-gray-100">
-          <h2 slot="title" class="text-3xl">Nav</h2>
-          <div slot="subtitle" class="w-2/3">
-            <p>A horizontal navigation bar.</p>
-            <p class="my-2">
-              Type attribute options include default, underline, overline, pill,
-              and block.
-            </p>
-            <p>
-              Variant attribute options include blue, green, indigo, orange,
-              pink, purple, red, teal, and yellow
-            </p>
-            <p class="my-2">
-              Slots include: item.
-            </p>
-          </div>
-          <section slot="content">
-            <h3 class="text-lg mb-4">
-              Type: Default
-            </h3>
-            <sds-container class="bg-bgcolor mb-4">
-              <sds-nav>
-                <a slot="item" href="#" class="active">Home</a>
-                <a slot="item" href="#">About</a>
-                <a slot="item" href="#">Contact</a>
-              </sds-nav>
-            </sds-container>
-
-            <h3 class="text-lg mb-4">
-              Type: Underline, Variant: Blue
-            </h3>
-            <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="underline" variant="blue">
-                <a slot="item" href="#" class="active">Home</a>
-                <a slot="item" href="#">About</a>
-                <a slot="item" href="#">Contact</a>
-              </sds-nav>
-            </sds-container>
-
-            <h3 class="text-lg mb-4">
-              Type: Overline, Variant: Pink
-            </h3>
-            <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="overline" variant="pink">
-                <a slot="item" href="#" class="active">Home</a>
-                <a slot="item" href="#">About</a>
-                <a slot="item" href="#">Contact</a>
-              </sds-nav>
-            </sds-container>
-
-            <h3 class="text-lg mb-4">
-              Type: Pill, Variant: teal
-            </h3>
-            <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="pill" variant="teal">
-                <a slot="item" href="#" class="active">Home</a>
-                <a slot="item" href="#">About</a>
-                <a slot="item" href="#">Contact</a>
-              </sds-nav>
-            </sds-container>
-
-            <h3 class="text-lg mb-4">
-              Type: Block, Variant: Red
-            </h3>
-            <sds-container class="bg-bgcolor mb-4">
-              <sds-nav type="block" variant="red">
-                <a slot="item" href="#" class="active">Home</a>
-                <a slot="item" href="#">About</a>
-                <a slot="item" href="#">Contact</a>
-              </sds-nav>
             </sds-container>
           </section>
         </sds-card>
@@ -322,10 +280,10 @@
               <sds-card>
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
-                <sds-nav slot="nav">
-                  <a slot="item" href="#">Phone</a>
-                  <a slot="item" href="#">Email</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav">Phone</a>
+                  <a slot="item" href="#" class="nav">Email</a>
+                </nav>
                 <section slot="content">
                   This is the content of the card.
                 </section>
@@ -337,10 +295,10 @@
               <sds-card type="simple">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
-                <sds-nav slot="nav" type="underline">
-                  <a slot="item" href="#">Phone</a>
-                  <a slot="item" href="#">Email</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-underline">Phone</a>
+                  <a slot="item" href="#" class="nav nav-underline">Email</a>
+                </nav>
                 <section slot="content">
                   This is the content of the card.
                 </section>
@@ -352,10 +310,10 @@
               <sds-card type="raised">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
-                <sds-nav slot="nav" type="pill">
-                  <a slot="item" href="#">Phone</a>
-                  <a slot="item" href="#">Email</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-pill">Phone</a>
+                  <a slot="item" href="#" class="nav nav-pill">Email</a>
+                </nav>
                 <section slot="content">
                   This is the content of the card.
                 </section>
@@ -369,10 +327,10 @@
               <sds-card type="accented">
                 <h3 slot="title">Hello There!</h3>
                 <p slot="subtitle">This is a card with a subtitle</p>
-                <sds-nav slot="nav" type="block">
-                  <a slot="item" href="#">Phone</a>
-                  <a slot="item" href="#">Email</a>
-                </sds-nav>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-block">Phone</a>
+                  <a slot="item" href="#" class="nav nav-block">Email</a>
+                </nav>
                 <section slot="content">
                   This is the content of the card.
                 </section>
@@ -402,7 +360,34 @@
               <sds-modal :open="openModal" @open="openModal = $event.detail">
                 <h3 slot="title">Header</h3>
                 <section slot="content">
-                  <p>This is the content of the modal.</p>
+                  <p>
+                    <span>This is the content of the modal with a</span>
+                    <sds-dropdown>
+                      <button
+                        slot="button"
+                        class="text-red hover:dark focus:darken"
+                      >
+                        <span>Dropdown</span>
+                      </button>
+                      <nav slot="nav" class="nav-group">
+                        <a slot="item" href="#" class="nav nav-block nav-red"
+                          >Option 1</a
+                        >
+                        <a slot="item" href="#" class="nav nav-block nav-red"
+                          >Option 2</a
+                        >
+                        <a slot="item" href="#" class="nav nav-block nav-red"
+                          >Option 3</a
+                        >
+                        <a slot="item" href="#" class="nav nav-block nav-red"
+                          >Option 4</a
+                        >
+                        <a slot="item" href="#" class="nav nav-block nav-red"
+                          >Option 5</a
+                        >
+                      </nav>
+                    </sds-dropdown>
+                  </p>
                 </section>
                 <footer slot="footer">
                   <button class="btn btn-red" @click="openModal = false">
@@ -414,7 +399,170 @@
           </section>
         </sds-card>
 
+        <!-- Dropdown -->
+        <sds-card id="dropdown" class="bg-gray-100 p-4 pb-6">
+          <h2 slot="title" class="text-3xl">Dropdown</h2>
+          <div slot="subtitle">
+            <p>A traditional dropdown.</p>
+            <p class="my-2">
+              Slots include: button, item.
+            </p>
+            <p class="my-2">
+              Use an <code>up</code> attribute to dropup the dropdown.
+            </p>
+            <p class="my-2">
+              Use a <code>right</code> attribute to right align the dropdown.
+            </p>
+            <p>Use an <code>open</code> attribute to display the dropdown.</p>
+            <p class="my-2">
+              Emits an <code>open</code> CustomEvent when the value of its
+              <code>open</code> attribute changes.
+            </p>
+          </div>
+          <section slot="content">
+            <h2 class="text-lg mb-4">Type: Default</h2>
+            <sds-container class="bg-bgcolor mb-4">
+              <button
+                class="text-red block mb-4"
+                @click="openDropdown = !openDropdown"
+              >
+                Toggle Dropdown 1
+              </button>
+              <sds-dropdown
+                :open="openDropdown"
+                @open="openDropdown = $event.detail"
+                class="m-2"
+              >
+                <button slot="button" class="btn">
+                  Dropdown 1 (using btn and nav classes)
+                </button>
+                <nav slot="nav" class="nav-group">
+                  <a slot="item" href="#" class="nav nav-pill">Option 1</a>
+                  <a slot="item" href="#" class="nav nav-pill">Option 2</a>
+                  <a slot="item" href="#" class="nav nav-pill">Option 3</a>
+                  <a slot="item" href="#" class="nav nav-pill">Option 4</a>
+                  <a slot="item" href="#" class="nav nav-pill">Option 5</a>
+                </nav>
+              </sds-dropdown>
+              <sds-dropdown class="m-2">
+                <button slot="button" class="text-red hover:darken">
+                  Dropdown 2 (using utility classes)
+                </button>
+                <nav slot="nav" class="bg-gray-100 my-1 p-0">
+                  <a
+                    slot="item"
+                    href="#"
+                    class="block py-2 px-4 text-sm text-gray-600 hover:text-white hover:bg-red"
+                    >Option 1</a
+                  >
+                  <a
+                    slot="item"
+                    href="#"
+                    class="block py-2 px-4 text-sm text-gray-600 hover:text-white hover:bg-red"
+                    >Option 2</a
+                  >
+                  <a
+                    slot="item"
+                    href="#"
+                    class="block py-2 px-4 text-sm text-gray-600 hover:text-white hover:bg-red"
+                    >Option 3</a
+                  >
+                  <a
+                    slot="item"
+                    href="#"
+                    class="block py-2 px-4 text-sm text-gray-600 hover:text-white hover:bg-red"
+                    >Option 4</a
+                  >
+                  <a
+                    slot="item"
+                    href="#"
+                    class="block py-2 px-4 text-sm text-gray-600 hover:text-white hover:bg-red"
+                    >Option 5</a
+                  >
+                </nav>
+              </sds-dropdown>
+            </sds-container>
+          </section>
+        </sds-card>
+
         <h3 class="text-3xl">CSS Components</h3>
+
+        <!-- Navs -->
+        <sds-card id="nav" class="bg-gray-100">
+          <h2 slot="title" class="text-3xl">Nav</h2>
+          <div slot="subtitle">
+            <p>Pre-defined nav items via a <code>.nav</code> class.</p>
+            <p class="my-2">
+              Wrap in <code>.nav-group</code> for easy grouping.
+            </p>
+            <p class="my-2">
+              Variants include: <code>.nav-white</code>,
+              <code>.nav-black</code>, <code>.nav-blue</code>,
+              <code>.nav-green</code>, <code>.nav-indigo</code>,
+              <code>.nav-orange</code>, <code>.nav-pink</code>,
+              <code>.nav-purple</code>, <code>.nav-red</code>,
+              <code>.nav-teal</code>,
+              <code>.nav-yellow</code>
+            </p>
+            <p class="mt-2">
+              Types include: <code>.nav-underline</code>,
+              <code>.nav-overline</code>, <code>.nav-pill</code>,
+              <code>.nav-block</code>.
+            </p>
+            <p class="mt-2">
+              Add <code>.active</code> class to create an active look.
+            </p>
+            <p class="mt-2">
+              Add a <code>disabled</code> attribute or
+              <code>.disabled</code> class to give a button a disabled look.
+            </p>
+          </div>
+          <section slot="content">
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav active">Nav Item 1</button>
+              <button class="nav">Nav Item 2</button>
+              <button class="nav" disabled>Nav Item 3</button>
+              <button class="nav">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-underline nav-red active">
+                Nav Item 1
+              </button>
+              <button class="nav nav-underline nav-red">Nav Item 2</button>
+              <button class="nav nav-underline nav-red" disabled>
+                Nav Item 3
+              </button>
+              <button class="nav nav-underline nav-red">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-overline nav-yellow active">
+                Nav Item 1
+              </button>
+              <button class="nav nav-overline nav-yellow">Nav Item 2</button>
+              <button class="nav nav-overline nav-yellow" disabled>
+                Nav Item 3
+              </button>
+              <button class="nav nav-overline nav-yellow">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor py-1 mb-8">
+              <button class="nav nav-pill nav-blue active">Nav Item 1</button>
+              <button class="nav nav-pill nav-blue">Nav Item 2</button>
+              <button class="nav nav-pill nav-blue" disabled>Nav Item 3</button>
+              <button class="nav nav-pill nav-blue">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-block active">Nav Item 1</button>
+              <button class="nav nav-block">Nav Item 2</button>
+              <button class="nav nav-block" disabled>Nav Item 3</button>
+              <button class="nav nav-block">Nav Item 4</button>
+            </div>
+          </section>
+        </sds-card>
+
         <!-- Buttons -->
         <sds-card id="button" class="bg-gray-100">
           <h2 slot="title" class="text-3xl">Button</h2>
@@ -660,6 +808,7 @@ export default Vue.extend({
   data() {
     return {
       openModal: false,
+      openDropdown: false,
     };
   },
 });

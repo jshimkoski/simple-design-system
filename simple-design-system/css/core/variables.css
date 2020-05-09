@@ -13,15 +13,15 @@
   --color-transparent: transparent;
   --color-current: currentColor;
 
-  --color-static-gray-100: #F4F4F4;
-  --color-static-gray-200: #E3E3E4;
-  --color-static-gray-300: #D2D2D4;
-  --color-static-gray-400: #B0B0B3;
-  --color-static-gray-500: #8E8E93;
-  --color-static-gray-600: #808084;
-  --color-static-gray-700: #555558;
-  --color-static-gray-800: #404042;
-  --color-static-gray-900: #2B2B2C;
+  --color-static-gray-100: #F4F4F5;
+  --color-static-gray-200: #E2E2E6;
+  --color-static-gray-300: #D1D1D7;
+  --color-static-gray-400: #AFAFB8;
+  --color-static-gray-500: #8C8C9A;
+  --color-static-gray-600: #7E7E8B;
+  --color-static-gray-700: #54545C;
+  --color-static-gray-800: #3F3F45;
+  --color-static-gray-900: #2A2A2E;
 }
 
 /**

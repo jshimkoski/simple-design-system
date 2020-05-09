@@ -4,8 +4,8 @@ templateEl.innerHTML = template;
 
 class Component extends HTMLElement {
   #root: ShadowRoot;
-  #$closeBtn?: HTMLButtonElement;
-  #$backdrop?: HTMLElement;
+  #$btn?: HTMLButtonElement;
+  #$nav?: HTMLElement;
 
   constructor() {
     super();
@@ -16,22 +16,29 @@ class Component extends HTMLElement {
     this.#root.appendChild(templateEl.content.cloneNode(true));
 
     this._close = this._close.bind(this);
+    this._toggle = this._toggle.bind(this);
     this._keyClose = this._keyClose.bind(this);
+    this._outsideClose = this._outsideClose.bind(this);
 
-    this.#$closeBtn = <HTMLButtonElement>this.#root.querySelector(".close-btn");
-    this.#$backdrop = <HTMLElement>this.#root.querySelector(".backdrop");
+    this.#$btn = <HTMLButtonElement>(
+      this.#root?.querySelector('slot[name="button"]')
+    );
+    this.#$btn.setAttribute("type", "button");
+    this.#$btn.setAttribute("aria-label", "dropdown menu toggle");
+    this.#$btn.setAttribute("aria-haspopup", "true");
+    this.#$btn.setAttribute("aria-expanded", `${this.open}`);
 
-    this.#$closeBtn.addEventListener("click", this._close);
-    this.#$backdrop.addEventListener("click", this._close);
+    this.#$nav = <HTMLElement>this.#root.querySelector('slot[name="nav"]');
+
+    this.#$btn.addEventListener("click", this._toggle);
+    this.#$nav.addEventListener("click", this._close);
   }
 
   disconnectedCallback() {
-    (this.#$closeBtn as HTMLButtonElement).removeEventListener(
-      "click",
-      this._close
-    );
-    (this.#$backdrop as HTMLElement).removeEventListener("click", this._close);
+    this.#$btn?.removeEventListener("click", this._toggle);
+    this.#$nav?.removeEventListener("click", this._close);
     document.removeEventListener("keyup", this._keyClose);
+    document.removeEventListener("click", this._outsideClose);
   }
 
   static get observedAttributes() {
@@ -41,28 +48,31 @@ class Component extends HTMLElement {
   attributeChangedCallback(attr: String, oldVal: String, newVal: String) {
     if (attr === "open") {
       if (newVal !== null) {
-        document.body.style.overflow = "hidden";
         // wait for next pass before listening for events
         // on document
         setTimeout(() => {
           document.addEventListener("keyup", this._keyClose);
+          document.addEventListener("click", this._outsideClose);
         }, 0);
       } else {
-        document.body.style.overflow = "visible";
         document.removeEventListener("keyup", this._keyClose);
+        document.removeEventListener("click", this._outsideClose);
       }
     }
   }
 
+  private _toggle(e: Event) {
+    e.preventDefault();
+    this.open = !this.open;
+    this.#$btn?.setAttribute("aria-expanded", `${this.open}`);
+  }
+
   private _close(e: Event) {
-    if (
-      e.target !== this.#$closeBtn &&
-      !(this.#$closeBtn as HTMLButtonElement).contains(
-        e.target as HTMLElement
-      ) &&
-      e.target !== this.#$backdrop
-    )
-      return;
+    this.open = false;
+  }
+
+  private _outsideClose(e: Event) {
+    if (this === e.target || this.contains(e.target as HTMLElement)) return;
     this.open = false;
   }
 
@@ -88,4 +98,4 @@ class Component extends HTMLElement {
   }
 }
 
-customElements.define("sds-modal", Component);
+customElements.define("sds-dropdown", Component);

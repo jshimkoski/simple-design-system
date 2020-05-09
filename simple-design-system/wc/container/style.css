@@ -1,13 +1,12 @@
 /* purgecss start ignore */
 
 :host {
-  display: block;
-  padding: var(--p-8) var(--p-4);
+  @apply block py-8 px-4;
 }
 
 @screen md {
   :host {
-    padding: var(--p-8);
+    @apply p-8;
   }
 }
 
