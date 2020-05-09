@@ -526,6 +526,13 @@
             </div>
 
             <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-pink active">Nav Item 1</button>
+              <button class="nav nav-pink">Nav Item 2</button>
+              <button class="nav pav-pink" disabled>Nav Item 3</button>
+              <button class="nav nav-pink">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
               <button class="nav nav-underline nav-red active">
                 Nav Item 1
               </button>
@@ -534,6 +541,17 @@
                 Nav Item 3
               </button>
               <button class="nav nav-underline nav-red">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-underline active">
+                Nav Item 1
+              </button>
+              <button class="nav nav-underline">Nav Item 2</button>
+              <button class="nav nav-underline" disabled>
+                Nav Item 3
+              </button>
+              <button class="nav nav-underline">Nav Item 4</button>
             </div>
 
             <div class="nav-group bg-bgcolor mb-8">
@@ -547,11 +565,40 @@
               <button class="nav nav-overline nav-yellow">Nav Item 4</button>
             </div>
 
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-overline active">
+                Nav Item 1
+              </button>
+              <button class="nav nav-overline">Nav Item 2</button>
+              <button class="nav nav-overline" disabled>
+                Nav Item 3
+              </button>
+              <button class="nav nav-overline">Nav Item 4</button>
+            </div>
+
             <div class="nav-group bg-bgcolor py-1 mb-8">
               <button class="nav nav-pill nav-blue active">Nav Item 1</button>
               <button class="nav nav-pill nav-blue">Nav Item 2</button>
               <button class="nav nav-pill nav-blue" disabled>Nav Item 3</button>
               <button class="nav nav-pill nav-blue">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor py-1 mb-8">
+              <button class="nav nav-pill active">Nav Item 1</button>
+              <button class="nav nav-pill">Nav Item 2</button>
+              <button class="nav nav-pill" disabled>Nav Item 3</button>
+              <button class="nav nav-pill">Nav Item 4</button>
+            </div>
+
+            <div class="nav-group bg-bgcolor mb-8">
+              <button class="nav nav-block nav-orange active">
+                Nav Item 1
+              </button>
+              <button class="nav nav-block nav-orange">Nav Item 2</button>
+              <button class="nav nav-block nav-orange" disabled>
+                Nav Item 3
+              </button>
+              <button class="nav nav-block nav-orange">Nav Item 4</button>
             </div>
 
             <div class="nav-group bg-bgcolor mb-8">

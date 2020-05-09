@@ -89,17 +89,27 @@
 .nav:hover,
 .nav:focus,
 .nav:active {
-  color: var(--color-fgcolor);
+  color: var(--nav-variant);
   outline: none;
 }
 
 .nav.active {
-  color: var(--color-fgcolor);
+  color: var(--nav-variant);
 }
 
 .nav.disabled,
 .nav[disabled] {
   @apply opacity-50 pointer-events-none;
+}
+
+.nav:not([class*=nav-]):hover,
+.nav:not([class*=nav-]):focus,
+.nav:not([class*=nav-]):active {
+  color: var(--color-fgcolor);
+}
+
+.nav:not([class*=nav-]).active {
+  color: var(--color-fgcolor);
 }
 
 
