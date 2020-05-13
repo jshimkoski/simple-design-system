@@ -40,6 +40,11 @@
               class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
               >Dropdown</a
             >
+            <a
+              href="#calendar"
+              class="block text-gray-600 hover:text-red focus:text-red focus:outline-none"
+              >Calendar</a
+            >
           </nav>
           <nav class="py-4 px-8 text-sm space-y-2">
             <h2 class="font-medium">CSS Components</h2>
@@ -485,6 +490,114 @@
           </section>
         </sds-card>
 
+        <!-- Calendar -->
+        <sds-card id="calendar" class="bg-gray-100 p-4 pb-6">
+          <h2 slot="title" class="text-3xl">Calendar</h2>
+          <div slot="subtitle">
+            <p>A traditional calendar.</p>
+            <p class="mt-2">
+              Variants include: <code>white</code>, <code>black</code>,
+              <code>blue</code>, <code>green</code>, <code>indigo</code>,
+              <code>orange</code>, <code>pink</code>, <code>purple</code>,
+              <code>red</code>, <code>teal</code>, <code>yellow</code>.
+            </p>
+            <p class="mt-2">
+              Can be used inline or embedded within a <code>sds-dropdown</code>.
+            </p>
+            <p class="my-2">
+              Use a <code>date</code> attribute in
+              <code>yyyy-MM-dd</code> format to set date.
+            </p>
+            <p class="my-2">
+              Use an <code>end-date</code> attribute in
+              <code>yyyy-MM-dd</code> format to set an end date. Requires
+              <code>multiple</code> attribute.
+            </p>
+            <p class="my-2">
+              Use a <code>multiple</code> attribute in combination with the
+              <code>date</code> and <code>end-date</code> attribute in
+              <code>yyyy-MM-dd</code> format to set a date range.
+            </p>
+            <p class="my-2">
+              Use a <code>max</code> attribute in <code>yyyy-MM-dd</code> format
+              to set maximum date.
+            </p>
+            <p class="my-2">
+              Use a <code>min</code> attribute in <code>yyyy-MM-dd</code> format
+              to set minimum date.
+            </p>
+            <p class="my-2">
+              Emits a <code>date</code> CustomEvent when the value of its
+              <code>date</code> attribute changes.
+            </p>
+            <p class="my-2">
+              Emits an <code>end-date</code> CustomEvent when the value of its
+              <code>end-date</code> attribute changes.
+            </p>
+            <p class="my-2">
+              Emits a <code>max</code> CustomEvent when the value of its
+              <code>max</code> attribute changes.
+            </p>
+            <p class="my-2">
+              Emits a <code>min</code> CustomEvent when the value of its
+              <code>min</code> attribute changes.
+            </p>
+            <p class="my-2">
+              Emits a <code>multiple</code> CustomEvent when the value of its
+              <code>multiple</code> attribute changes.
+            </p>
+          </div>
+          <section slot="content">
+            <h2 class="text-lg mb-4">Inline, Red variant</h2>
+            <sds-container class="bg-bgcolor mb-4">
+              <sds-calendar
+                variant="red"
+                class="m-2 mb-4"
+                :date="calendarDate"
+                @date="calendarDate = $event.detail"
+              />
+            </sds-container>
+
+            <h2 class="text-lg mb-4">Inside an sds-dropdown, Blue variant</h2>
+            <sds-container class="bg-bgcolor mb-4">
+              <sds-dropdown>
+                <button slot="button" class="btn btn-blue">
+                  {{ calendarDate !== "" ? calendarDate : "Pick a date" }}
+                </button>
+                <nav slot="nav">
+                  <sds-calendar
+                    variant="blue"
+                    :date="calendarDate"
+                    @date="calendarDate = $event.detail"
+                  />
+                </nav>
+              </sds-dropdown>
+            </sds-container>
+
+            <h2 class="text-lg mb-4">
+              Inside an sds-dropdown with lazy input, Blue variant
+            </h2>
+            <sds-container class="bg-bgcolor mb-4">
+              <sds-dropdown>
+                <input
+                  type="text"
+                  slot="button"
+                  class="form-control"
+                  placeholder="yyyy-MM-dd"
+                  v-model.lazy="calendarDate"
+                />
+                <nav slot="nav">
+                  <sds-calendar
+                    variant="blue"
+                    :date="calendarDate"
+                    @date="calendarDate = $event.detail"
+                  />
+                </nav>
+              </sds-dropdown>
+            </sds-container>
+          </section>
+        </sds-card>
+
         <h3 class="text-3xl">CSS Components</h3>
 
         <!-- Navs -->
@@ -615,6 +728,9 @@
           <h2 slot="title" class="text-3xl">Button</h2>
           <div slot="subtitle">
             <p>Pre-defined buttons via a <code>.btn</code> class.</p>
+            <p class="my-2">
+              Wrap in <code>.btn-group</code> for easy grouping.
+            </p>
             <p class="mt-2">
               Variants include: <code>.btn-white</code>,
               <code>.btn-black</code>, <code>.btn-blue</code>,
@@ -638,6 +754,35 @@
           </div>
 
           <section slot="content">
+            <h3 class="text-lg mb-4">Button Group: Single Button</h3>
+            <div class="btn-group mb-4">
+              <button class="btn">Default</button>
+            </div>
+
+            <h3 class="text-lg mb-4">Button Group: Default Buttons</h3>
+            <div class="btn-group mb-4">
+              <button class="btn">Default</button>
+              <button class="btn">Default</button>
+              <button class="btn">Default</button>
+              <button class="btn">Default</button>
+            </div>
+
+            <h3 class="text-lg mb-4">Button Group: Outline Buttons</h3>
+            <div class="btn-group mb-4">
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-outline">Outline</button>
+            </div>
+
+            <h3 class="text-lg mb-4">Button Group: Mix-and-match Buttons</h3>
+            <div class="btn-group mb-4">
+              <button class="btn btn-blue">Default</button>
+              <button class="btn btn-outline btn-teal">Outline Teal</button>
+              <button class="btn btn-orange">Orange</button>
+              <button class="btn btn-outline btn-red">Outline Red</button>
+            </div>
+
             <h3 class="text-lg mb-4">Type: Default</h3>
             <div class="space-x-2 space-y-2">
               <button class="btn">Default</button>
@@ -856,6 +1001,7 @@ export default Vue.extend({
     return {
       openModal: false,
       openDropdown: false,
+      calendarDate: "",
     };
   },
 });

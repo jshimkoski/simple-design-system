@@ -223,92 +223,118 @@
           always remain the same.
         </p>
         <table class="my-8 w-full">
-          <thead class="border-b">
+          <thead class="border-b text-left font-bold bg-gray-100">
             <tr>
-              <th>Color</th>
-              <th>CSS Variable</th>
-              <th>Utility Class</th>
-              <th>Example</th>
+              <th class="p-3">Color</th>
+              <th class="p-3">CSS Variable</th>
+              <th class="p-3">Utility Class</th>
+              <th class="p-3">Example</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>White</td>
-              <td>--color-white</td>
-              <td>*-white</td>
-              <td><div class="p-4 bg-white border" /></td>
+            <tr class="border-b">
+              <td class="p-3 align-middle">White</td>
+              <td class="p-3 align-middle">--color-white</td>
+              <td class="p-3 align-middle">*-white</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-white border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Black</td>
+              <td class="p-3 align-middle">--color-black</td>
+              <td class="p-3 align-middle">*-black</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-black border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Transparent</td>
+              <td class="p-3 align-middle">--color-transparent</td>
+              <td class="p-3 align-middle">*-transparent</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-transparent border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Current Color</td>
+              <td class="p-3 align-middle">--color-current</td>
+              <td class="p-3 align-middle">*-current</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-current border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 100</td>
+              <td class="p-3 align-middle">--color-static-gray-100</td>
+              <td class="p-3 align-middle">*-static-gray-100</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-100 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 200</td>
+              <td class="p-3 align-middle">--color-static-gray-200</td>
+              <td class="p-3 align-middle">*-static-gray-200</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-200 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 300</td>
+              <td class="p-3 align-middle">--color-static-gray-300</td>
+              <td class="p-3 align-middle">*-static-gray-300</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-300 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 400</td>
+              <td class="p-3 align-middle">--color-static-gray-400</td>
+              <td class="p-3 align-middle">*-static-gray-400</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-400 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 500</td>
+              <td class="p-3 align-middle">--color-static-gray-500</td>
+              <td class="p-3 align-middle">*-static-gray-500</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-500 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 600</td>
+              <td class="p-3 align-middle">--color-static-gray-600</td>
+              <td class="p-3 align-middle">*-static-gray-600</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-600 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 700</td>
+              <td class="p-3 align-middle">--color-static-gray-700</td>
+              <td class="p-3 align-middle">*-static-gray-700</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-700 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Static Gray 800</td>
+              <td class="p-3 align-middle">--color-static-gray-800</td>
+              <td class="p-3 align-middle">*-static-gray-800</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-800 border" />
+              </td>
             </tr>
             <tr>
-              <td>Black</td>
-              <td>--color-black</td>
-              <td>*-black</td>
-              <td><div class="p-4 bg-black border" /></td>
-            </tr>
-            <tr>
-              <td>Transparent</td>
-              <td>--color-transparent</td>
-              <td>*-transparent</td>
-              <td><div class="p-4 bg-transparent border" /></td>
-            </tr>
-            <tr>
-              <td>Current Color</td>
-              <td>--color-current</td>
-              <td>*-current</td>
-              <td><div class="p-4 bg-current border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 100</td>
-              <td>--color-static-gray-100</td>
-              <td>*-static-gray-100</td>
-              <td><div class="p-4 bg-static-gray-100 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 200</td>
-              <td>--color-static-gray-200</td>
-              <td>*-static-gray-200</td>
-              <td><div class="p-4 bg-static-gray-200 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 300</td>
-              <td>--color-static-gray-300</td>
-              <td>*-static-gray-300</td>
-              <td><div class="p-4 bg-static-gray-300 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 400</td>
-              <td>--color-static-gray-400</td>
-              <td>*-static-gray-400</td>
-              <td><div class="p-4 bg-static-gray-400 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 500</td>
-              <td>--color-static-gray-500</td>
-              <td>*-static-gray-500</td>
-              <td><div class="p-4 bg-static-gray-500 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 600</td>
-              <td>--color-static-gray-600</td>
-              <td>*-static-gray-600</td>
-              <td><div class="p-4 bg-static-gray-600 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 700</td>
-              <td>--color-static-gray-700</td>
-              <td>*-static-gray-700</td>
-              <td><div class="p-4 bg-static-gray-700 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 800</td>
-              <td>--color-static-gray-800</td>
-              <td>*-static-gray-800</td>
-              <td><div class="p-4 bg-static-gray-800 border" /></td>
-            </tr>
-            <tr>
-              <td>Static Gray 900</td>
-              <td>--color-static-gray-900</td>
-              <td>*-static-gray-900</td>
-              <td><div class="p-4 bg-static-gray-900 border" /></td>
+              <td class="p-3 align-middle">Static Gray 900</td>
+              <td class="p-3 align-middle">--color-static-gray-900</td>
+              <td class="p-3 align-middle">*-static-gray-900</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-static-gray-900 border" />
+              </td>
             </tr>
           </tbody>
         </table>
@@ -326,146 +352,190 @@
           expectations are met.
         </p>
         <table class="my-8 w-full">
-          <thead class="border-b">
+          <thead class="border-b text-left font-bold bg-gray-100">
             <tr>
-              <th>Color</th>
-              <th>CSS Variable</th>
-              <th>Utility Class</th>
-              <th>Example</th>
+              <th class="p-3">Color</th>
+              <th class="p-3">CSS Variable</th>
+              <th class="p-3">Utility Class</th>
+              <th class="p-3">Example</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Foreground Color</td>
-              <td>--color-fgcolor</td>
-              <td>*-fgcolor</td>
-              <td><div class="p-4 bg-fgcolor border" /></td>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Foreground Color</td>
+              <td class="p-3 align-middle">--color-fgcolor</td>
+              <td class="p-3 align-middle">*-fgcolor</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-fgcolor border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Background Color</td>
+              <td class="p-3 align-middle">--color-bgcolor</td>
+              <td class="p-3 align-middle">*-bgcolor</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-bgcolor border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Border Color</td>
+              <td class="p-3 align-middle">--color-border</td>
+              <td class="p-3 align-middle">*-border</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-border border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Placeholder Color</td>
+              <td class="p-3 align-middle">--color-placeholder</td>
+              <td class="p-3 align-middle">*-placeholder</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-placeholder border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 100</td>
+              <td class="p-3 align-middle">--color-gray-100</td>
+              <td class="p-3 align-middle">*-gray-100</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-100 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 200</td>
+              <td class="p-3 align-middle">--color-gray-200</td>
+              <td class="p-3 align-middle">*-gray-200</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-200 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 300</td>
+              <td class="p-3 align-middle">--color-gray-300</td>
+              <td class="p-3 align-middle">*-gray-300</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-300 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 400</td>
+              <td class="p-3 align-middle">--color-gray-400</td>
+              <td class="p-3 align-middle">*-gray-400</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-400 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 500</td>
+              <td class="p-3 align-middle">--color-gray-500</td>
+              <td class="p-3 align-middle">*-gray-500</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-500 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 600</td>
+              <td class="p-3 align-middle">--color-gray-600</td>
+              <td class="p-3 align-middle">*-gray-600</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-600 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 700</td>
+              <td class="p-3 align-middle">--color-gray-700</td>
+              <td class="p-3 align-middle">*-gray-700</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-700 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 800</td>
+              <td class="p-3 align-middle">--color-gray-800</td>
+              <td class="p-3 align-middle">*-gray-800</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-800 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Gray 900</td>
+              <td class="p-3 align-middle">--color-gray-900</td>
+              <td class="p-3 align-middle">*-gray-900</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-gray-900 border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Blue</td>
+              <td class="p-3 align-middle">--color-blue</td>
+              <td class="p-3 align-middle">*-blue</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-blue border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Green</td>
+              <td class="p-3 align-middle">--color-green</td>
+              <td class="p-3 align-middle">*-green</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-green border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Indigo</td>
+              <td class="p-3 align-middle">--color-indigo</td>
+              <td class="p-3 align-middle">*-indigo</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-indigo border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Orange</td>
+              <td class="p-3 align-middle">--color-orange</td>
+              <td class="p-3 align-middle">*-orange</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-orange border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Pink</td>
+              <td class="p-3 align-middle">--color-pink</td>
+              <td class="p-3 align-middle">*-pink</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-pink border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Purple</td>
+              <td class="p-3 align-middle">--color-purple</td>
+              <td class="p-3 align-middle">*-purple</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-purple border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Red</td>
+              <td class="p-3 align-middle">--color-red</td>
+              <td class="p-3 align-middle">*-red</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-red border" />
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3 align-middle">Teal</td>
+              <td class="p-3 align-middle">--color-teal</td>
+              <td class="p-3 align-middle">*-teal</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-teal border" />
+              </td>
             </tr>
             <tr>
-              <td>Background Color</td>
-              <td>--color-bgcolor</td>
-              <td>*-bgcolor</td>
-              <td><div class="p-4 bg-bgcolor border" /></td>
-            </tr>
-            <tr>
-              <td>Border Color</td>
-              <td>--color-border</td>
-              <td>*-border</td>
-              <td><div class="p-4 bg-border border" /></td>
-            </tr>
-            <tr>
-              <td>Placeholder Color</td>
-              <td>--color-placeholder</td>
-              <td>*-placeholder</td>
-              <td><div class="p-4 bg-placeholder border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 100</td>
-              <td>--color-gray-100</td>
-              <td>*-gray-100</td>
-              <td><div class="p-4 bg-gray-100 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 200</td>
-              <td>--color-gray-200</td>
-              <td>*-gray-200</td>
-              <td><div class="p-4 bg-gray-200 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 300</td>
-              <td>--color-gray-300</td>
-              <td>*-gray-300</td>
-              <td><div class="p-4 bg-gray-300 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 400</td>
-              <td>--color-gray-400</td>
-              <td>*-gray-400</td>
-              <td><div class="p-4 bg-gray-400 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 500</td>
-              <td>--color-gray-500</td>
-              <td>*-gray-500</td>
-              <td><div class="p-4 bg-gray-500 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 600</td>
-              <td>--color-gray-600</td>
-              <td>*-gray-600</td>
-              <td><div class="p-4 bg-gray-600 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 700</td>
-              <td>--color-gray-700</td>
-              <td>*-gray-700</td>
-              <td><div class="p-4 bg-gray-700 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 800</td>
-              <td>--color-gray-800</td>
-              <td>*-gray-800</td>
-              <td><div class="p-4 bg-gray-800 border" /></td>
-            </tr>
-            <tr>
-              <td>Gray 900</td>
-              <td>--color-gray-900</td>
-              <td>*-gray-900</td>
-              <td><div class="p-4 bg-gray-900 border" /></td>
-            </tr>
-            <tr>
-              <td>Blue</td>
-              <td>--color-blue</td>
-              <td>*-blue</td>
-              <td><div class="p-4 bg-blue border" /></td>
-            </tr>
-            <tr>
-              <td>Green</td>
-              <td>--color-green</td>
-              <td>*-green</td>
-              <td><div class="p-4 bg-green border" /></td>
-            </tr>
-            <tr>
-              <td>Indigo</td>
-              <td>--color-indigo</td>
-              <td>*-indigo</td>
-              <td><div class="p-4 bg-indigo border" /></td>
-            </tr>
-            <tr>
-              <td>Orange</td>
-              <td>--color-orange</td>
-              <td>*-orange</td>
-              <td><div class="p-4 bg-orange border" /></td>
-            </tr>
-            <tr>
-              <td>Pink</td>
-              <td>--color-pink</td>
-              <td>*-pink</td>
-              <td><div class="p-4 bg-pink border" /></td>
-            </tr>
-            <tr>
-              <td>Purple</td>
-              <td>--color-purple</td>
-              <td>*-purple</td>
-              <td><div class="p-4 bg-purple border" /></td>
-            </tr>
-            <tr>
-              <td>Red</td>
-              <td>--color-red</td>
-              <td>*-red</td>
-              <td><div class="p-4 bg-red border" /></td>
-            </tr>
-            <tr>
-              <td>Teal</td>
-              <td>--color-teal</td>
-              <td>*-teal</td>
-              <td><div class="p-4 bg-teal border" /></td>
-            </tr>
-            <tr>
-              <td>Yellow</td>
-              <td>--color-yellow</td>
-              <td>*-yellow</td>
-              <td><div class="p-4 bg-yellow border" /></td>
+              <td class="p-3 align-middle">Yellow</td>
+              <td class="p-3 align-middle">--color-yellow</td>
+              <td class="p-3 align-middle">*-yellow</td>
+              <td class="p-3 align-middle">
+                <div class="p-4 bg-yellow border" />
+              </td>
             </tr>
           </tbody>
         </table>

@@ -92,3 +92,21 @@
 .btn[disabled] {
   @apply opacity-50 pointer-events-none;
 }
+
+/**
+ * Button Group
+ */
+
+.btn-group {
+  .btn:not(:first-child):not(:last-child) {
+    @apply rounded-none;
+  }
+
+  .btn:first-child:not(:only-child) {
+    @apply rounded-r-none;
+  }
+
+  .btn:last-child:not(:only-child) {
+    @apply rounded-l-none;
+  }
+}
