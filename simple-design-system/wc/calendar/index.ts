@@ -5,8 +5,6 @@ import {
   format,
   getYear,
   getMonth,
-  getDate,
-  isDate,
   isSameDay,
   isToday,
   isSameWeek,
@@ -30,10 +28,13 @@ class Component extends HTMLElement {
   #$calendar?: HTMLElement;
 
   #today: Date = new Date();
-  #year: number = getYear(this.#today);
-  #month: number = getMonth(this.#today);
-  #day: number = getDate(this.#today);
-  #currentDay: Date = new Date(this.#year, this.#month, this.#day);
+
+  // the day selected by user
+  #selectedDay: Date | null = null;
+
+  // the day controlling the month view
+  #visibleDay: Date = this.#today;
+
   #minDay: Date | boolean = false;
   #maxDay: Date | boolean = false;
 
@@ -63,7 +64,6 @@ class Component extends HTMLElement {
     this.#$prev.addEventListener("click", this._prevMonth);
     this.#$next.addEventListener("click", this._nextMonth);
 
-    this._extractDate();
     this._renderCalendarView();
   }
 
@@ -85,21 +85,18 @@ class Component extends HTMLElement {
   }
 
   _resetDate(e: Event) {
-    this.date = format(this.#today, "yyyy-MM-dd");
+    this.#visibleDay = this.#today;
+    this._renderCalendarView();
   }
 
   _prevMonth(e: Event) {
-    this.date = format(
-      startOfMonth(subMonths(this.#currentDay, 1)),
-      "yyyy-MM-dd"
-    );
+    this.#visibleDay = startOfMonth(subMonths(this.#visibleDay, 1));
+    this._renderCalendarView();
   }
 
   _nextMonth(e: Event) {
-    this.date = format(
-      startOfMonth(addMonths(this.#currentDay, 1)),
-      "yyyy-MM-dd"
-    );
+    this.#visibleDay = startOfMonth(addMonths(this.#visibleDay, 1));
+    this._renderCalendarView();
   }
 
   static get observedAttributes() {
@@ -108,7 +105,7 @@ class Component extends HTMLElement {
 
   attributeChangedCallback(attr: string, oldVal: string, newVal: string) {
     if (attr === "date") {
-      this._extractDate(newVal);
+      this.#selectedDay = <Date>this._getDateFromFormattedString(newVal);
       this._renderCalendarView();
       // (this.#root.querySelector(".active") as HTMLButtonElement).focus();
     }
@@ -212,31 +209,19 @@ class Component extends HTMLElement {
    * Calendar creation
    */
 
-  private _extractDate(val: string = "") {
+  private _getDateFromFormattedString(val: string = "") {
     const userDateMatchesRegex = val?.match(Component.dateRegex);
-    let dateArr;
-    if (userDateMatchesRegex) {
-      dateArr = val.split("-");
-      dateArr = dateArr.map((i) => parseInt(i));
-      // month is zero-indexed
-      dateArr[1] = dateArr[1] - 1;
-    } else {
-      dateArr = [
-        getYear(this.#today),
-        getMonth(this.#today),
-        getDate(this.#today),
-      ];
-    }
+    if (!userDateMatchesRegex) return;
+    const dateArr = val.split("-").map((i) => parseInt(i));
+    // month is zero-indexed
+    dateArr[1] = dateArr[1] - 1;
     const [year, month, day] = dateArr;
-    this.#year = year;
-    this.#month = month;
-    this.#day = day;
-    this.#currentDay = new Date(this.#year, this.#month, this.#day);
+    return new Date(year, month, day);
   }
 
   private _renderCalendarView(
-    year: number = this.#year,
-    month: number = this.#month
+    year: number = getYear(this.#visibleDay),
+    month: number = getMonth(this.#visibleDay)
   ) {
     // stop immediately if calendar or title not displayed
     if (typeof this.#$calendar === "undefined") return;
@@ -265,14 +250,24 @@ class Component extends HTMLElement {
             (day: Date, i: number) => `
               <td
                 class="
-                  ${isSameWeek(day, this.#currentDay) ? "same-week" : ""}
+                  ${
+                    this.#selectedDay !== null &&
+                    isSameWeek(day, this.#selectedDay)
+                      ? "same-week"
+                      : ""
+                  }
                 "
               >
                 <button
                   class="
                     btn-date
-                    ${!isSameMonth(day, this.#currentDay) ? "dim" : ""}
-                    ${isSameDay(day, this.#currentDay) ? "active" : ""}
+                    ${!isSameMonth(day, this.#visibleDay) ? "dim" : ""}
+                    ${
+                      this.#selectedDay !== null &&
+                      isSameDay(day, this.#selectedDay)
+                        ? "active"
+                        : ""
+                    }
                     ${isToday(day) ? "today" : ""}
                   "
                   ${
@@ -314,8 +309,8 @@ class Component extends HTMLElement {
       "yyyy-MM-dd"
     );
     (this.#$title as HTMLButtonElement).innerHTML = `
-      <span class="month">${format(this.#currentDay, "MMM")}</span>
-      <span class="year">${format(this.#currentDay, "yyyy")}</span>
+      <span class="month">${format(this.#visibleDay, "MMM")}</span>
+      <span class="year">${format(this.#visibleDay, "yyyy")}</span>
     `;
   }
 
