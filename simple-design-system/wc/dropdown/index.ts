@@ -17,6 +17,7 @@ class Component extends HTMLElement {
 
     this._close = this._close.bind(this);
     this._toggle = this._toggle.bind(this);
+    this._keyToggle = this._keyToggle.bind(this);
     this._keyClose = this._keyClose.bind(this);
     this._outsideClose = this._outsideClose.bind(this);
 
@@ -31,21 +32,24 @@ class Component extends HTMLElement {
     this.#$nav = <HTMLElement>this.#root.querySelector('slot[name="nav"]');
 
     this.#$btn.addEventListener("click", this._toggle);
+    this.#$btn.addEventListener("keyup", this._keyToggle);
     this.#$nav.addEventListener("click", this._close);
   }
 
   disconnectedCallback() {
     this.#$btn?.removeEventListener("click", this._toggle);
+    this.#$btn?.removeEventListener("keyup", this._keyToggle);
     this.#$nav?.removeEventListener("click", this._close);
     document.removeEventListener("keyup", this._keyClose);
     document.removeEventListener("click", this._outsideClose);
+    document.removeEventListener("focus", this._outsideClose, true);
   }
 
   static get observedAttributes() {
     return ["open"];
   }
 
-  attributeChangedCallback(attr: String, oldVal: String, newVal: String) {
+  attributeChangedCallback(attr: string, oldVal: string, newVal: string) {
     if (attr === "open") {
       if (newVal !== null) {
         // wait for next pass before listening for events
@@ -53,10 +57,12 @@ class Component extends HTMLElement {
         setTimeout(() => {
           document.addEventListener("keyup", this._keyClose);
           document.addEventListener("click", this._outsideClose);
+          document.addEventListener("focus", this._outsideClose, true);
         }, 0);
       } else {
         document.removeEventListener("keyup", this._keyClose);
         document.removeEventListener("click", this._outsideClose);
+        document.removeEventListener("focus", this._outsideClose, true);
       }
       this._forceDomUpdate();
     }
@@ -65,6 +71,16 @@ class Component extends HTMLElement {
   private _toggle(e: Event) {
     e.preventDefault();
     this.open = !this.open;
+    this.#$btn?.setAttribute("aria-expanded", `${this.open}`);
+  }
+
+  private _keyToggle(e: KeyboardEvent) {
+    e.preventDefault();
+    if (e.keyCode === 38) {
+      this.open = false;
+    } else if (e.keyCode === 40) {
+      this.open = true;
+    }
     this.#$btn?.setAttribute("aria-expanded", `${this.open}`);
   }
 

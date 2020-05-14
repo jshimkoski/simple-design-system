@@ -1,0 +1,188 @@
+/* purgecss start ignore */
+
+/**
+ * Color variants
+ */
+
+:host {
+  --cal-variant: var(--color-gray-500);
+  --cal-on-variant: var(--color-white);
+}
+
+:host([variant=white]) {
+  --cal-variant: var(--color-white);
+  --cal-on-variant: var(--color-black);
+}
+
+:host([variant=black]) {
+  --cal-variant: var(--color-black);
+}
+
+:host([variant=blue]) {
+  --cal-variant: var(--color-blue);
+}
+
+:host([variant=green]) {
+  --cal-variant: var(--color-green);
+}
+
+:host([variant=indigo]) {
+  --cal-variant: var(--color-indigo);
+}
+
+:host([variant=orange]) {
+  --cal-variant: var(--color-orange);
+}
+
+:host([variant=pink]) {
+  --cal-variant: var(--color-pink);
+}
+
+:host([variant=purple]) {
+  --cal-variant: var(--color-purple);
+}
+
+:host([variant=red]) {
+  --cal-variant: var(--color-red);
+}
+
+:host([variant=teal]) {
+  --cal-variant: var(--color-teal);
+}
+
+:host([variant=yellow]) {
+  --cal-variant: var(--color-yellow);
+  --cal-on-variant: var(--color-black);
+}
+
+/**
+ * Base styles
+ */
+
+:host {
+  display: block;
+}
+
+#header {
+  @apply flex mb-2;
+}
+
+.title-wrapper {
+  @apply flex-grow;
+}
+
+#title {
+  @apply text-left text-2xl font-semibold text-gray-900 py-0 px-1 border-0 bg-transparent rounded cursor-pointer;
+
+  & .year {
+    color: var(--cal-variant);
+  }
+
+  &:hover,
+  &:focus {
+    @apply underline;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+}
+
+#prev,
+#next,
+#today {
+  @apply px-1 text-base text-gray-900 bg-transparent border-0 rounded-full cursor-pointer;
+
+  &:hover,
+  &:focus {
+    @apply bg-gray-200;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+  &[disabled] {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  svg {
+    @apply mt-1 w-5 h-auto;
+  }
+}
+
+#prev,
+#today {
+  @apply mr-1;
+}
+
+table {
+  @apply border-0 w-full;
+  border-spacing: 0;
+}
+
+th {
+  @apply text-xs uppercase font-light text-gray-500;
+}
+
+th, td {
+  @apply text-center;
+}
+
+.same-week {
+  @apply bg-gray-200;
+
+  &:first-child {
+    @apply rounded-l;
+  }
+
+  &:last-child {
+    @apply rounded-r;
+  }
+}
+
+.btn-date {
+  @apply text-sm h-8 w-8 text-center text-gray-900 bg-transparent border-0 rounded-full cursor-pointer;
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+  &[disabled] {
+    @apply opacity-50 pointer-events-none;
+  }
+}
+
+.dim {
+  @apply text-gray-400;
+}
+
+.today,
+.active,
+.btn-date:hover {
+  @apply font-bold;
+}
+
+.active:not(.today),
+.btn-date:not(.today):hover {
+  @apply bg-static-gray-800 text-static-gray-100;
+}
+
+.same-week {
+  & .active:not(.today),
+  & .btn-date:not(.today):hover {
+    @apply bg-static-gray-900 text-static-gray-100;
+  }
+}
+
+.today:not(.active) {
+  color: var(--cal-variant);
+}
+
+.today.active,
+.today:hover {
+  color: var(--cal-on-variant);
+  background-color: var(--cal-variant);
+}
+
+/* purgecss end ignore */
