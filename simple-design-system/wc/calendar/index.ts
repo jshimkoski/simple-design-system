@@ -5,6 +5,7 @@ import {
   format,
   getYear,
   getMonth,
+  isValid,
   isSameDay,
   isToday,
   isSameWeek,
@@ -54,26 +55,31 @@ class Component extends HTMLElement {
     this.#$calendar = <HTMLElement>this.#root.getElementById("calendar");
 
     this._changeDate = this._changeDate.bind(this);
-    this._resetDate = this._resetDate.bind(this);
-    this._prevMonth = this._prevMonth.bind(this);
-    this._nextMonth = this._nextMonth.bind(this);
+    this.goToSelectedMonth = this.goToSelectedMonth.bind(this);
+    this.goToThisMonth = this.goToThisMonth.bind(this);
+    this.goToPrevMonth = this.goToPrevMonth.bind(this);
+    this.goToNextMonth = this.goToNextMonth.bind(this);
 
     this.#root.addEventListener("click", this._changeDate);
-    this.#$title.addEventListener("click", this._resetDate);
-    this.#$today.addEventListener("click", this._resetDate);
-    this.#$prev.addEventListener("click", this._prevMonth);
-    this.#$next.addEventListener("click", this._nextMonth);
+    this.#$title.addEventListener("click", this.goToSelectedMonth);
+    this.#$today.addEventListener("click", this.goToThisMonth);
+    this.#$prev.addEventListener("click", this.goToPrevMonth);
+    this.#$next.addEventListener("click", this.goToNextMonth);
 
     this._renderCalendarView();
   }
 
   disconnectedCallback() {
     this.#root.removeEventListener("click", this._changeDate);
-    this.#$title?.removeEventListener("click", this._resetDate);
-    this.#$today?.removeEventListener("click", this._resetDate);
-    this.#$prev?.removeEventListener("click", this._prevMonth);
-    this.#$next?.removeEventListener("click", this._nextMonth);
+    this.#$title?.removeEventListener("click", this.goToSelectedMonth);
+    this.#$today?.removeEventListener("click", this.goToThisMonth);
+    this.#$prev?.removeEventListener("click", this.goToPrevMonth);
+    this.#$next?.removeEventListener("click", this.goToNextMonth);
   }
+
+  /**
+   * Events
+   */
 
   _changeDate(e: Event) {
     if (e.target && (e.target as HTMLButtonElement).dataset.date) {
@@ -84,20 +90,34 @@ class Component extends HTMLElement {
     }
   }
 
-  _resetDate(e: Event) {
+  goToSelectedMonth(e: Event) {
+    e.stopPropagation();
+    if (this.#selectedDay === null) return;
+    this.#visibleDay = this.#selectedDay;
+    this._renderCalendarView();
+  }
+
+  goToThisMonth(e: Event) {
+    e.stopPropagation();
     this.#visibleDay = this.#today;
     this._renderCalendarView();
   }
 
-  _prevMonth(e: Event) {
+  goToPrevMonth(e: Event) {
+    e.stopPropagation();
     this.#visibleDay = startOfMonth(subMonths(this.#visibleDay, 1));
     this._renderCalendarView();
   }
 
-  _nextMonth(e: Event) {
+  goToNextMonth(e: Event) {
+    e.stopPropagation();
     this.#visibleDay = startOfMonth(addMonths(this.#visibleDay, 1));
     this._renderCalendarView();
   }
+
+  /**
+   * Attribute handlers
+   */
 
   static get observedAttributes() {
     return ["date", "min", "max"];
@@ -105,18 +125,23 @@ class Component extends HTMLElement {
 
   attributeChangedCallback(attr: string, oldVal: string, newVal: string) {
     if (attr === "date") {
-      this.#selectedDay = <Date>this._getDateFromFormattedString(newVal);
+      this._setSelectedDate(newVal);
       this._renderCalendarView();
-      // (this.#root.querySelector(".active") as HTMLButtonElement).focus();
     }
 
     if (attr === "min") {
-      if (newVal.match(Component.dateRegex)) {
+      if (newVal !== null && newVal.match(Component.dateRegex)) {
         const dateArr = newVal.split("-").map((i) => parseInt(i));
         // month is zero-indexed
         dateArr[1] = dateArr[1] - 1;
         const [year, month, day] = dateArr;
         this.#minDay = new Date(year, month, day);
+        if (
+          this.#selectedDay !== null &&
+          this._isBeforeMin(this.#selectedDay)
+        ) {
+          this._setSelectedDate(newVal);
+        }
       } else {
         this.#minDay = false;
       }
@@ -124,12 +149,15 @@ class Component extends HTMLElement {
     }
 
     if (attr === "max") {
-      if (newVal.match(Component.dateRegex)) {
+      if (newVal !== null && newVal.match(Component.dateRegex)) {
         const dateArr = newVal.split("-").map((i) => parseInt(i));
         // month is zero-indexed
         dateArr[1] = dateArr[1] - 1;
         const [year, month, day] = dateArr;
         this.#maxDay = new Date(year, month, day);
+        if (this.#selectedDay !== null && this._isAfterMax(this.#selectedDay)) {
+          this._setSelectedDate(newVal);
+        }
       } else {
         this.#maxDay = false;
       }
@@ -206,8 +234,30 @@ class Component extends HTMLElement {
   }
 
   /**
-   * Calendar creation
+   * Helpers
    */
+
+  private _setSelectedDate(val: string) {
+    const date = <Date>this._getDateFromFormattedString(val);
+    if (!isValid(date)) return;
+    if (this._isBeforeMin(date)) {
+      this.#selectedDay = <Date>this.#minDay;
+    } else if (this._isAfterMax(date)) {
+      this.#selectedDay = <Date>this.#maxDay;
+    } else {
+      this.#selectedDay = date;
+    }
+    const formattedDate = format(this.#selectedDay, "yyyy-MM-dd");
+    if (this.date !== formattedDate) this.date = formattedDate;
+  }
+
+  private _isBeforeMin(date: Date): boolean {
+    return typeof this.#minDay !== "boolean" && isBefore(date, this.#minDay);
+  }
+
+  private _isAfterMax(date: Date): boolean {
+    return typeof this.#maxDay !== "boolean" && isAfter(date, this.#maxDay);
+  }
 
   private _getDateFromFormattedString(val: string = "") {
     const userDateMatchesRegex = val?.match(Component.dateRegex);
@@ -218,6 +268,10 @@ class Component extends HTMLElement {
     const [year, month, day] = dateArr;
     return new Date(year, month, day);
   }
+
+  /**
+   * Calendar creation
+   */
 
   private _renderCalendarView(
     year: number = getYear(this.#visibleDay),

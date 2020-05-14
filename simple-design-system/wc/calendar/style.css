@@ -157,9 +157,22 @@ th, td {
   @apply text-gray-400;
 }
 
+.today,
+.active,
+.btn-date:hover {
+  @apply font-bold;
+}
+
 .active:not(.today),
 .btn-date:not(.today):hover {
-  @apply bg-gray-900 text-gray-100;
+  @apply bg-static-gray-800 text-static-gray-100;
+}
+
+.same-week {
+  & .active:not(.today),
+  & .btn-date:not(.today):hover {
+    @apply bg-static-gray-900 text-static-gray-100;
+  }
 }
 
 .today:not(.active) {

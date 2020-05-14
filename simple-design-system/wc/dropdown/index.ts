@@ -33,11 +33,13 @@ class Component extends HTMLElement {
 
     this.#$btn.addEventListener("click", this._toggle);
     this.#$btn.addEventListener("keyup", this._keyToggle);
+    this.#$nav.addEventListener("click", this._close);
   }
 
   disconnectedCallback() {
     this.#$btn?.removeEventListener("click", this._toggle);
     this.#$btn?.removeEventListener("keyup", this._keyToggle);
+    this.#$nav?.removeEventListener("click", this._close);
     document.removeEventListener("keyup", this._keyClose);
     document.removeEventListener("click", this._outsideClose);
     document.removeEventListener("focus", this._outsideClose, true);

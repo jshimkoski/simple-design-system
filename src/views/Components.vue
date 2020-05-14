@@ -502,21 +502,22 @@
               <code>red</code>, <code>teal</code>, <code>yellow</code>.
             </p>
             <p class="mt-2">
-              Can be used inline or embedded within a <code>sds-dropdown</code>.
+              Can be used inline or embedded within an
+              <code>sds-dropdown</code>.
             </p>
             <p class="my-2">
               Use a <code>date</code> attribute in
               <code>yyyy-MM-dd</code> format to set date.
             </p>
             <p class="my-2">
-              Use an <code>end-date</code> attribute in
+              COMING SOON: Use an <code>end-date</code> attribute in
               <code>yyyy-MM-dd</code> format to set an end date. Requires
               <code>multiple</code> attribute.
             </p>
             <p class="my-2">
-              Use a <code>multiple</code> attribute in combination with the
-              <code>date</code> and <code>end-date</code> attribute in
-              <code>yyyy-MM-dd</code> format to set a date range.
+              COMING SOON: Use a <code>multiple</code> attribute in combination
+              with <code>date</code> and <code>end-date</code> attributes to set
+              a date range.
             </p>
             <p class="my-2">
               Use a <code>max</code> attribute in <code>yyyy-MM-dd</code> format
@@ -531,7 +532,7 @@
               <code>date</code> attribute changes.
             </p>
             <p class="my-2">
-              Emits an <code>end-date</code> CustomEvent when the value of its
+              COMING SOON: Emits an <code>end-date</code> CustomEvent when the
               <code>end-date</code> attribute changes.
             </p>
             <p class="my-2">
@@ -543,8 +544,13 @@
               <code>min</code> attribute changes.
             </p>
             <p class="my-2">
-              Emits a <code>multiple</code> CustomEvent when the value of its
+              COMING SOON: Emits a <code>multiple</code> CustomEvent when the
               <code>multiple</code> attribute changes.
+            </p>
+            <p class="my-2">
+              Exposes methods that expect an event parameter:
+              <code>goToSelectedMonth(e)</code>, <code>goToThisMonth(e)</code>,
+              <code>goToPrevMonth(e)</code>, <code>goToNextMonth(e)</code>.
             </p>
           </div>
           <section slot="content">
@@ -558,7 +564,9 @@
               />
             </sds-container>
 
-            <h2 class="text-lg mb-4">Inside an sds-dropdown, Blue variant</h2>
+            <h2 class="text-lg mb-4">
+              Inside an sds-dropdown with button, Both set to blue variant
+            </h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-dropdown>
                 <button slot="button" class="btn btn-blue">
@@ -575,7 +583,7 @@
             </sds-container>
 
             <h2 class="text-lg mb-4">
-              Inside an sds-dropdown with lazy input, Blue variant
+              Inside an sds-dropdown with lazy form-control, Purple variant
             </h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-dropdown>
@@ -588,7 +596,7 @@
                 />
                 <nav slot="nav">
                   <sds-calendar
-                    variant="blue"
+                    variant="purple"
                     :date="calendarDate"
                     @date="calendarDate = $event.detail"
                   />
