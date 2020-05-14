@@ -16,8 +16,8 @@
   ],
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.2.0",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
     "@vue/cli-plugin-router": "^4.3.1",
@@ -41,7 +41,7 @@
     "prettier": "^2.0.5",
     "tailwind-css-variables": "^2.0.3",
     "tailwindcss": "^1.4.6",
-    "typescript": "~3.8.3",
+    "typescript": "^3.9.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-cli-plugin-prerender-spa": "~1.1.6",
@@ -49,7 +49,7 @@
     "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.1.5",
     "vue-template-compiler": "^2.6.11",
-    "vuex": "^3.3.0"
+    "vuex": "^3.4.0"
   },
   "bugs": {
     "url": "https://github.com/jshimkoski/simple-design-system/issues"
