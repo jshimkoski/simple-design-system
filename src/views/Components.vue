@@ -510,13 +510,13 @@
               <code>yyyy-MM-dd</code> format to set date.
             </p>
             <p class="my-2">
-              COMING SOON: Use an <code>end-date</code> attribute in
+              Use an <code>end-date</code> attribute in
               <code>yyyy-MM-dd</code> format to set an end date. Requires
               <code>multiple</code> attribute.
             </p>
             <p class="my-2">
-              COMING SOON: Use a <code>multiple</code> attribute in combination
-              with <code>date</code> and <code>end-date</code> attributes to set
+              Use a <code>multiple</code> attribute in combination
+              <code>date</code> and <code>end-date</code> attributes to set a
               a date range.
             </p>
             <p class="my-2">
@@ -532,7 +532,7 @@
               <code>date</code> attribute changes.
             </p>
             <p class="my-2">
-              COMING SOON: Emits an <code>end-date</code> CustomEvent when the
+              Emits an <code>end-date</code> CustomEvent when the
               <code>end-date</code> attribute changes.
             </p>
             <p class="my-2">
@@ -544,7 +544,7 @@
               <code>min</code> attribute changes.
             </p>
             <p class="my-2">
-              COMING SOON: Emits a <code>multiple</code> CustomEvent when the
+              Emits a <code>multiple</code> CustomEvent when the
               <code>multiple</code> attribute changes.
             </p>
             <p class="my-2">
