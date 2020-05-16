@@ -14,6 +14,7 @@ import {
   isAfter,
   subMonths,
   addMonths,
+  closestTo,
 } from "date-fns";
 
 import template from "./template.html";
@@ -30,14 +31,8 @@ class Component extends HTMLElement {
 
   #today: Date = new Date();
 
-  // the day selected by user
-  #selectedDay: Date | null = null;
-
   // the day controlling the month view
   #visibleDay: Date = this.#today;
-
-  #minDay: Date | boolean = false;
-  #maxDay: Date | boolean = false;
 
   static dateRegex: RegExp = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 
@@ -66,6 +61,12 @@ class Component extends HTMLElement {
     this.#$prev.addEventListener("click", this.goToPrevMonth);
     this.#$next.addEventListener("click", this.goToNextMonth);
 
+    if (this.date !== null) {
+      if (isValid(this._selectedDate())) {
+        this.#visibleDay = <Date>this._selectedDate();
+      }
+    }
+
     this._renderCalendarView();
   }
 
@@ -81,19 +82,26 @@ class Component extends HTMLElement {
    * Events
    */
 
-  _changeDate(e: Event) {
+  private _changeDate(e: Event) {
     if (e.target && (e.target as HTMLButtonElement).dataset.date) {
       const newDate = (e.target as HTMLButtonElement).dataset.date;
       if (typeof newDate !== "undefined") {
-        this.date = newDate;
+        if (this.multiple && (this.date === null || this.endDate === null)) {
+          e.stopPropagation();
+        }
+        this._setSelectedDates(newDate);
       }
     }
   }
 
   goToSelectedMonth(e: Event) {
     e.stopPropagation();
-    if (this.#selectedDay === null) return;
-    this.#visibleDay = this.#selectedDay;
+    if (this._selectedDate() === null) return;
+    if (!isSameDay(this.#visibleDay, <Date>this._selectedDate())) {
+      this.#visibleDay = <Date>this._selectedDate();
+    } else if (this.multiple && this._selectedEndDate() !== null) {
+      this.#visibleDay = <Date>this._selectedEndDate();
+    }
     this._renderCalendarView();
   }
 
@@ -120,49 +128,19 @@ class Component extends HTMLElement {
    */
 
   static get observedAttributes() {
-    return ["date", "min", "max"];
+    return ["date", "end-date", "min", "max", "multiple"];
   }
 
   attributeChangedCallback(attr: string, oldVal: string, newVal: string) {
-    if (attr === "date") {
-      this._setSelectedDate(newVal);
-      this._renderCalendarView();
+    if (attr === "min" || attr === "max") {
+      this._clampSelectedDates();
     }
 
-    if (attr === "min") {
-      if (newVal !== null && newVal.match(Component.dateRegex)) {
-        const dateArr = newVal.split("-").map((i) => parseInt(i));
-        // month is zero-indexed
-        dateArr[1] = dateArr[1] - 1;
-        const [year, month, day] = dateArr;
-        this.#minDay = new Date(year, month, day);
-        if (
-          this.#selectedDay !== null &&
-          this._isBeforeMin(this.#selectedDay)
-        ) {
-          this._setSelectedDate(newVal);
-        }
-      } else {
-        this.#minDay = false;
-      }
-      this._renderCalendarView();
+    if (attr === "multiple" && newVal === null) {
+      this.endDate = null;
     }
 
-    if (attr === "max") {
-      if (newVal !== null && newVal.match(Component.dateRegex)) {
-        const dateArr = newVal.split("-").map((i) => parseInt(i));
-        // month is zero-indexed
-        dateArr[1] = dateArr[1] - 1;
-        const [year, month, day] = dateArr;
-        this.#maxDay = new Date(year, month, day);
-        if (this.#selectedDay !== null && this._isAfterMax(this.#selectedDay)) {
-          this._setSelectedDate(newVal);
-        }
-      } else {
-        this.#maxDay = false;
-      }
-      this._renderCalendarView();
-    }
+    this._renderCalendarView();
   }
 
   /**
@@ -170,7 +148,11 @@ class Component extends HTMLElement {
    */
 
   set date(val: string | null) {
-    this.setAttribute("date", val !== null ? val : "");
+    if (val) {
+      this.setAttribute("date", val);
+    } else {
+      this.removeAttribute("date");
+    }
     const event = new CustomEvent("date", {
       detail: val,
     });
@@ -182,7 +164,11 @@ class Component extends HTMLElement {
   }
 
   set endDate(val: string | null) {
-    this.setAttribute("end-date", val !== null ? val : "");
+    if (val) {
+      this.setAttribute("end-date", val);
+    } else {
+      this.removeAttribute("end-date");
+    }
     const event = new CustomEvent("end-date", {
       detail: val,
     });
@@ -194,7 +180,11 @@ class Component extends HTMLElement {
   }
 
   set min(val: string | null) {
-    this.setAttribute("min", val !== null ? val : "");
+    if (val) {
+      this.setAttribute("min", val);
+    } else {
+      this.removeAttribute("min");
+    }
     const event = new CustomEvent("min", {
       detail: val,
     });
@@ -206,7 +196,11 @@ class Component extends HTMLElement {
   }
 
   set max(val: string | null) {
-    this.setAttribute("max", val !== null ? val : "");
+    if (val) {
+      this.setAttribute("max", val);
+    } else {
+      this.removeAttribute("max");
+    }
     const event = new CustomEvent("max", {
       detail: val,
     });
@@ -234,39 +228,146 @@ class Component extends HTMLElement {
   }
 
   /**
+   * Computed properties
+   */
+
+  private _selectedDate(): Date | null {
+    if (this.date === null) return null;
+    return this._getDateFromFormattedString(this.date);
+  }
+
+  private _selectedEndDate(): Date | null {
+    if (this.endDate === null) return null;
+    return this._getDateFromFormattedString(this.endDate);
+  }
+
+  private _minDate(): Date | null {
+    if (this.min === null) return null;
+    return this._getDateFromFormattedString(this.min);
+  }
+
+  private _maxDate(): Date | null {
+    if (this.max === null) return null;
+    return this._getDateFromFormattedString(this.max);
+  }
+
+  /**
    * Helpers
    */
 
-  private _setSelectedDate(val: string) {
-    const date = <Date>this._getDateFromFormattedString(val);
-    if (!isValid(date)) return;
-    if (this._isBeforeMin(date)) {
-      this.#selectedDay = <Date>this.#minDay;
-    } else if (this._isAfterMax(date)) {
-      this.#selectedDay = <Date>this.#maxDay;
-    } else {
-      this.#selectedDay = date;
+  private _isChangingTheStartDate(val: string): boolean {
+    if (!this.multiple) return true;
+    if (this._selectedDate() === null) return true;
+    if (this._selectedEndDate() === null) return false;
+    const date = this._getDateFromFormattedString(val);
+    if (date == null) return true;
+    const closest = closestTo(date, [
+      <Date>this._selectedDate(),
+      <Date>this._selectedEndDate(),
+    ]);
+    return isSameDay(closest, <Date>this._selectedDate());
+  }
+
+  private _clampSelectedDates() {
+    if (this._isBeforeMin(<Date>this._maxDate())) {
+      this.date = null;
+      this.endDate = null;
+      return;
     }
-    const formattedDate = format(this.#selectedDay, "yyyy-MM-dd");
-    if (this.date !== formattedDate) this.date = formattedDate;
+
+    if (this.date !== null) {
+      if (this._isBeforeMin(<Date>this._selectedDate())) {
+        this.date = this.min;
+      } else if (this._isAfterMax(<Date>this._selectedDate())) {
+        this.date = this.max;
+        this.endDate = null;
+      }
+    }
+
+    if (this.endDate !== null) {
+      if (this._isBeforeMin(<Date>this._selectedEndDate())) {
+        this.date = this.min;
+        this.endDate = null;
+      } else if (this._isAfterMax(<Date>this._selectedEndDate())) {
+        this.endDate = this.max;
+      }
+    }
+  }
+
+  private _setSelectedDates(val: string) {
+    const isStartDate = this._isChangingTheStartDate(val);
+
+    if (isStartDate) {
+      if (this.date === val && this.endDate !== null) {
+        this.date = this.endDate;
+        this.endDate = null;
+      } else if (this.date === val) {
+        this.date = null;
+      } else {
+        this.date = val;
+      }
+    } else {
+      if (this.date === val || this.date === null) {
+        this.date = null;
+        this.endDate = null;
+      } else if (this.endDate === val) {
+        this.endDate = null;
+      } else {
+        const date = <Date>this._getDateFromFormattedString(val);
+        if (isBefore(date, <Date>this._selectedDate())) {
+          this.endDate = this.date;
+          this.date = val;
+        } else {
+          this.endDate = val;
+        }
+      }
+    }
   }
 
   private _isBeforeMin(date: Date): boolean {
-    return typeof this.#minDay !== "boolean" && isBefore(date, this.#minDay);
+    return isBefore(date, <Date>this._minDate());
   }
 
   private _isAfterMax(date: Date): boolean {
-    return typeof this.#maxDay !== "boolean" && isAfter(date, this.#maxDay);
+    return isAfter(date, <Date>this._maxDate());
   }
 
-  private _getDateFromFormattedString(val: string = "") {
+  private _getDateFromFormattedString(val: string = ""): Date | null {
     const userDateMatchesRegex = val?.match(Component.dateRegex);
-    if (!userDateMatchesRegex) return;
+    if (!userDateMatchesRegex) return null;
     const dateArr = val.split("-").map((i) => parseInt(i));
     // month is zero-indexed
     dateArr[1] = dateArr[1] - 1;
     const [year, month, day] = dateArr;
     return new Date(year, month, day);
+  }
+
+  private _isInsideRange(day: Date) {
+    return (
+      this._selectedDate() !== null &&
+      (isAfter(day, <Date>this._selectedDate()) ||
+        isSameDay(day, <Date>this._selectedDate())) &&
+      this._selectedEndDate() !== null &&
+      (isBefore(day, <Date>this._selectedEndDate()) ||
+        isSameDay(day, <Date>this._selectedEndDate()))
+    );
+  }
+
+  private _isSameWeek(day: Date) {
+    return (
+      this._selectedDate() !== null &&
+      isSameWeek(day, <Date>this._selectedDate()) &&
+      this._selectedEndDate() === null
+    );
+  }
+
+  private _isSameDay(day: Date) {
+    return (
+      (this._selectedDate() !== null &&
+        isSameDay(day, <Date>this._selectedDate())) ||
+      (this._selectedEndDate() !== null &&
+        isSameDay(day, <Date>this._selectedEndDate()))
+    );
   }
 
   /**
@@ -305,40 +406,21 @@ class Component extends HTMLElement {
               <td
                 class="
                   ${
-                    this.#selectedDay !== null &&
-                    isSameWeek(day, this.#selectedDay)
-                      ? "same-week"
+                    this._isInsideRange(day) || this._isSameWeek(day)
+                      ? "highlight"
                       : ""
                   }
+                  ${this._isSameDay(day) ? "active" : ""}
                 "
               >
                 <button
                   class="
                     btn-date
                     ${!isSameMonth(day, this.#visibleDay) ? "dim" : ""}
-                    ${
-                      this.#selectedDay !== null &&
-                      isSameDay(day, this.#selectedDay)
-                        ? "active"
-                        : ""
-                    }
                     ${isToday(day) ? "today" : ""}
                   "
                   ${
-                    (
-                      typeof this.#minDay !== "boolean"
-                        ? isBefore(day, this.#minDay)
-                        : false
-                    )
-                      ? `disabled="disabled"`
-                      : ""
-                  }
-                  ${
-                    (
-                      typeof this.#maxDay !== "boolean"
-                        ? isAfter(day, this.#maxDay)
-                        : false
-                    )
+                    this._isBeforeMin(day) || this._isAfterMax(day)
                       ? `disabled="disabled"`
                       : ""
                   }

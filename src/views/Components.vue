@@ -559,8 +559,11 @@
               <sds-calendar
                 variant="red"
                 class="m-2 mb-4"
-                :date="calendarDate"
-                @date="calendarDate = $event.detail"
+                min="2020-05-02"
+                max="2020-07-18"
+                date="2020-06-09"
+                end-date="2020-07-16"
+                multiple
               />
             </sds-container>
 
