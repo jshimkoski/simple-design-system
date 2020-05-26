@@ -148,7 +148,7 @@ class Component extends HTMLElement {
    */
 
   set date(val: string | null) {
-    if (val) {
+    if (val !== null) {
       this.setAttribute("date", val);
     } else {
       this.removeAttribute("date");
@@ -164,7 +164,7 @@ class Component extends HTMLElement {
   }
 
   set endDate(val: string | null) {
-    if (val) {
+    if (val !== null) {
       this.setAttribute("end-date", val);
     } else {
       this.removeAttribute("end-date");
@@ -180,7 +180,7 @@ class Component extends HTMLElement {
   }
 
   set min(val: string | null) {
-    if (val) {
+    if (val !== null) {
       this.setAttribute("min", val);
     } else {
       this.removeAttribute("min");
@@ -196,7 +196,7 @@ class Component extends HTMLElement {
   }
 
   set max(val: string | null) {
-    if (val) {
+    if (val !== null) {
       this.setAttribute("max", val);
     } else {
       this.removeAttribute("max");
@@ -269,12 +269,23 @@ class Component extends HTMLElement {
   }
 
   private _clampSelectedDates() {
+    // clamp max to min and reset date/endDate
     if (this._isBeforeMin(<Date>this._maxDate())) {
       this.date = null;
       this.endDate = null;
+      this.max = this.min;
       return;
     }
 
+    // clamp min to max and reset date/endDate
+    if (this._isAfterMax(<Date>this._minDate())) {
+      this.date = null;
+      this.endDate = null;
+      this.min = this.max;
+      return;
+    }
+
+    // clamp date to min and max
     if (this.date !== null) {
       if (this._isBeforeMin(<Date>this._selectedDate())) {
         this.date = this.min;
@@ -284,6 +295,7 @@ class Component extends HTMLElement {
       }
     }
 
+    // clamp endDate to min and max
     if (this.endDate !== null) {
       if (this._isBeforeMin(<Date>this._selectedEndDate())) {
         this.date = this.min;
