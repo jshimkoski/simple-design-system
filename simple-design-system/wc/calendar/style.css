@@ -129,16 +129,8 @@ th, td {
   @apply text-center;
 }
 
-.same-week {
+.highlight {
   @apply bg-gray-200;
-
-  &:first-child {
-    @apply rounded-l;
-  }
-
-  &:last-child {
-    @apply rounded-r;
-  }
 }
 
 .btn-date {
@@ -158,28 +150,28 @@ th, td {
 }
 
 .today,
-.active,
+.active .btn-date,
 .btn-date:hover {
   @apply font-bold;
 }
 
-.active:not(.today),
+.active .btn-date:not(.today),
 .btn-date:not(.today):hover {
-  @apply bg-static-gray-800 text-static-gray-100;
+  @apply bg-gray-800 text-gray-100;
 }
 
 .same-week {
-  & .active:not(.today),
+  &.active :not(.today),
   & .btn-date:not(.today):hover {
-    @apply bg-static-gray-900 text-static-gray-100;
+    @apply bg-gray-900 text-gray-100;
   }
 }
 
-.today:not(.active) {
+:not(.active) .today {
   color: var(--cal-variant);
 }
 
-.today.active,
+.active .today,
 .today:hover {
   color: var(--cal-on-variant);
   background-color: var(--cal-variant);

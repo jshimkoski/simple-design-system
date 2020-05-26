@@ -366,8 +366,11 @@
                 <h3 slot="title">Header</h3>
                 <section slot="content">
                   <p>
-                    <span>This is the content of the modal with a</span>
-                    <sds-dropdown>
+                    <span
+                      >This is the content of the modal with a
+                      right-aligned</span
+                    >
+                    <sds-dropdown right>
                       <button
                         slot="button"
                         class="text-red hover:dark focus:darken"
@@ -510,14 +513,14 @@
               <code>yyyy-MM-dd</code> format to set date.
             </p>
             <p class="my-2">
-              COMING SOON: Use an <code>end-date</code> attribute in
+              Use an <code>end-date</code> attribute in
               <code>yyyy-MM-dd</code> format to set an end date. Requires
               <code>multiple</code> attribute.
             </p>
             <p class="my-2">
-              COMING SOON: Use a <code>multiple</code> attribute in combination
-              with <code>date</code> and <code>end-date</code> attributes to set
-              a date range.
+              Use a <code>multiple</code> attribute in combination
+              <code>date</code> and <code>end-date</code> attributes to set a
+              date range.
             </p>
             <p class="my-2">
               Use a <code>max</code> attribute in <code>yyyy-MM-dd</code> format
@@ -532,7 +535,7 @@
               <code>date</code> attribute changes.
             </p>
             <p class="my-2">
-              COMING SOON: Emits an <code>end-date</code> CustomEvent when the
+              Emits an <code>end-date</code> CustomEvent when the
               <code>end-date</code> attribute changes.
             </p>
             <p class="my-2">
@@ -544,7 +547,7 @@
               <code>min</code> attribute changes.
             </p>
             <p class="my-2">
-              COMING SOON: Emits a <code>multiple</code> CustomEvent when the
+              Emits a <code>multiple</code> CustomEvent when the
               <code>multiple</code> attribute changes.
             </p>
             <p class="my-2">
@@ -554,13 +557,16 @@
             </p>
           </div>
           <section slot="content">
-            <h2 class="text-lg mb-4">Inline, Red variant</h2>
+            <h2 class="text-lg mb-4">Inline, Range, Red variant</h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-calendar
                 variant="red"
                 class="m-2 mb-4"
-                :date="calendarDate"
-                @date="calendarDate = $event.detail"
+                min="2020-05-02"
+                max="2020-07-18"
+                date="2020-06-09"
+                end-date="2020-07-16"
+                multiple
               />
             </sds-container>
 
