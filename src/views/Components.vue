@@ -366,8 +366,11 @@
                 <h3 slot="title">Header</h3>
                 <section slot="content">
                   <p>
-                    <span>This is the content of the modal with a</span>
-                    <sds-dropdown>
+                    <span
+                      >This is the content of the modal with a
+                      right-aligned</span
+                    >
+                    <sds-dropdown right>
                       <button
                         slot="button"
                         class="text-red hover:dark focus:darken"
