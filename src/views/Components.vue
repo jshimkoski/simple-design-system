@@ -517,7 +517,7 @@
             <p class="my-2">
               Use a <code>multiple</code> attribute in combination
               <code>date</code> and <code>end-date</code> attributes to set a
-              a date range.
+              date range.
             </p>
             <p class="my-2">
               Use a <code>max</code> attribute in <code>yyyy-MM-dd</code> format
@@ -554,7 +554,7 @@
             </p>
           </div>
           <section slot="content">
-            <h2 class="text-lg mb-4">Inline, Red variant</h2>
+            <h2 class="text-lg mb-4">Inline, Range, Red variant</h2>
             <sds-container class="bg-bgcolor mb-4">
               <sds-calendar
                 variant="red"
