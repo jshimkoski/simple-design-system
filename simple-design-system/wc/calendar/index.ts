@@ -334,6 +334,18 @@ class Component extends HTMLElement {
         }
       }
     }
+
+    // after waiting for next render cycle,
+    // if replacement for clicked button is visible,
+    // focus it
+    setTimeout(() => {
+      const btn = this.#$calendar?.querySelector(
+        `[data-date="${val}"]`
+      ) as HTMLButtonElement;
+      if (btn.offsetWidth > 0 && btn.offsetHeight > 0) {
+        btn.focus();
+      }
+    }, 0);
   }
 
   private _isBeforeMin(date: Date): boolean {
