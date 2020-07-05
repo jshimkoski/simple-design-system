@@ -502,7 +502,7 @@ class Component extends HTMLElement {
     //  5. Get the total days that we are going to generate.
     const totalDays = matrixRows * matrixColumns;
     //  Preparations complete! Let's generate the calendar matrix
-    let calendar =
+    const calendar =
       //  6. Generate an empty Array from the totalDays
       Array.from({ length: totalDays })
         //  7. Assign a Date value to each value of the array

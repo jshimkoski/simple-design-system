@@ -18,6 +18,6 @@ module.exports = {
     "plugin:vue/essential",
     "eslint:recommended",
     "@vue/prettier",
-    "@vue/typescript"
-  ]
+    "@vue/typescript",
+  ],
 };
