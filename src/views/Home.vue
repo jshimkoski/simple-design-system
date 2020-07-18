@@ -104,25 +104,24 @@
         </p>
       </div>
     </sds-container>
-    <sds-container class="pt-16 pb-20">
-      <h2 class="block text-2xl">
+    <sds-container class="prose lg:prose-lg pt-16 pb-20">
+      <h2>
         Getting Started
       </h2>
-      <h3 class="block text-lg font-light my-5">
+      <h3>
         Install via npm
       </h3>
-      <code class="block bg-gray-100 text-gray-900 rounded p-8">
-        $ npm i simple-design-system --save-dev
-      </code>
-      <h3 class="block text-lg font-light mt-8 mb-5">
+      <pre><code>$ npm i simple-design-system --save-dev</code></pre>
+      <h3>
         Add it to your entry file
       </h3>
-      <code class="block bg-gray-100 text-gray-900 rounded p-8">
-        <p class="text-green darken">// import all web components</p>
-        <p>import "simple-design-system";</p>
-        <p class="text-green darken mt-4">// import purgecss compatible css</p>
-        <p>import "simple-design-system/dist/index.css";</p>
-      </code>
+      <pre>
+<code class="text-green darken">// import all web components</code>
+<code>import "simple-design-system";</code>
+
+<code class="text-green darken mt-4">// import purgecss compatible css</code>
+<code>import "simple-design-system/dist/index.css";</code>
+</pre>
     </sds-container>
   </sds-container>
 </template>

@@ -47,30 +47,30 @@
           </nav>
         </div>
       </aside>
-      <section slot="content" class="p-4 md:py-6 md:px-8 lg:w-10/12">
-        <h2 class="text-4xl mb-4">Guide</h2>
-        <h3 id="introduction" class="text-3xl font-semibold mb-2">
+      <section slot="content" class="prose lg:prose-lg p-4 md:py-6 md:px-8">
+        <h2>Guide</h2>
+        <h3 id="introduction">
           Introduction
         </h3>
-        <h4 class="text-2xl">Features</h4>
-        <ul class="list-disc ml-8">
-          <li class="my-2">
+        <h4>Features</h4>
+        <ul>
+          <li>
             Light and dark theme switching based on a user's system preference
             that can be overridden with a ".light" or ".dark" class on the HTML
             element.
           </li>
-          <li class="my-2">
+          <li>
             Traditional layouts that include sidebars, headers, and footers.
           </li>
-          <li class="my-2">
+          <li>
             Compatibility with all frontend libraries (React, Vue, Angular,
             jQuery, doesn't matter).
           </li>
-          <li class="my-2">
+          <li>
             Utility classes provided by
             <external-link
               href="https://tailwindcss.com/"
-              class="text-red hover:underline hover:darken"
+              class="text-red hover:darken focus:darken"
               >Tailwind CSS</external-link
             >
             control styling so no custom CSS is ever required.
@@ -79,62 +79,50 @@
             Includes
             <external-link
               href="https://github.com/tailwindcss/typography"
-              class="text-red hover:underline hover:darken"
+              class="text-red hover:darken focus:darken"
               >Tailwind Typography</external-link
             >, for beautiful typographic defaults you can add to any vanilla
             HTML you don't control (like HTML rendered from Markdown, or pulled
             from a CMS).
           </li>
-          <li class="my-2">
+          <li>
             Complex nested element trees for common components such as navbars
             are a thing of the past.
           </li>
-          <li class="my-2">
+          <li>
             You can take full advantage of
             <external-link
               href="https://purgecss.com/"
-              class="text-red hover:underline hover:darken"
+              class="text-red hover:darken focus:darken"
               >PurgeCSS</external-link
             >
             so the size of your CSS files are ridiculously small.
           </li>
         </ul>
-        <h3 id="installation" class="text-3xl font-semibold mt-16 mb-2">
+        <h3 id="installation">
           Installation
         </h3>
-        <h4 class="block text-lg font-light my-5">
+        <h4>
           Install via npm
         </h4>
-        <code class="block bg-gray-100 text-gray-900 rounded p-8 mb-4">
-          $ npm i simple-design-system --save-dev
-        </code>
-        <h4 class="block text-lg font-light mt-8 mb-5">
+        <pre><code>$ npm i simple-design-system --save-dev</code></pre>
+        <h4>
           Add it to your entry file
         </h4>
-        <code class="block bg-gray-100 text-gray-900 rounded p-8">
-          <p class="text-green darken">// import all web components</p>
-          <p>import "simple-design-system";</p>
-          <p class="text-green darken mt-4">
-            // or, import individual web components
-          </p>
-          <p class="text-green darken">
-            // import "simple-design-system/dist/wc/navbar";
-          </p>
-          <p class="text-green darken mt-4">
-            // import purgecss compatible css
-          </p>
-          <p>import "simple-design-system/dist/index.css";</p>
-          <p class="text-green darken mt-4">
-            // or, import pre-minified css (not compatible with purgecss)
-          </p>
-          <p class="text-green darken">
-            // import "simple-design-system/dist/index.min.css";
-          </p>
-        </code>
-        <h3
-          id="controlling-file-size"
-          class="text-3xl font-semibold mt-16 mb-4"
-        >
+        <pre>
+<code class="text-green darken">// import all web components</code>
+<code>import "simple-design-system";</code>
+
+<code class="text-green darken">// or, import individual web components</code>
+<code class="text-green darken">// import "simple-design-system/dist/wc/navbar";</code>
+
+<code class="text-green darken">// import purgecss compatible css</code>
+<code>import "simple-design-system/dist/index.css";</code>
+
+<code class="text-green darken">// or, import pre-minified css (not compatible with purgecss)</code>
+<code class="text-green darken">// import "simple-design-system/dist/index.min.css";</code>
+</pre>
+        <h3 id="controlling-file-size">
           Controlling File Size
         </h3>
         <p>
@@ -142,14 +130,14 @@
           free to add
           <external-link
             href="https://purgecss.com/"
-            class="text-red hover:underline hover:darken"
+            class="text-red hover:darken focus:darken"
             >PurgeCSS</external-link
           >
           to your project to drastically reduce this filesize. Our CSS comes
           pre-wrapped with special identifiers so you can be sure that PurgeCSS
           will function as expected.
         </p>
-        <h3 id="browser-support" class="text-3xl font-semibold mt-16 mb-4">
+        <h3 id="browser-support">
           Browser Support
         </h3>
         <p>
@@ -157,28 +145,28 @@
           Firefox, Safari, and Edge. IE11 is not supported.
         </p>
 
-        <h3 id="core-concepts" class="text-3xl font-semibold mt-16 mb-4">
+        <h3 id="core-concepts">
           Core Concepts
         </h3>
-        <h4 class="text-2xl mb-4">Utility-First</h4>
+        <h4>Utility-First</h4>
         <p>
           The {{ appName }} is built on top of
           <external-link
             href="https://tailwindcss.com/"
-            class="text-red hover:underline hover:darken"
+            class="text-red hover:darken focus:darken"
             >Tailwind CSS</external-link
           >. Please refer to their documentation for a complete list of all of
           the utility classes for which you can take advantage.
         </p>
-        <h4 class="text-2xl my-4">Responsive</h4>
+        <h4>Responsive</h4>
         <p>
           All components respond to screen size to ensure they are always
           functional and aesthetically pleasing. If for any reason a component
           doesn't respond in an appropriate way, you have full access to
           thousands of utility functions that will get you where you need to be.
         </p>
-        <h4 class="text-2xl my-4">Color</h4>
-        <h5 class="text-xl font-light my-4">
+        <h4>Color</h4>
+        <h5>
           Theme Switching
         </h5>
         <p>
@@ -187,36 +175,35 @@
           element. The core principle of this magic is based on the way iOS and
           macOS handles this same functionality.
         </p>
-        <h5 class="text-xl font-light mt-8 mb-4">
+        <h5>
           Color Design Principles
         </h5>
-        <p class="my-4">
-          <strong class="font-semibold">Be Flexible</strong>. Choose color
-          variations that look good in both theme variants within their current
-          context and scope. There must be some flexibility in order to allow
-          the magic of dynamic theme switching to work properly.
+        <p>
+          <strong>Be Flexible</strong>. Choose color variations that look good
+          in both theme variants within their current context and scope. There
+          must be some flexibility in order to allow the magic of dynamic theme
+          switching to work properly.
         </p>
-        <p class="my-4">
-          <strong class="font-semibold">Make Interactive Elements Pop</strong>.
-          Avoid using the same color for interactive and non-interactive
-          elements. If they have the same color, the user doesn't know what
-          elements they can interact with. It is recommended to keep
-          non-interactive elements grayscale or muted in some capacity.
+        <p>
+          <strong>Make Interactive Elements Pop</strong>. Avoid using the same
+          color for interactive and non-interactive elements. If they have the
+          same color, the user doesn't know what elements they can interact
+          with. It is recommended to keep non-interactive elements grayscale or
+          muted in some capacity.
         </p>
-        <p class="my-4">
-          <strong class="font-semibold">Its All About Continuity</strong>.
-          Variations in surrounding elements will sometimes warrant changes to
-          nearby colors in order to maintain visual continuity. Prevent
-          interface elements from becoming overpowering or underwhelming by
-          using common sense color choices.
+        <p>
+          <strong>Its All About Continuity</strong>. Variations in surrounding
+          elements will sometimes warrant changes to nearby colors in order to
+          maintain visual continuity. Prevent interface elements from becoming
+          overpowering or underwhelming by using common sense color choices.
         </p>
-        <p class="my-4">
-          <strong class="font-semibold">Be Mindful of Contrast</strong>. For
-          certain users, it is difficult to distinguish colors due to certain
-          limitations or disabilities. Practice due diligence to ensure your
-          application is accessible to them.
+        <p>
+          <strong>Be Mindful of Contrast</strong>. For certain users, it is
+          difficult to distinguish colors due to certain limitations or
+          disabilities. Practice due diligence to ensure your application is
+          accessible to them.
         </p>
-        <h3 id="overriding-colors" class="text-3xl font-semibold mt-16 mb-4">
+        <h3 id="overriding-colors">
           Overriding Colors
         </h3>
         <p>
@@ -224,7 +211,7 @@
           be overridden by replacing the value for its CSS variable. Just be
           certain that your override come after the included CSS file.
         </p>
-        <h3 id="static-color-palette" class="text-3xl font-semibold mt-16 mb-4">
+        <h3 id="static-color-palette">
           Static Color Palette
         </h3>
         <p>
@@ -232,126 +219,123 @@
           light mode. You can be sure that if you use a static color, it will
           always remain the same.
         </p>
-        <table class="my-8 w-full">
-          <thead class="border-b text-left font-bold bg-gray-100">
+        <table>
+          <thead>
             <tr>
-              <th class="p-3">Color</th>
-              <th class="p-3">CSS Variable</th>
-              <th class="p-3">Utility Class</th>
-              <th class="p-3">Example</th>
+              <th>Color</th>
+              <th>CSS Variable</th>
+              <th>Utility Class</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="p-3 align-middle">White</td>
-              <td class="p-3 align-middle">--color-white</td>
-              <td class="p-3 align-middle">*-white</td>
-              <td class="p-3 align-middle">
+              <td>White</td>
+              <td>--color-white</td>
+              <td>*-white</td>
+              <td>
                 <div class="p-4 bg-white border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Black</td>
-              <td class="p-3 align-middle">--color-black</td>
-              <td class="p-3 align-middle">*-black</td>
-              <td class="p-3 align-middle">
+              <td>Black</td>
+              <td>--color-black</td>
+              <td>*-black</td>
+              <td>
                 <div class="p-4 bg-black border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Transparent</td>
-              <td class="p-3 align-middle">--color-transparent</td>
-              <td class="p-3 align-middle">*-transparent</td>
-              <td class="p-3 align-middle">
+              <td>Transparent</td>
+              <td>--color-transparent</td>
+              <td>*-transparent</td>
+              <td>
                 <div class="p-4 bg-transparent border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Current Color</td>
-              <td class="p-3 align-middle">--color-current</td>
-              <td class="p-3 align-middle">*-current</td>
-              <td class="p-3 align-middle">
+              <td>Current Color</td>
+              <td>--color-current</td>
+              <td>*-current</td>
+              <td>
                 <div class="p-4 bg-current border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 100</td>
-              <td class="p-3 align-middle">--color-static-gray-100</td>
-              <td class="p-3 align-middle">*-static-gray-100</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 100</td>
+              <td>--color-static-gray-100</td>
+              <td>*-static-gray-100</td>
+              <td>
                 <div class="p-4 bg-static-gray-100 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 200</td>
-              <td class="p-3 align-middle">--color-static-gray-200</td>
-              <td class="p-3 align-middle">*-static-gray-200</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 200</td>
+              <td>--color-static-gray-200</td>
+              <td>*-static-gray-200</td>
+              <td>
                 <div class="p-4 bg-static-gray-200 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 300</td>
-              <td class="p-3 align-middle">--color-static-gray-300</td>
-              <td class="p-3 align-middle">*-static-gray-300</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 300</td>
+              <td>--color-static-gray-300</td>
+              <td>*-static-gray-300</td>
+              <td>
                 <div class="p-4 bg-static-gray-300 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 400</td>
-              <td class="p-3 align-middle">--color-static-gray-400</td>
-              <td class="p-3 align-middle">*-static-gray-400</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 400</td>
+              <td>--color-static-gray-400</td>
+              <td>*-static-gray-400</td>
+              <td>
                 <div class="p-4 bg-static-gray-400 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 500</td>
-              <td class="p-3 align-middle">--color-static-gray-500</td>
-              <td class="p-3 align-middle">*-static-gray-500</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 500</td>
+              <td>--color-static-gray-500</td>
+              <td>*-static-gray-500</td>
+              <td>
                 <div class="p-4 bg-static-gray-500 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 600</td>
-              <td class="p-3 align-middle">--color-static-gray-600</td>
-              <td class="p-3 align-middle">*-static-gray-600</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 600</td>
+              <td>--color-static-gray-600</td>
+              <td>*-static-gray-600</td>
+              <td>
                 <div class="p-4 bg-static-gray-600 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 700</td>
-              <td class="p-3 align-middle">--color-static-gray-700</td>
-              <td class="p-3 align-middle">*-static-gray-700</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 700</td>
+              <td>--color-static-gray-700</td>
+              <td>*-static-gray-700</td>
+              <td>
                 <div class="p-4 bg-static-gray-700 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Static Gray 800</td>
-              <td class="p-3 align-middle">--color-static-gray-800</td>
-              <td class="p-3 align-middle">*-static-gray-800</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 800</td>
+              <td>--color-static-gray-800</td>
+              <td>*-static-gray-800</td>
+              <td>
                 <div class="p-4 bg-static-gray-800 border" />
               </td>
             </tr>
             <tr>
-              <td class="p-3 align-middle">Static Gray 900</td>
-              <td class="p-3 align-middle">--color-static-gray-900</td>
-              <td class="p-3 align-middle">*-static-gray-900</td>
-              <td class="p-3 align-middle">
+              <td>Static Gray 900</td>
+              <td>--color-static-gray-900</td>
+              <td>*-static-gray-900</td>
+              <td>
                 <div class="p-4 bg-static-gray-900 border" />
               </td>
             </tr>
           </tbody>
         </table>
-        <h3
-          id="dynamic-color-palette"
-          class="text-3xl font-semibold mt-16 mb-4"
-        >
+        <h3 id="dynamic-color-palette">
           Dynamic Color Palette
         </h3>
         <p>
@@ -361,8 +345,8 @@
           toggle between the two during development just to ensure all
           expectations are met.
         </p>
-        <table class="my-8 w-full">
-          <thead class="border-b text-left font-bold bg-gray-100">
+        <table>
+          <thead>
             <tr>
               <th class="p-3">Color</th>
               <th class="p-3">CSS Variable</th>
@@ -372,178 +356,178 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="p-3 align-middle">Foreground Color</td>
-              <td class="p-3 align-middle">--color-fgcolor</td>
-              <td class="p-3 align-middle">*-fgcolor</td>
-              <td class="p-3 align-middle">
+              <td>Foreground Color</td>
+              <td>--color-fgcolor</td>
+              <td>*-fgcolor</td>
+              <td>
                 <div class="p-4 bg-fgcolor border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Background Color</td>
-              <td class="p-3 align-middle">--color-bgcolor</td>
-              <td class="p-3 align-middle">*-bgcolor</td>
-              <td class="p-3 align-middle">
+              <td>Background Color</td>
+              <td>--color-bgcolor</td>
+              <td>*-bgcolor</td>
+              <td>
                 <div class="p-4 bg-bgcolor border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Border Color</td>
-              <td class="p-3 align-middle">--color-border</td>
-              <td class="p-3 align-middle">*-border</td>
-              <td class="p-3 align-middle">
+              <td>Border Color</td>
+              <td>--color-border</td>
+              <td>*-border</td>
+              <td>
                 <div class="p-4 bg-border border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Placeholder Color</td>
-              <td class="p-3 align-middle">--color-placeholder</td>
-              <td class="p-3 align-middle">*-placeholder</td>
-              <td class="p-3 align-middle">
+              <td>Placeholder Color</td>
+              <td>--color-placeholder</td>
+              <td>*-placeholder</td>
+              <td>
                 <div class="p-4 bg-placeholder border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 100</td>
-              <td class="p-3 align-middle">--color-gray-100</td>
-              <td class="p-3 align-middle">*-gray-100</td>
-              <td class="p-3 align-middle">
+              <td>Gray 100</td>
+              <td>--color-gray-100</td>
+              <td>*-gray-100</td>
+              <td>
                 <div class="p-4 bg-gray-100 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 200</td>
-              <td class="p-3 align-middle">--color-gray-200</td>
-              <td class="p-3 align-middle">*-gray-200</td>
-              <td class="p-3 align-middle">
+              <td>Gray 200</td>
+              <td>--color-gray-200</td>
+              <td>*-gray-200</td>
+              <td>
                 <div class="p-4 bg-gray-200 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 300</td>
-              <td class="p-3 align-middle">--color-gray-300</td>
-              <td class="p-3 align-middle">*-gray-300</td>
-              <td class="p-3 align-middle">
+              <td>Gray 300</td>
+              <td>--color-gray-300</td>
+              <td>*-gray-300</td>
+              <td>
                 <div class="p-4 bg-gray-300 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 400</td>
-              <td class="p-3 align-middle">--color-gray-400</td>
-              <td class="p-3 align-middle">*-gray-400</td>
-              <td class="p-3 align-middle">
+              <td>Gray 400</td>
+              <td>--color-gray-400</td>
+              <td>*-gray-400</td>
+              <td>
                 <div class="p-4 bg-gray-400 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 500</td>
-              <td class="p-3 align-middle">--color-gray-500</td>
-              <td class="p-3 align-middle">*-gray-500</td>
-              <td class="p-3 align-middle">
+              <td>Gray 500</td>
+              <td>--color-gray-500</td>
+              <td>*-gray-500</td>
+              <td>
                 <div class="p-4 bg-gray-500 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 600</td>
-              <td class="p-3 align-middle">--color-gray-600</td>
-              <td class="p-3 align-middle">*-gray-600</td>
-              <td class="p-3 align-middle">
+              <td>Gray 600</td>
+              <td>--color-gray-600</td>
+              <td>*-gray-600</td>
+              <td>
                 <div class="p-4 bg-gray-600 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 700</td>
-              <td class="p-3 align-middle">--color-gray-700</td>
-              <td class="p-3 align-middle">*-gray-700</td>
-              <td class="p-3 align-middle">
+              <td>Gray 700</td>
+              <td>--color-gray-700</td>
+              <td>*-gray-700</td>
+              <td>
                 <div class="p-4 bg-gray-700 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 800</td>
-              <td class="p-3 align-middle">--color-gray-800</td>
-              <td class="p-3 align-middle">*-gray-800</td>
-              <td class="p-3 align-middle">
+              <td>Gray 800</td>
+              <td>--color-gray-800</td>
+              <td>*-gray-800</td>
+              <td>
                 <div class="p-4 bg-gray-800 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Gray 900</td>
-              <td class="p-3 align-middle">--color-gray-900</td>
-              <td class="p-3 align-middle">*-gray-900</td>
-              <td class="p-3 align-middle">
+              <td>Gray 900</td>
+              <td>--color-gray-900</td>
+              <td>*-gray-900</td>
+              <td>
                 <div class="p-4 bg-gray-900 border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Blue</td>
-              <td class="p-3 align-middle">--color-blue</td>
-              <td class="p-3 align-middle">*-blue</td>
-              <td class="p-3 align-middle">
+              <td>Blue</td>
+              <td>--color-blue</td>
+              <td>*-blue</td>
+              <td>
                 <div class="p-4 bg-blue border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Green</td>
-              <td class="p-3 align-middle">--color-green</td>
-              <td class="p-3 align-middle">*-green</td>
-              <td class="p-3 align-middle">
+              <td>Green</td>
+              <td>--color-green</td>
+              <td>*-green</td>
+              <td>
                 <div class="p-4 bg-green border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Indigo</td>
-              <td class="p-3 align-middle">--color-indigo</td>
-              <td class="p-3 align-middle">*-indigo</td>
-              <td class="p-3 align-middle">
+              <td>Indigo</td>
+              <td>--color-indigo</td>
+              <td>*-indigo</td>
+              <td>
                 <div class="p-4 bg-indigo border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Orange</td>
-              <td class="p-3 align-middle">--color-orange</td>
-              <td class="p-3 align-middle">*-orange</td>
-              <td class="p-3 align-middle">
+              <td>Orange</td>
+              <td>--color-orange</td>
+              <td>*-orange</td>
+              <td>
                 <div class="p-4 bg-orange border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Pink</td>
-              <td class="p-3 align-middle">--color-pink</td>
-              <td class="p-3 align-middle">*-pink</td>
-              <td class="p-3 align-middle">
+              <td>Pink</td>
+              <td>--color-pink</td>
+              <td>*-pink</td>
+              <td>
                 <div class="p-4 bg-pink border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Purple</td>
-              <td class="p-3 align-middle">--color-purple</td>
-              <td class="p-3 align-middle">*-purple</td>
-              <td class="p-3 align-middle">
+              <td>Purple</td>
+              <td>--color-purple</td>
+              <td>*-purple</td>
+              <td>
                 <div class="p-4 bg-purple border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Red</td>
-              <td class="p-3 align-middle">--color-red</td>
-              <td class="p-3 align-middle">*-red</td>
-              <td class="p-3 align-middle">
+              <td>Red</td>
+              <td>--color-red</td>
+              <td>*-red</td>
+              <td>
                 <div class="p-4 bg-red border" />
               </td>
             </tr>
             <tr class="border-b">
-              <td class="p-3 align-middle">Teal</td>
-              <td class="p-3 align-middle">--color-teal</td>
-              <td class="p-3 align-middle">*-teal</td>
-              <td class="p-3 align-middle">
+              <td>Teal</td>
+              <td>--color-teal</td>
+              <td>*-teal</td>
+              <td>
                 <div class="p-4 bg-teal border" />
               </td>
             </tr>
             <tr>
-              <td class="p-3 align-middle">Yellow</td>
-              <td class="p-3 align-middle">--color-yellow</td>
-              <td class="p-3 align-middle">*-yellow</td>
-              <td class="p-3 align-middle">
+              <td>Yellow</td>
+              <td>--color-yellow</td>
+              <td>*-yellow</td>
+              <td>
                 <div class="p-4 bg-yellow border" />
               </td>
             </tr>
