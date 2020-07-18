@@ -75,6 +75,16 @@
             >
             control styling so no custom CSS is ever required.
           </li>
+          <li clas="my-2">
+            Includes
+            <external-link
+              href="https://github.com/tailwindcss/typography"
+              class="text-red hover:underline hover:darken"
+              >Tailwind Typography</external-link
+            >, for beautiful typographic defaults you can add to any vanilla
+            HTML you don't control (like HTML rendered from Markdown, or pulled
+            from a CMS).
+          </li>
           <li class="my-2">
             Complex nested element trees for common components such as navbars
             are a thing of the past.

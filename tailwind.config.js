@@ -56,6 +56,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    require("@tailwindcss/typography"),
     require("tailwind-css-variables")({
       colors: false,
     }),
