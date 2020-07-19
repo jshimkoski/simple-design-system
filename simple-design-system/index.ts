@@ -1,4 +1,4 @@
 // css
-import "./css/index.css";
+import "./tailwindcss/tailwind.css";
 // web components
 import "./wc";

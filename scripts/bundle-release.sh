@@ -13,10 +13,7 @@ cp -a simple-design-system/. dist/src/
 PURGE_CSS=true npx vue-cli-service build --no-clean --dest dist/docs
 
 # build non-minified css
-npx parcel build simple-design-system/css/index.css --no-minify
-
-# build minified css
-npx parcel build simple-design-system/css/index.css --out-file index.min.css
+npx parcel build simple-design-system/tailwindcss/tailwind.css --out-file index.css --no-minify
 
 for d in simple-design-system/wc/* ; do
   if [[ "$d" == *"index.ts"* ]]; then

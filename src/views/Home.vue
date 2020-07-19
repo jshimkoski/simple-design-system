@@ -116,11 +116,11 @@
         Add it to your entry file
       </h3>
       <pre>
-<code class="text-green darken">// import all web components</code>
-<code>import "simple-design-system";</code>
-
 <code class="text-green darken mt-4">// import purgecss compatible css</code>
 <code>import "simple-design-system/dist/index.css";</code>
+
+<code class="text-green darken">// import all web components</code>
+<code>import "simple-design-system";</code>
 </pre>
     </sds-container>
   </sds-container>

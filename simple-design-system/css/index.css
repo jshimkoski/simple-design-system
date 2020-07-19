@@ -1,7 +1,0 @@
-/* purgecss start ignore */
-@import "./core/variables.css";
-@import "./core/base.css";
-/* purgecss end ignore */
-
-@import "./components/index.css";
-@import "./core/tailwind.css";

@@ -110,32 +110,25 @@
           Add it to your entry file
         </h4>
         <pre>
-<code class="text-green darken">// import all web components</code>
-<code>import "simple-design-system";</code>
-
-<code class="text-green darken">// or, import individual web components</code>
-<code class="text-green darken">// import "simple-design-system/dist/wc/navbar";</code>
-
-<code class="text-green darken">// import purgecss compatible css</code>
+<code class="text-green darken mt-4">// import purgecss compatible css</code>
 <code>import "simple-design-system/dist/index.css";</code>
 
-<code class="text-green darken">// or, import pre-minified css (not compatible with purgecss)</code>
-<code class="text-green darken">// import "simple-design-system/dist/index.min.css";</code>
+<code class="text-green darken">// import all web components</code>
+<code>import "simple-design-system";</code>
 </pre>
         <h3 id="controlling-file-size">
           Controlling File Size
         </h3>
         <p>
-          After gzip compression, the entry CSS file weighs around 80kb. Feel
-          free to add
+          Add
           <external-link
             href="https://purgecss.com/"
             class="text-red hover:darken focus:darken"
             >PurgeCSS</external-link
           >
-          to your project to drastically reduce this filesize. Our CSS comes
-          pre-wrapped with special identifiers so you can be sure that PurgeCSS
-          will function as expected.
+          to your project to generate an incredibly small CSS filesize. Our CSS
+          comes pre-wrapped with special identifiers so you can be sure that
+          PurgeCSS will function as expected.
         </p>
         <h3 id="browser-support">
           Browser Support
