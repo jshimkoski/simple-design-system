@@ -111,17 +111,19 @@
       <h3>
         Install via npm
       </h3>
-      <pre><code>$ npm i simple-design-system --save-dev</code></pre>
+      <pre class="whitespace-pre-line">
+        <code>$ npm i simple-design-system --save-dev</code>
+      </pre>
       <h3>
         Add it to your entry file
       </h3>
-      <pre>
-<code class="text-green darken mt-4">// import purgecss compatible css</code>
-<code>import "simple-design-system/dist/index.css";</code>
+      <pre class="whitespace-pre-line">
+        <code class="text-green darken mt-4">// import purgecss compatible css</code>
+        <code>import "simple-design-system/dist/index.css";</code>
 
-<code class="text-green darken">// import all web components</code>
-<code>import "simple-design-system";</code>
-</pre>
+        <code class="text-green darken">// import all web components</code>
+        <code>import "simple-design-system";</code>
+      </pre>
     </sds-container>
   </sds-container>
 </template>
