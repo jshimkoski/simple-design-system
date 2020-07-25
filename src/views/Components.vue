@@ -765,6 +765,9 @@
               Add a <code>disabled</code> attribute or
               <code>.disabled</code> class to give a button a disabled look.
             </p>
+            <p class="mt-2">
+              Add an <code>.active</code> class to give a button an active look.
+            </p>
           </div>
 
           <section slot="content">
@@ -777,7 +780,7 @@
             <div class="btn-group mb-4">
               <button class="btn">Default</button>
               <button class="btn">Default</button>
-              <button class="btn">Default</button>
+              <button class="btn active">Default</button>
               <button class="btn">Default</button>
             </div>
 
@@ -785,7 +788,7 @@
             <div class="btn-group mb-4">
               <button class="btn btn-outline">Outline</button>
               <button class="btn btn-outline">Outline</button>
-              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-outline active">Outline</button>
               <button class="btn btn-outline">Outline</button>
             </div>
 
@@ -793,7 +796,7 @@
             <div class="btn-group mb-4">
               <button class="btn btn-blue">Default</button>
               <button class="btn btn-outline btn-teal">Outline Teal</button>
-              <button class="btn btn-orange">Orange</button>
+              <button class="btn btn-orange active">Orange</button>
               <button class="btn btn-outline btn-red">Outline Red</button>
             </div>
 

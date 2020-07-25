@@ -88,7 +88,7 @@ module.exports = plugin(function ({ addComponents, config }) {
       backgroundColor: config("theme.colors.transparent"),
       color: "var(--btn-variant)",
 
-      "&:hover": {
+      "&:hover, &.active": {
         color: "var(--btn-variant-on)",
         backgroundColor: "var(--btn-variant)",
       },
@@ -115,6 +115,12 @@ module.exports = plugin(function ({ addComponents, config }) {
     ".btn:active": {
       boxShadow: config("theme.boxShadow.md"),
       filter: "var(--darken)",
+    },
+
+    ".btn.active": {
+      boxShadow: config("theme.boxShadow.inner"),
+      filter: "var(--darken)",
+      pointerEvents: "none",
     },
 
     ".btn:focus": {
