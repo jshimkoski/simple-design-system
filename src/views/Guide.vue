@@ -170,6 +170,14 @@
           element. The core principle of this magic is based on the way iOS and
           macOS handles this same functionality.
         </p>
+        <p>
+          In addition to automatic theme switching, you may use the "dark"
+          variant on any color class to use that color specifically for the dark
+          theme. For example, "<span class="dark:bg-green">dark:bg-green</span>"
+          or "<span class="dark:text-static-gray-500"
+            >dark:text-static-gray-500</span
+          >".
+        </p>
         <h5>
           Color Design Principles
         </h5>

@@ -27,15 +27,16 @@ module.exports = {
   // turn on active variants for
   // all color types
   variants: {
-    backgroundColor: ["responsive", "hover", "focus", "active"],
-    borderColor: ["responsive", "hover", "focus", "active"],
-    placeholderColor: ["responsive", "focus", "active"],
-    textColor: ["responsive", "hover", "focus", "active"],
+    backgroundColor: ["responsive", "dark", "hover", "focus", "active"],
+    borderColor: ["responsive", "dark", "hover", "focus", "active"],
+    placeholderColor: ["responsive", "dark", "focus", "active"],
+    textColor: ["responsive", "dark", "hover", "focus", "active"],
   },
   plugins: [
     // simple design system plugins
     require("./plugins/tailwindcss-css-variables"),
     require("./plugins/tailwindcss-base"),
+    require("./plugins/tailwindcss-dark-mode"),
     require("./plugins/tailwindcss-lightness"),
     require("./components/tailwindcss-btn"),
     require("./components/tailwindcss-form-control"),
