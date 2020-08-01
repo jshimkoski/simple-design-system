@@ -34,47 +34,47 @@ module.exports = plugin(function ({ addComponents, config }) {
     },
 
     ".nav-blue": {
-      "--nav-variant": config("theme.colors.blue"),
+      "--nav-variant": config("theme.colors.blue.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-green": {
-      "--nav-variant": config("theme.colors.green"),
+      "--nav-variant": config("theme.colors.green.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-indigo": {
-      "--nav-variant": config("theme.colors.indigo"),
+      "--nav-variant": config("theme.colors.indigo.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-orange": {
-      "--nav-variant": config("theme.colors.orange"),
+      "--nav-variant": config("theme.colors.orange.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-pink": {
-      "--nav-variant": config("theme.colors.pink"),
+      "--nav-variant": config("theme.colors.pink.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-purple": {
-      "--nav-variant": config("theme.colors.purple"),
+      "--nav-variant": config("theme.colors.purple.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-red": {
-      "--nav-variant": config("theme.colors.red"),
+      "--nav-variant": config("theme.colors.red.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-teal": {
-      "--nav-variant": config("theme.colors.teal"),
+      "--nav-variant": config("theme.colors.teal.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 
     ".nav-yellow": {
-      "--nav-variant": config("theme.colors.yellow"),
+      "--nav-variant": config("theme.colors.yellow.default"),
       "--nav-on-variant": config("theme.colors.white"),
     },
 

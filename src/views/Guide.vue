@@ -98,6 +98,10 @@
             >
             so the size of your CSS files are ridiculously small.
           </li>
+          <li>
+            Able to punch into the Tailwind configuration to setup your own
+            color palette or to take advantage of PurgeCSS directly.
+          </li>
         </ul>
         <h3 id="installation">
           Installation
@@ -105,19 +109,17 @@
         <h4>
           Install via npm
         </h4>
-        <pre class="whitespace-pre-line">
-          <code>$ npm i simple-design-system --save-dev</code>
-        </pre>
+        <pre><code>$ npm i simple-design-system --save-dev</code></pre>
         <h4>
           Add it to your entry file
         </h4>
-        <pre class="whitespace-pre-line">
-          <code class="text-green darken mt-4">// import purgecss compatible css</code>
-          <code>import "simple-design-system/dist/index.css";</code>
+        <pre>
+<code class="text-green darken mt-4">// import purgecss compatible css</code>
+<code>import "simple-design-system/dist/index.css";</code>
 
-          <code class="text-green darken">// import all web components</code>
-          <code>import "simple-design-system";</code>
-        </pre>
+<code class="text-green darken">// import all web components</code>
+<code>import "simple-design-system";</code>
+</pre>
         <h3 id="controlling-file-size">
           Controlling File Size
         </h3>
@@ -131,6 +133,47 @@
           to your project to generate an incredibly small CSS filesize. Our CSS
           comes pre-wrapped with special identifiers so you can be sure that
           PurgeCSS will function as expected.
+        </p>
+        <p>
+          You may directly access the <code>purge</code> command in the Simple
+          Design System's Tailwind configuration as an alternative as well.
+        </p>
+        <p>
+          Create two files with the following content in your project's root.
+        </p>
+        <pre>
+<code class="text-green darken mt-4">// postcss.config.js</code>
+<code>module.exports = {
+  plugins: [
+    require('tailwindcss')('./tailwind.config.js'),
+    require('autoprefixer'),
+  ],
+};</code>
+</pre>
+        <pre>
+<code class="text-green darken mt-4">// tailwind.config.js</code>
+<code>const sdsConfig = require("./simple-design-system/dist/src/tailwindcss/tailwind.config");
+
+const tailwindConfig = sdsConfig();
+
+tailwindConfig.purge = {
+  content: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
+};
+
+module.exports = tailwindConfig;</code>
+</pre>
+        <p>
+          And in your entry file, reference the
+          <code>tailwind.css</code> directly:
+        </p>
+        <pre><code>import "simple-design-system/dist/src/tailwindcss/tailwind.css"</code></pre>
+        <p>
+          For instructions on getting started with PostCSS, see the
+          <external-link
+            href="https://github.com/postcss/postcss#usage"
+            class="text-red hover:darken focus:darken"
+            >PostCSS documentation</external-link
+          >.
         </p>
         <h3 id="browser-support">
           Browser Support
@@ -210,10 +253,35 @@
           Overriding Colors
         </h3>
         <p>
-          Every color found in both the static and the dynamic color palette can
-          be overridden by replacing the value for its CSS variable. Just be
+          If you are importing the Simple Design System's CSS file, every color
+          found in both the static and the dynamic color palette can be
+          overridden by replacing the value for its CSS variable. Just be
           certain that your override come after the included CSS file.
         </p>
+        <p>
+          If you are overriding the Tailwind config with the Simple Design
+          System's config, simply pass your color overrides into the
+          <code>tailwindConfig()</code>
+          method.
+        </p>
+        <p>
+          <strong>Please note:</strong> You can override the 100-900 variants
+          for gray, blue, green, indigo, orange, pink, purple, red, teal, and
+          yellow. These overrides will automatically apply to the static and
+          dynamic color palette.
+        </p>
+        <pre>
+<code class="text-green darken mt-4">// tailwind.config.js</code>
+<code>const sdsConfig = require("./simple-design-system/dist/src/tailwindcss/tailwind.config");
+
+const tailwindConfig = sdsConfig({
+  red: {
+    500: "#f00",
+  },
+});
+
+module.exports = tailwindConfig;</code>
+</pre>
         <h3 id="static-color-palette">
           Static Color Palette
         </h3>
@@ -232,7 +300,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b">
+            <tr>
               <td>White</td>
               <td>--color-white</td>
               <td>*-white</td>
@@ -240,7 +308,7 @@
                 <div class="p-4 bg-white border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Black</td>
               <td>--color-black</td>
               <td>*-black</td>
@@ -248,7 +316,7 @@
                 <div class="p-4 bg-black border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Transparent</td>
               <td>--color-transparent</td>
               <td>*-transparent</td>
@@ -256,7 +324,7 @@
                 <div class="p-4 bg-transparent border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Current Color</td>
               <td>--color-current</td>
               <td>*-current</td>
@@ -264,7 +332,7 @@
                 <div class="p-4 bg-current border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 100</td>
               <td>--color-static-gray-100</td>
               <td>*-static-gray-100</td>
@@ -272,7 +340,7 @@
                 <div class="p-4 bg-static-gray-100 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 200</td>
               <td>--color-static-gray-200</td>
               <td>*-static-gray-200</td>
@@ -280,7 +348,7 @@
                 <div class="p-4 bg-static-gray-200 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 300</td>
               <td>--color-static-gray-300</td>
               <td>*-static-gray-300</td>
@@ -288,7 +356,7 @@
                 <div class="p-4 bg-static-gray-300 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 400</td>
               <td>--color-static-gray-400</td>
               <td>*-static-gray-400</td>
@@ -296,7 +364,7 @@
                 <div class="p-4 bg-static-gray-400 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 500</td>
               <td>--color-static-gray-500</td>
               <td>*-static-gray-500</td>
@@ -304,7 +372,7 @@
                 <div class="p-4 bg-static-gray-500 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 600</td>
               <td>--color-static-gray-600</td>
               <td>*-static-gray-600</td>
@@ -312,7 +380,7 @@
                 <div class="p-4 bg-static-gray-600 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 700</td>
               <td>--color-static-gray-700</td>
               <td>*-static-gray-700</td>
@@ -320,7 +388,7 @@
                 <div class="p-4 bg-static-gray-700 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Static Gray 800</td>
               <td>--color-static-gray-800</td>
               <td>*-static-gray-800</td>
@@ -358,7 +426,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b">
+            <tr>
               <td>Foreground Color</td>
               <td>--color-fgcolor</td>
               <td>*-fgcolor</td>
@@ -366,7 +434,7 @@
                 <div class="p-4 bg-fgcolor border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Background Color</td>
               <td>--color-bgcolor</td>
               <td>*-bgcolor</td>
@@ -374,7 +442,7 @@
                 <div class="p-4 bg-bgcolor border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Border Color</td>
               <td>--color-border</td>
               <td>*-border</td>
@@ -382,7 +450,7 @@
                 <div class="p-4 bg-border border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Placeholder Color</td>
               <td>--color-placeholder</td>
               <td>*-placeholder</td>
@@ -390,7 +458,7 @@
                 <div class="p-4 bg-placeholder border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 100</td>
               <td>--color-gray-100</td>
               <td>*-gray-100</td>
@@ -398,7 +466,7 @@
                 <div class="p-4 bg-gray-100 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 200</td>
               <td>--color-gray-200</td>
               <td>*-gray-200</td>
@@ -406,7 +474,7 @@
                 <div class="p-4 bg-gray-200 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 300</td>
               <td>--color-gray-300</td>
               <td>*-gray-300</td>
@@ -414,7 +482,7 @@
                 <div class="p-4 bg-gray-300 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 400</td>
               <td>--color-gray-400</td>
               <td>*-gray-400</td>
@@ -422,7 +490,7 @@
                 <div class="p-4 bg-gray-400 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 500</td>
               <td>--color-gray-500</td>
               <td>*-gray-500</td>
@@ -430,7 +498,7 @@
                 <div class="p-4 bg-gray-500 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 600</td>
               <td>--color-gray-600</td>
               <td>*-gray-600</td>
@@ -438,7 +506,7 @@
                 <div class="p-4 bg-gray-600 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 700</td>
               <td>--color-gray-700</td>
               <td>*-gray-700</td>
@@ -446,7 +514,7 @@
                 <div class="p-4 bg-gray-700 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 800</td>
               <td>--color-gray-800</td>
               <td>*-gray-800</td>
@@ -454,7 +522,7 @@
                 <div class="p-4 bg-gray-800 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Gray 900</td>
               <td>--color-gray-900</td>
               <td>*-gray-900</td>
@@ -462,7 +530,7 @@
                 <div class="p-4 bg-gray-900 border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Blue</td>
               <td>--color-blue</td>
               <td>*-blue</td>
@@ -470,7 +538,7 @@
                 <div class="p-4 bg-blue border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Green</td>
               <td>--color-green</td>
               <td>*-green</td>
@@ -478,7 +546,7 @@
                 <div class="p-4 bg-green border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Indigo</td>
               <td>--color-indigo</td>
               <td>*-indigo</td>
@@ -486,7 +554,7 @@
                 <div class="p-4 bg-indigo border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Orange</td>
               <td>--color-orange</td>
               <td>*-orange</td>
@@ -494,7 +562,7 @@
                 <div class="p-4 bg-orange border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Pink</td>
               <td>--color-pink</td>
               <td>*-pink</td>
@@ -502,7 +570,7 @@
                 <div class="p-4 bg-pink border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Purple</td>
               <td>--color-purple</td>
               <td>*-purple</td>
@@ -510,7 +578,7 @@
                 <div class="p-4 bg-purple border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Red</td>
               <td>--color-red</td>
               <td>*-red</td>
@@ -518,7 +586,7 @@
                 <div class="p-4 bg-red border" />
               </td>
             </tr>
-            <tr class="border-b">
+            <tr>
               <td>Teal</td>
               <td>--color-teal</td>
               <td>*-teal</td>

@@ -1,4 +1,6 @@
-module.exports = {
+const defaultColors = require("./colors");
+
+module.exports = (colors) => ({
   // disable preflight since
   // we have a custom base plugin
   // that is more modern than css
@@ -34,7 +36,10 @@ module.exports = {
   },
   plugins: [
     // simple design system plugins
-    require("./plugins/tailwindcss-css-variables"),
+    require("./plugins/tailwindcss-css-variables")({
+      ...defaultColors,
+      ...colors,
+    }),
     require("./plugins/tailwindcss-base"),
     require("./plugins/tailwindcss-dark-mode"),
     require("./plugins/tailwindcss-lightness"),
@@ -49,4 +54,4 @@ module.exports = {
       colors: false,
     }),
   ],
-};
+});

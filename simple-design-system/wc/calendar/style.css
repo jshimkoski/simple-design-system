@@ -19,39 +19,39 @@
 }
 
 :host([variant=blue]) {
-  --cal-variant: var(--color-blue);
+  --cal-variant: var(--color-blue-500);
 }
 
 :host([variant=green]) {
-  --cal-variant: var(--color-green);
+  --cal-variant: var(--color-green-500);
 }
 
 :host([variant=indigo]) {
-  --cal-variant: var(--color-indigo);
+  --cal-variant: var(--color-indigo-500);
 }
 
 :host([variant=orange]) {
-  --cal-variant: var(--color-orange);
+  --cal-variant: var(--color-orange-500);
 }
 
 :host([variant=pink]) {
-  --cal-variant: var(--color-pink);
+  --cal-variant: var(--color-pink-500);
 }
 
 :host([variant=purple]) {
-  --cal-variant: var(--color-purple);
+  --cal-variant: var(--color-purple-500);
 }
 
 :host([variant=red]) {
-  --cal-variant: var(--color-red);
+  --cal-variant: var(--color-red-500);
 }
 
 :host([variant=teal]) {
-  --cal-variant: var(--color-teal);
+  --cal-variant: var(--color-teal-500);
 }
 
 :host([variant=yellow]) {
-  --cal-variant: var(--color-yellow);
+  --cal-variant: var(--color-yellow-500);
   --cal-on-variant: var(--color-black);
 }
 
