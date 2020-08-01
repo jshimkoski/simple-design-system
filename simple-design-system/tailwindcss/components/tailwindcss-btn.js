@@ -36,47 +36,47 @@ module.exports = plugin(function ({ addComponents, config }) {
     },
 
     ".btn-blue": {
-      "--btn-variant": config("theme.colors.blue.default"),
+      "--btn-variant": config("theme.colors.blue.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-green": {
-      "--btn-variant": config("theme.colors.green.default"),
+      "--btn-variant": config("theme.colors.green.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-indigo": {
-      "--btn-variant": config("theme.colors.indigo.default"),
+      "--btn-variant": config("theme.colors.indigo.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-orange": {
-      "--btn-variant": config("theme.colors.orange.default"),
+      "--btn-variant": config("theme.colors.orange.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-pink": {
-      "--btn-variant": config("theme.colors.pink.default"),
+      "--btn-variant": config("theme.colors.pink.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-purple": {
-      "--btn-variant": config("theme.colors.purple.default"),
+      "--btn-variant": config("theme.colors.purple.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-red": {
-      "--btn-variant": config("theme.colors.red.default"),
+      "--btn-variant": config("theme.colors.red.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-teal": {
-      "--btn-variant": config("theme.colors.teal.default"),
+      "--btn-variant": config("theme.colors.teal.500"),
       "--btn-variant-on": config("theme.colors.white"),
     },
 
     ".btn-yellow": {
-      "--btn-variant": config("theme.colors.yellow.default"),
+      "--btn-variant": config("theme.colors.yellow.500"),
       "--btn-variant-on": config("theme.colors.black"),
     },
 
