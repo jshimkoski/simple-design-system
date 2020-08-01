@@ -152,7 +152,7 @@
 </pre>
         <pre>
 <code class="text-green darken mt-4">// tailwind.config.js</code>
-<code>const sdsConfig = require("./simple-design-system/dist/src/tailwindcss/tailwind.config");
+<code>const sdsConfig = require("simple-design-system/dist/src/tailwindcss/tailwind.config");
 
 const tailwindConfig = sdsConfig();
 
@@ -272,7 +272,7 @@ module.exports = tailwindConfig;</code>
         </p>
         <pre>
 <code class="text-green darken mt-4">// tailwind.config.js</code>
-<code>const sdsConfig = require("./simple-design-system/dist/src/tailwindcss/tailwind.config");
+<code>const sdsConfig = require("simple-design-system/dist/src/tailwindcss/tailwind.config");
 
 const tailwindConfig = sdsConfig({
   red: {
