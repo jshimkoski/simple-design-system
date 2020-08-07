@@ -4,6 +4,7 @@
       <div class="md:w-2/3 xl:w-1/2">
         <h2 class="text-gray-900 text-3xl leading-snug">
           {{ appName }}
+          <span class="text-base text-gray-700">{{ lastRelease.name }}</span>
         </h2>
         <p class="pt-6 pb-12 text-gray-600 text-lg">
           A modern design system that is remarkably flexible and easy to use.
@@ -144,7 +145,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    ...mapGetters(["appName"]),
+    ...mapGetters(["appName", "lastRelease"]),
   },
 });
 </script>

@@ -43,6 +43,7 @@ module.exports = (colors) => ({
     require("./plugins/tailwindcss-base"),
     require("./plugins/tailwindcss-dark-mode"),
     require("./plugins/tailwindcss-lightness"),
+    require("./plugins/tailwindcss-bg-glass"),
     require("./components/tailwindcss-btn"),
     require("./components/tailwindcss-form-control"),
     require("./components/tailwindcss-nav"),
