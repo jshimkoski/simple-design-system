@@ -10,6 +10,10 @@ module.exports = (colors) => ({
   corePlugins: {
     preflight: false,
   },
+  // Lets get ready for Tailwind 2.0
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
   // turn off purge so all
   // utility classes are available
   // to developers just importing
