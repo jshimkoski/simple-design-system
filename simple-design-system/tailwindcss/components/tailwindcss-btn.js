@@ -7,7 +7,7 @@ module.exports = plugin(function ({ addComponents, config }) {
      */
 
     ".btn": {
-      "--btn-variant": config("theme.colors.gray.500"),
+      "--btn-variant": config("theme.colors.gray.600"),
       "--btn-variant-on": config("theme.colors.white"),
       borderWidth: config("theme.borderWidth.default"),
       display: "inline-block",
@@ -131,6 +131,32 @@ module.exports = plugin(function ({ addComponents, config }) {
     ".btn.disabled, .btn[disabled]": {
       opacity: config("theme.opacity.50"),
       pointerEvents: "none",
+    },
+
+    /**
+     * Pill variant
+     */
+
+    ".btn-pill": {
+      backgroundColor: config("theme.colors.transparent"),
+      color: "var(--btn-variant)",
+      boxShadow: "none",
+      borderColor: config("theme.colors.transparent"),
+
+      "&:hover, &.active": {
+        backgroundColor: config("theme.colors.gray.100"),
+        filter: "none",
+        boxShadow: "none",
+      },
+
+      "&:active": {
+        filter: "var(--darken)",
+      },
+
+      "&:focus": {
+        outline: "none",
+        boxShadow: config("theme.boxShadow.outline"),
+      },
     },
 
     /**

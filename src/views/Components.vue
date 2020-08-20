@@ -758,6 +758,10 @@
               Add a <code>.btn-outline</code> class to create an ouline type.
             </p>
             <p class="mt-2">
+              Add a <code>.btn-pill</code> class to create a pill type. Works
+              best when on a <code>.bg-bgcolor</code>
+            </p>
+            <p class="mt-2">
               Add a <code>.btn-block</code> class to create a block button with
               100% width.
             </p>
@@ -792,12 +796,24 @@
               <button class="btn btn-outline">Outline</button>
             </div>
 
-            <h3 class="text-lg mb-4">Button Group: Mix-and-match Buttons</h3>
-            <div class="btn-group mb-4">
-              <button class="btn btn-blue">Default</button>
-              <button class="btn btn-outline btn-teal">Outline Teal</button>
-              <button class="btn btn-orange active">Orange</button>
-              <button class="btn btn-outline btn-red">Outline Red</button>
+            <div class="my-4 p-4 bg-bgcolor">
+              <h3 class="text-lg mb-4">Button Group: Pill Buttons</h3>
+              <div class="btn-group mb-4">
+                <button class="btn btn-pill">Outline</button>
+                <button class="btn btn-pill">Outline</button>
+                <button class="btn btn-pill active">Outline</button>
+                <button class="btn btn-pill">Outline</button>
+              </div>
+            </div>
+
+            <div class="my-4 p-4 bg-bgcolor">
+              <h3 class="text-lg mb-4">Button Group: Mix-and-match Buttons</h3>
+              <div class="btn-group mb-4">
+                <button class="btn btn-blue">Default</button>
+                <button class="btn btn-pill btn-teal">Pill Teal</button>
+                <button class="btn btn-orange active">Orange</button>
+                <button class="btn btn-outline btn-red">Outline Red</button>
+              </div>
             </div>
 
             <h3 class="text-lg mb-4">Type: Default</h3>
@@ -836,6 +852,30 @@
               <button class="btn btn-red btn-outline">Red</button>
               <button class="btn btn-teal btn-outline">Teal</button>
               <button class="btn btn-yellow btn-outline">Yellow</button>
+            </div>
+
+            <div class="my-4 p-4 bg-bgcolor">
+              <h3 class="text-lg my-4">Type: Pill</h3>
+              <div class="space-x-2 space-y-2">
+                <button class="btn btn-pill">Default</button>
+                <button class="btn btn-white btn-pill">
+                  White
+                </button>
+                <button class="btn btn-black btn-pill">
+                  Black
+                </button>
+                <button class="btn btn-blue btn-pill">
+                  Blue
+                </button>
+                <button class="btn btn-green btn-pill">Green</button>
+                <button class="btn btn-indigo btn-pill">Indigo</button>
+                <button class="btn btn-orange btn-pill">Orange</button>
+                <button class="btn btn-pink btn-pill">Pink</button>
+                <button class="btn btn-purple btn-pill">Purple</button>
+                <button class="btn btn-red btn-pill">Red</button>
+                <button class="btn btn-teal btn-pill">Teal</button>
+                <button class="btn btn-yellow btn-pill">Yellow</button>
+              </div>
             </div>
 
             <h3 class="text-lg my-4">Type: Default, Disabled attriblte</h3>

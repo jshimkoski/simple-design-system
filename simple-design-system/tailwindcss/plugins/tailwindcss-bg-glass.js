@@ -3,7 +3,7 @@ const plugin = require("tailwindcss/plugin");
 module.exports = plugin(function ({ addUtilities }) {
   const newUtilities = {
     ".bg-glass": {
-      background: "rgba(240, 240, 240, 0.8)",
+      background: "rgba(255, 255, 255, 0.8)",
       backdropFilter: "saturate(180%) blur(20px)",
     },
 
