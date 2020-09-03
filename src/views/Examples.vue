@@ -1,47 +1,67 @@
 <template>
-  <sds-container class="guide p-0 md:p-4">
-    <!-- Layout Stacked -->
-    <sds-card id="layout-stacked">
-      <h2 slot="title" class="text-3xl">iOS Mail</h2>
-      <p slot="subtitle">
-        Apple, is that you?
-      </p>
-      <section slot="content" class="lg:w-10/12">
-        <sds-container class="bg-gray-100">
-          <sds-card class="rounded">
-            <h2 slot="title" class="text-4xl font-medium">Inbox</h2>
-            <div slot="subtitle">
-              <input
-                type="text"
-                placeholder="Search"
-                class="form-control border-0 bg-gray-100 shadow-none placeholder-gray-500"
-              />
-            </div>
-            <sds-container slot="content" class="p-0 border-t divide-y">
-              <sds-card>
-                <h3 slot="title">Tim Cook</h3>
-                <div slot="subtitle">
-                  <h4 class="text-gray-700">I'm a successful CEO.</h4>
-                  <p>
-                    This is content of a fake email that a person might receive.
-                  </p>
-                </div>
-              </sds-card>
-              <sds-card>
-                <h3 slot="title">Steve Jobs</h3>
-                <div slot="subtitle">
-                  <h4 class="text-gray-700">But I was a revolutionary.</h4>
-                  <p>
-                    This is content of a fake email that a person might receive.
-                  </p>
-                </div>
-              </sds-card>
-            </sds-container>
-          </sds-card>
-        </sds-container>
-      </section>
+  <div class="w-5/6 mx-auto py-4">
+    <sds-card type="raised" class="my-4" nav-class="gap-2">
+      <template #title> Card title </template>
+      <template #subtitle> Card subtitle </template>
+      <template #nav>
+        <a href="#" class="nav nav-pill nav-red">Option 1</a>
+        <a href="#" class="nav nav-pill nav-red active">Option 2</a>
+        <a href="#" class="nav nav-pill nav-red">Option 3</a>
+      </template>
+      <sds-calendar
+        variant="red"
+        :date.sync="date"
+        :end-date.sync="endDate"
+        :min.sync="min"
+        :max.sync="max"
+        multiple
+      />
+
+      <button @click="showModal = true" class="btn btn-blue my-4">
+        Show Modal
+      </button>
+      <sds-modal v-model="showModal">
+        <template #title>
+          <h3>Modal Title</h3>
+        </template>
+        <sds-card type="accented" class="bg-bgcolor">
+          <template #title> Card title </template>
+          <template #subtitle> Card subtitle </template>
+          <template #nav>
+            <sds-dropdown v-model="showDropdownInModal" right class="mr-1">
+              <button class="nav nav-pill nav-red">Dropdown</button>
+              <template #menu>
+                <a href="#" class="nav nav-pill">Option 1</a>
+                <a href="#" class="nav nav-pill">Option 2</a>
+              </template>
+            </sds-dropdown>
+          </template>
+          <sds-calendar
+            variant="red"
+            :date.sync="date"
+            :end-date.sync="endDate"
+            :min.sync="min"
+            :max.sync="max"
+            multiple
+          />
+        </sds-card>
+        <template #footer>
+          <button class="btn" @click="showModal = false">Close</button>
+        </template>
+      </sds-modal>
+
+      <sds-dropdown v-model="showDropdown" class="ml-2">
+        <button class="btn btn-red">Dropdown</button>
+        <template #menu>
+          <button class="nav nav-pill" @click="showModal = true">
+            Show Modal
+          </button>
+          <a href="#" class="nav nav-pill">Option 2</a>
+          <a href="#" class="nav nav-pill">Option 3</a>
+        </template>
+      </sds-dropdown>
     </sds-card>
-  </sds-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -49,6 +69,17 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "Examples",
+  data() {
+    return {
+      date: "2020-02-07",
+      endDate: null,
+      min: "2020-01-26",
+      max: "2020-03-19",
+      showModal: false,
+      showDropdown: false,
+      showDropdownInModal: false,
+    };
+  },
   metaInfo() {
     return {
       title: "Examples",

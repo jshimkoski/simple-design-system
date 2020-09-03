@@ -55,4 +55,9 @@ module.exports = {
       },
     },
   },
+  sm: {
+    css: {
+      maxWidth: "43ch",
+    },
+  },
 };

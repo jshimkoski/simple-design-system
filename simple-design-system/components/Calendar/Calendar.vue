@@ -122,6 +122,7 @@ import {
 } from "date-fns";
 
 export default Vue.extend({
+  name: "Calendar",
   props: {
     date: { type: String, default: null },
     endDate: { type: String, default: null },
@@ -130,11 +131,13 @@ export default Vue.extend({
     multiple: { type: Boolean, default: false },
   },
   data() {
+    const date = this.getDateFromFormattedString(this.date);
+    const visibleDay = date !== null ? date : new Date();
     const today = new Date();
 
     return {
       today,
-      visibleDay: today,
+      visibleDay,
     };
   },
   computed: {
@@ -374,6 +377,7 @@ export default Vue.extend({
     },
 
     getDateFromFormattedString(val = "") {
+      if (val !== null && val.trim() === "") return null;
       const userDateMatchesRegex = val?.match(this.dateRegex);
       if (!userDateMatchesRegex) return null;
       const dateArr = val.split("-").map((i) => parseInt(i));
@@ -433,39 +437,39 @@ export default Vue.extend({
 }
 
 .sds-calendar[variant="blue"] {
-  --cal-variant: var(--color-blue);
+  --cal-variant: var(--color-blue-500);
 }
 
 .sds-calendar[variant="green"] {
-  --cal-variant: var(--color-green);
+  --cal-variant: var(--color-green-500);
 }
 
 .sds-calendar[variant="indigo"] {
-  --cal-variant: var(--color-indigo);
+  --cal-variant: var(--color-indigo-500);
 }
 
 .sds-calendar[variant="orange"] {
-  --cal-variant: var(--color-orange);
+  --cal-variant: var(--color-orange-500);
 }
 
 .sds-calendar[variant="pink"] {
-  --cal-variant: var(--color-pink);
+  --cal-variant: var(--color-pink-500);
 }
 
 .sds-calendar[variant="purple"] {
-  --cal-variant: var(--color-purple);
+  --cal-variant: var(--color-purple-500);
 }
 
 .sds-calendar[variant="red"] {
-  --cal-variant: var(--color-red);
+  --cal-variant: var(--color-red-500);
 }
 
 .sds-calendar[variant="teal"] {
-  --cal-variant: var(--color-teal);
+  --cal-variant: var(--color-teal-500);
 }
 
 .sds-calendar[variant="yellow"] {
-  --cal-variant: var(--color-yellow);
+  --cal-variant: var(--color-yellow-500);
   --cal-on-variant: var(--color-black);
 }
 
@@ -501,7 +505,7 @@ header {
 .btn-prev,
 .btn-next,
 .btn-today {
-  @apply text-base text-gray-900 bg-transparent border-0 rounded-full cursor-pointer;
+  @apply text-base text-gray-900 bg-transparent border-0 rounded cursor-pointer;
 
   &:hover,
   &:focus {
@@ -545,19 +549,19 @@ td {
 }
 
 .btn-date {
-  @apply text-sm h-8 w-8 text-center text-gray-900 bg-transparent border-0 rounded-full cursor-pointer;
+  @apply text-sm h-8 w-8 text-gray-900 bg-transparent border-0 rounded inline-block items-center justify-center cursor-pointer;
 
   &:focus {
     @apply outline-none shadow-outline;
   }
 
   &[disabled] {
-    @apply opacity-50 pointer-events-none;
+    @apply opacity-25 pointer-events-none;
   }
 }
 
 .dim {
-  @apply text-gray-400;
+  @apply text-gray-600;
 }
 
 .today,

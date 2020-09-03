@@ -15,13 +15,13 @@ PURGE_CSS=true npx vue-cli-service build --no-clean --dest dist/docs
 # build non-minified css
 npx parcel build simple-design-system/tailwindcss/tailwind.css --out-file index.css --no-minify
 
-for d in simple-design-system/wc/* ; do
+for d in simple-design-system/components/* ; do
   if [[ "$d" == *"index.ts"* ]]; then
-    # build all web components
-    npx vue-cli-service build --no-clean --target lib --dest dist/ --name index $d
+    # build all components
+    npx vue-cli-service build --no-clean --target lib --dest dist --name index $d
   else
-    # build individual web components
-    npx vue-cli-service build --no-clean --target lib --dest dist/wc/${d##*/} --name index $d/index.ts
+    # build individual components
+    npx vue-cli-service build --no-clean --target lib --dest dist/components/${d##*/} --name index $d/*.vue
   fi
 done
 

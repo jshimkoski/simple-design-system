@@ -68,7 +68,7 @@ module.exports = (colors) =>
         {},
         {
           "--color-fgcolor": "rgb(242, 242, 247)",
-          "--color-bgcolor": "var(--color-black)",
+          "--color-bgcolor": "rgb(28, 28, 30)",
 
           "--color-border": "var(--color-static-gray-700)",
           "--color-placeholder": "var(--color-static-gray-700)",
@@ -81,7 +81,7 @@ module.exports = (colors) =>
           {},
           {
             "--color-fgcolor": "rgb(242, 242, 247)",
-            "--color-bgcolor": "var(--color-black)",
+            "--color-bgcolor": "rgb(28, 28, 30)",
 
             "--color-border": "var(--color-static-gray-700)",
             "--color-placeholder": "var(--color-static-gray-700)",

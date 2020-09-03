@@ -7,7 +7,7 @@ module.exports = plugin(function ({ addComponents, config }) {
      */
 
     ".btn": {
-      "--btn-variant": config("theme.colors.gray.600"),
+      "--btn-variant": config("theme.colors.gray.500"),
       "--btn-variant-on": config("theme.colors.white"),
       borderWidth: config("theme.borderWidth.default"),
       display: "inline-block",
@@ -19,6 +19,7 @@ module.exports = plugin(function ({ addComponents, config }) {
       borderColor: "var(--btn-variant)",
       backgroundColor: "var(--btn-variant)",
       color: "var(--btn-variant-on)",
+      fontWeight: config("theme.fontWeight.medium"),
     },
 
     /**

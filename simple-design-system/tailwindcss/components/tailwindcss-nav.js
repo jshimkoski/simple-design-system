@@ -15,6 +15,7 @@ module.exports = plugin(function ({ addComponents, config }) {
       alignItems: "center",
       color: config("theme.colors.gray.600"),
       fontSize: config("theme.fontSize.sm"),
+      fontWeight: config("theme.fontWeight.medium"),
       padding: `${config("theme.padding.3")} ${config("theme.padding.4")}`,
       width: config("theme.width.full"),
     },
@@ -87,6 +88,10 @@ module.exports = plugin(function ({ addComponents, config }) {
       outline: "none",
     },
 
+    ".nav:active": {
+      filter: "brightness(85%)",
+    },
+
     ".nav.active": {
       color: "var(--nav-variant)",
     },
@@ -120,7 +125,7 @@ module.exports = plugin(function ({ addComponents, config }) {
     ".nav-underline:hover, .nav-underline:focus, .nav-underline:active": {
       outline: "none",
       color: config("theme.colors.fgcolor"),
-      borderColor: "var(--nav-variant)",
+      borderColor: config("theme.colors.gray.200"),
     },
 
     ".nav-underline.active": {
@@ -141,7 +146,7 @@ module.exports = plugin(function ({ addComponents, config }) {
     ".nav-overline:hover, .nav-overline:focus, .nav-overline:active": {
       outline: "none",
       color: config("theme.colors.fgcolor"),
-      borderColor: "var(--nav-variant)",
+      borderColor: config("theme.colors.gray.200"),
     },
 
     ".nav-overline.active": {
@@ -186,10 +191,6 @@ module.exports = plugin(function ({ addComponents, config }) {
       display: "grid",
       gridAutoFlow: "column",
       gridAutoColumns: "min-content",
-    },
-
-    ".nav-group:not([no-gap])": {
-      gap: config("theme.gap.2"),
     },
   };
 

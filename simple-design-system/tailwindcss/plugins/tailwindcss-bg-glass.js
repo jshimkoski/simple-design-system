@@ -8,12 +8,12 @@ module.exports = plugin(function ({ addUtilities }) {
     },
 
     ":root.dark .bg-glass": {
-      background: "rgba(0, 0, 0, 0.8)",
+      background: "rgba(28, 28, 30, 0.8)",
     },
 
     "@media (prefers-color-scheme: dark)": {
       ":root:not(.light) .bg-glass": {
-        background: "rgba(0, 0, 0, 0.8)",
+        background: "rgba(28, 28, 30, 0.8)",
       },
     },
   };
