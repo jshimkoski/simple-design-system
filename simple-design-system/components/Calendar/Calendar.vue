@@ -11,53 +11,59 @@
           <span class="year">{{ format(visibleDay, " yyyy") }}</span>
         </button>
       </div>
-      <button
-        class="btn-prev"
-        title="Go to previous month"
-        @click="goToPrevMonth"
-      >
-        <svg
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <div>
+        <button
+          class="btn-prev"
+          title="Go to previous month"
+          @click="goToPrevMonth"
         >
-          <path d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        class="btn-today"
-        title="Go to this month"
-        :disabled="isSameMonth(visibleDay, today)"
-        @click="goToThisMonth"
-      >
-        <svg
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          <svg
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          class="btn-today"
+          title="Go to this month"
+          :disabled="isSameMonth(visibleDay, today)"
+          @click="goToThisMonth"
         >
-          <path
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
-        </svg>
-      </button>
-      <button class="btn-next" title="Go to next month" @click="goToNextMonth">
-        <svg
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          <svg
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+        </button>
+        <button
+          class="btn-next"
+          title="Go to next month"
+          @click="goToNextMonth"
         >
-          <path d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+          <svg
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
     </header>
     <div class="calendar">
       <table>
@@ -478,15 +484,15 @@ export default Vue.extend({
  */
 
 header {
-  @apply flex mb-2;
+  @apply flex mb-1;
 }
 
 .title-wrapper {
-  @apply flex-grow;
+  @apply flex-grow my-auto;
 }
 
 .btn-title {
-  @apply text-left text-2xl font-semibold text-gray-900 py-0 px-1 border-0 bg-transparent rounded cursor-pointer;
+  @apply whitespace-no-wrap text-left text-xl font-semibold text-gray-900 py-0 px-1 border-0 bg-transparent rounded cursor-pointer;
 
   & .year {
     color: var(--cal-variant);
@@ -505,7 +511,7 @@ header {
 .btn-prev,
 .btn-next,
 .btn-today {
-  @apply text-base text-gray-900 bg-transparent border-0 rounded cursor-pointer;
+  @apply p-2 text-base text-gray-900 bg-transparent border-0 rounded cursor-pointer;
 
   &:hover,
   &:focus {
@@ -521,7 +527,7 @@ header {
   }
 
   svg {
-    @apply w-5 h-auto;
+    @apply w-5 h-5;
   }
 }
 
@@ -549,7 +555,7 @@ td {
 }
 
 .btn-date {
-  @apply flex text-sm h-8 w-8 text-gray-900 bg-transparent border-0 rounded items-center justify-center text-center cursor-pointer;
+  @apply flex mx-auto text-sm h-8 w-8 text-gray-900 bg-transparent border-0 rounded items-center justify-center text-center cursor-pointer;
 
   &:focus {
     @apply outline-none shadow-outline;
