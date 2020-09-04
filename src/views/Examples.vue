@@ -1,6 +1,6 @@
 <template>
   <div class="w-5/6 mx-auto py-4">
-    <sds-card type="raised" class="my-4" nav-class="gap-2">
+    <sds-card type="raised" class="my-4" nav-class="hidden sm:grid gap-2">
       <template #title> Card title </template>
       <template #subtitle> Card subtitle </template>
       <template #nav>

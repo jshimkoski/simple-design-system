@@ -91,7 +91,7 @@
                 :disabled="isBeforeMin(day) || isAfterMax(day)"
                 @click="changeDate(day, $event)"
               >
-                {{ format(day, "d") }}
+                <span>{{ format(day, "d") }}</span>
               </button>
             </td>
           </tr>
@@ -549,7 +549,7 @@ td {
 }
 
 .btn-date {
-  @apply text-sm h-8 w-8 text-gray-900 bg-transparent border-0 rounded inline-block items-center justify-center cursor-pointer;
+  @apply flex text-sm h-8 w-8 text-gray-900 bg-transparent border-0 rounded items-center justify-center text-center cursor-pointer;
 
   &:focus {
     @apply outline-none shadow-outline;
