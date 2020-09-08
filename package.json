@@ -17,12 +17,12 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
     "tailwind-css-variables": "^2.0.3",
-    "tailwindcss": "^1.7.6"
+    "tailwindcss": "^1.8.5"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
     "@vue/cli-plugin-babel": "^4.5.4",
     "@vue/cli-plugin-eslint": "^4.5.4",
     "@vue/cli-plugin-router": "^4.5.4",

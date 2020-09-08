@@ -13,6 +13,7 @@ module.exports = (colors) => ({
   // Lets get ready for Tailwind 2.0
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
   // turn off purge so all
   // utility classes are available

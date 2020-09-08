@@ -53,6 +53,9 @@ module.exports = {
       "tbody tr": {
         borderBottomColor: "var(--color-gray-300)",
       },
+      "figure, img, video": {
+        maxWidth: "var(--w-full)",
+      },
     },
   },
   sm: {
