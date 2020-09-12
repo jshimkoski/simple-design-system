@@ -1,7 +1,11 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin(function ({ addUtilities }) {
-  const newUtilities = {
+  /**
+   * auto switching version of bg-glass
+   */
+
+  const bgGlassUtility = {
     ".bg-glass": {
       background: "rgba(255, 255, 255, 0.8)",
       backdropFilter: "saturate(180%) blur(20px)",
@@ -18,5 +22,28 @@ module.exports = plugin(function ({ addUtilities }) {
     },
   };
 
-  addUtilities(newUtilities, ["responsive", "hover", "focus"]);
+  addUtilities(bgGlassUtility, ["responsive", "hover", "focus"]);
+
+  /**
+   * light and dark versions that work with dark mode classes
+   */
+
+  const bgGlassVariantsUtility = {
+    ".bg-glass-light": {
+      background: "rgba(255, 255, 255, 0.8)",
+      backdropFilter: "saturate(180%) blur(20px)",
+    },
+
+    ".bg-glass-dark": {
+      background: "rgba(28, 28, 30, 0.8)",
+      backdropFilter: "saturate(180%) blur(20px)",
+    },
+  };
+
+  addUtilities(bgGlassVariantsUtility, [
+    "responsive",
+    "dark",
+    "hover",
+    "focus",
+  ]);
 });

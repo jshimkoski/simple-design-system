@@ -47,6 +47,10 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Navbar",
   props: {
+    value: {
+      type: Boolean,
+      default: false,
+    },
     navClass: {
       type: String,
       default: "",
@@ -56,12 +60,15 @@ export default Vue.extend({
       default: "",
     },
   },
-  data() {
-    return {
-      mobileMenuOpen: false,
-    };
-  },
   computed: {
+    mobileMenuOpen: {
+      get(): Boolean {
+        return this.value;
+      },
+      set(val): any {
+        this.$emit("input", val);
+      },
+    },
     hasBrandSlot(): Boolean {
       return !!this.$slots.brand;
     },

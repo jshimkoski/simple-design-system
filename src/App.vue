@@ -4,7 +4,7 @@
     sidebar-class="hidden md:block bg-gray-100 border-r shadow md:w-1/3 lg:w-1/4"
   >
     <template #header>
-      <sds-navbar class="bg-glass" nav-class="gap-2">
+      <sds-navbar v-model="navbarMenu" class="bg-glass" nav-class="gap-2">
         <template #brand>
           <h1 class="text-lg">
             <router-link
@@ -96,6 +96,11 @@ import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default Vue.extend({
+  data() {
+    return {
+      navbarMenu: false,
+    };
+  },
   computed: {
     ...mapGetters(["theme", "appName", "lastRelease"]),
   },

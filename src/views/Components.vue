@@ -69,7 +69,7 @@
       <h2 class="text-4xl">Components</h2>
       <h3 class="text-3xl">Vuejs Components</h3>
       <!-- Layout Stacked -->
-      <sds-card id="layout-stacked" class="bg-gray-100">
+      <sds-card id="layout-stacked">
         <template #title>
           <h2 class="text-3xl">Layout Stacked</h2>
         </template>
@@ -97,7 +97,7 @@
       </sds-card>
 
       <!-- Layout Sidebar -->
-      <sds-card id="layout-sidebar" class="bg-gray-100">
+      <sds-card id="layout-sidebar">
         <template #title>
           <h2 class="text-3xl">Layout Sidebar</h2>
         </template>
@@ -135,7 +135,7 @@
       </sds-card>
 
       <!-- Navbar -->
-      <sds-card id="navbar" class="bg-gray-100">
+      <sds-card id="navbar">
         <template #title>
           <h2 class="text-3xl">Navbar</h2>
         </template>
@@ -146,6 +146,7 @@
               <code>md</code> breakpoint.
             </p>
             <p>Slots are optional and include: brand, nav, nav-right.</p>
+            <p>Use a <code>v-model</code> prop to toggle mobile menu.</p>
             <p>
               Use <code>nav-class</code> prop to add css classes to nav slot.
             </p>
@@ -160,7 +161,7 @@
             Nav Type: Default, No Gap, Nav Right Type: Pill
           </h3>
           <div class="bg-bgcolor">
-            <sds-navbar nav-right-class="gap-2 md:py-1">
+            <sds-navbar v-model="navbar1" nav-right-class="gap-2 md:py-1">
               <template #brand>
                 <h1>Brand</h1>
               </template>
@@ -181,7 +182,7 @@
             Orange
           </h3>
           <div class="bg-bgcolor">
-            <sds-navbar nav-class="gap-2">
+            <sds-navbar v-model="navbar2" nav-class="gap-2">
               <template #brand>
                 <h1>Brand</h1>
               </template>
@@ -202,7 +203,11 @@
             Underline
           </h3>
           <div class="bg-bgcolor mb-4">
-            <sds-navbar nav-class="gap-2 md:py-1" nav-right-class="gap-2">
+            <sds-navbar
+              v-model="navbar3"
+              nav-class="gap-2 md:py-1"
+              nav-right-class="gap-2"
+            >
               <template #brand>
                 <h1>Brand</h1>
               </template>
@@ -223,7 +228,7 @@
             Gap, Nav Right Type: Default
           </h3>
           <div class="bg-bgcolor mb-4">
-            <sds-navbar>
+            <sds-navbar v-model="navbar4">
               <template #nav>
                 <a href="#" class="nav nav-block nav-red active">Home</a>
                 <a href="#" class="nav nav-block nav-red">About</a>
@@ -239,7 +244,7 @@
       </sds-card>
 
       <!-- card -->
-      <sds-card id="card" class="bg-gray-100">
+      <sds-card id="card">
         <template #title>
           <h2 class="text-3xl">Card</h2>
         </template>
@@ -322,7 +327,7 @@
       </sds-card>
 
       <!-- External link -->
-      <sds-card id="external-link" class="bg-gray-100">
+      <sds-card id="external-link">
         <template #title>
           <h2 class="text-3xl">External Link</h2>
         </template>
@@ -335,12 +340,15 @@
         <section>
           <div class="bg-bgcolor space-y-2">
             <p>
-              <sds-external-link href="https://google.com">
+              <sds-external-link href="https://simpleds.netlify.app">
                 No styling
               </sds-external-link>
             </p>
             <p>
-              <sds-external-link href="https://google.com" class="btn btn-blue">
+              <sds-external-link
+                href="https://simpleds.netlify.app"
+                class="btn btn-blue"
+              >
                 Button styling
               </sds-external-link>
             </p>
@@ -349,7 +357,7 @@
       </sds-card>
 
       <!-- Modal -->
-      <sds-card id="modal" class="bg-gray-100">
+      <sds-card id="modal">
         <template #title>
           <h2 class="text-3xl">Modal</h2>
         </template>
@@ -397,7 +405,7 @@
       </sds-card>
 
       <!-- Dropdown -->
-      <sds-card id="dropdown" class="bg-gray-100">
+      <sds-card id="dropdown">
         <template #title>
           <h2 class="text-3xl">Dropdown</h2>
         </template>
@@ -439,7 +447,7 @@
       </sds-card>
 
       <!-- Calendar -->
-      <sds-card id="calendar" class="bg-gray-100">
+      <sds-card id="calendar">
         <template #title>
           <h2 class="text-3xl">Calendar</h2>
         </template>
@@ -552,7 +560,7 @@
       <h3 class="text-3xl">CSS Components</h3>
 
       <!-- Navs -->
-      <sds-card id="nav" class="bg-gray-100">
+      <sds-card id="nav">
         <template #title>
           <h2 class="text-3xl">Nav</h2>
         </template>
@@ -666,7 +674,7 @@
       </sds-card>
 
       <!-- Buttons -->
-      <sds-card id="button" class="bg-gray-100">
+      <sds-card id="button">
         <template #title>
           <h2 class="text-3xl">Button</h2>
         </template>
@@ -849,7 +857,7 @@
       </sds-card>
 
       <!-- Form control -->
-      <sds-card id="form-control" class="bg-gray-100">
+      <sds-card id="form-control">
         <template #title>
           <h2 class="text-3xl">Form Control</h2>
         </template>
@@ -981,6 +989,10 @@ export default Vue.extend({
         date: "2020-06-09",
         endDate: "2020-07-16",
       },
+      navbar1: false,
+      navbar2: false,
+      navbar3: false,
+      navbar4: false,
     };
   },
 });

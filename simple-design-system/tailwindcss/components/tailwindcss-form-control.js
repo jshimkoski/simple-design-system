@@ -12,6 +12,20 @@ module.exports = plugin(function ({ addComponents, config }) {
       width: config("theme.width.full"),
       padding: config("theme.padding.2"),
 
+      ":root.dark &": {
+        backgroundColor: "rgba(175, 175, 184, 0.1)",
+        borderColor: "rgba(175, 175, 184, 0.6)",
+        "--color-placeholder": "rgba(175, 175, 184, 0.6)",
+      },
+
+      "@media (prefers-color-scheme: dark)": {
+        ":root:not(.light) &": {
+          backgroundColor: "rgba(175, 175, 184, 0.1)",
+          borderColor: "rgba(175, 175, 184, 0.6)",
+          "--color-placeholder": "rgba(175, 175, 184, 0.6)",
+        },
+      },
+
       "&:focus": {
         outline: "none",
         boxShadow: config("theme.boxShadow.outline"),

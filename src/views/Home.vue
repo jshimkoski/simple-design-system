@@ -95,18 +95,18 @@
     <div class="prose lg:prose-lg pt-16 pb-20 px-8">
       <h2>Getting Started</h2>
       <h3>Install via npm</h3>
-      <pre class="whitespace-pre-line">
-        <code>$ npm i simple-design-system --save-dev</code>
-      </pre>
+      <pre>
+<code>$ npm i simple-design-system --save-dev</code>
+</pre>
       <h3>Add it to your entry file</h3>
-      <pre class="whitespace-pre-line">
-        <code class="text-green mt-4">// import purgecss compatible css</code>
-        <code>import "simple-design-system/dist/index.css";</code>
+      <pre>
+<code class="text-green mt-4">// import purgecss compatible css</code>
+<code>import "simple-design-system/dist/index.css";</code>
 
-        <code class="text-green">// import all components</code>
-        <code class="text-green">// ensure to import Vue prior to this</code>
-        <code>import "simple-design-system";</code>
-      </pre>
+<code class="text-green">// import all components</code>
+<code class="text-green">// ensure to import Vue prior to this</code>
+<code>import "simple-design-system";</code>
+</pre>
     </div>
   </div>
 </template>
