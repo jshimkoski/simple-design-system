@@ -139,8 +139,7 @@ export default Vue.extend({
 }
 
 #navbarMenuButton {
-  @apply bg-transparent border-transparent rounded p-1 my-2 h-10 w-10 cursor-pointer;
-  fill: theme("colors.fgcolor");
+  @apply bg-transparent border-transparent rounded p-1 my-2 h-10 w-10 cursor-pointer fill-current;
 }
 
 #navbarMenuButton svg {
@@ -155,7 +154,7 @@ export default Vue.extend({
 }
 
 #navbarMenuButton:active {
-  filter: brightness(85%);
+  @apply darken;
 }
 
 .nav-left {

@@ -128,7 +128,6 @@ nav {
 
 .fade-scale-enter,
 .fade-scale-leave-to {
-  @apply opacity-0;
-  transform: scale(0.8);
+  @apply opacity-0 transform scale-90;
 }
 </style>

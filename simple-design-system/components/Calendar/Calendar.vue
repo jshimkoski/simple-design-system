@@ -428,9 +428,9 @@ export default Vue.extend({
  */
 
 .sds-calendar {
+  @apply block;
   --cal-variant: var(--color-gray-500);
   --cal-on-variant: var(--color-white);
-  display: block;
 }
 
 .sds-calendar[variant="white"] {

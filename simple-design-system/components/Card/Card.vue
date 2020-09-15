@@ -92,7 +92,6 @@ header {
 }
 
 .sds-card[type="accented"] {
-  @apply border-t-2;
-  border-top-color: theme("colors.gray.900");
+  @apply border-0 border-t-2 border-gray-900;
 }
 </style>

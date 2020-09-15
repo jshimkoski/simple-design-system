@@ -3,12 +3,12 @@ const plugin = require("tailwindcss/plugin");
 module.exports = plugin(function ({ addUtilities }) {
   const newUtilities = {
     ".darken": {
-      filter: "var(--darken)",
+      filter: "brightness(85%)",
     },
     ".lighten": {
-      filter: "var(--lighten)",
+      filter: "brightness(115%)",
     },
   };
 
-  addUtilities(newUtilities, ["responsive", "hover", "focus"]);
+  addUtilities(newUtilities, ["responsive", "dark", "hover", "focus"]);
 });

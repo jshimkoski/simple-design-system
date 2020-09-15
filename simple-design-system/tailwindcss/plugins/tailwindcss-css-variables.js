@@ -6,11 +6,23 @@ module.exports = (colors) =>
     const dynamicLightColors = {};
     const dynamicDarkColors = {};
 
+    const staticColorsRaw = {};
+    const dynamicLightColorsRaw = {};
+    const dynamicDarkColorsRaw = {};
+
     for (let c in colors) {
       for (const [key, value] of Object.entries(colors[c])) {
-        staticColors[`--color-static-${c}-${key}`] = value;
-        dynamicLightColors[`--color-${c}-${key}`] = value;
-        dynamicDarkColors[`--color-${c}-${1000 - parseInt(key)}`] = value;
+        staticColors[`--color-static-${c}-${key}`] = `rgb(${value})`;
+        dynamicLightColors[`--color-${c}-${key}`] = `rgb(${value})`;
+        dynamicDarkColors[
+          `--color-${c}-${1000 - parseInt(key)}`
+        ] = `rgb(${value})`;
+
+        staticColorsRaw[`--color-static-${c}-${key}-raw`] = value;
+        dynamicLightColorsRaw[`--color-${c}-${key}-raw`] = value;
+        dynamicDarkColorsRaw[
+          `--color-${c}-${1000 - parseInt(key)}-raw`
+        ] = value;
       }
     }
 
@@ -22,15 +34,16 @@ module.exports = (colors) =>
       ":root": Object.assign(
         {},
         {
-          "--lighten": "brightness(115%)",
-          "--darken": "brightness(85%)",
+          "--color-white": "rgb(255, 255, 255)",
+          "--color-black": "rgb(0, 0, 0)",
+          "--color-white-raw": "255, 255, 255",
+          "--color-black-raw": "0, 0, 0",
 
-          "--color-white": "#fff",
-          "--color-black": "#000",
           "--color-transparent": "transparent",
           "--color-current": "currentColor",
         },
-        staticColors
+        staticColors,
+        staticColorsRaw
       ),
 
       /**
@@ -54,12 +67,19 @@ module.exports = (colors) =>
         {},
         {
           "--color-fgcolor": "rgb(28, 28, 30)",
-          "--color-bgcolor": "var(--color-white)",
+          "--color-bgcolor": "rgb(255, 255, 255)",
 
-          "--color-border": "var(--color-static-gray-300)",
-          "--color-placeholder": "var(--color-static-gray-300)",
+          "--color-border": `rgb(${colors.gray["300"]})`,
+          "--color-placeholder": `rgb(${colors.gray["400"]})`,
+
+          "--color-fgcolor-raw": "28, 28, 30",
+          "--color-bgcolor-raw": "255, 255, 255",
+
+          "--color-border-raw": colors.gray["300"],
+          "--color-placeholder-raw": colors.gray["400"],
         },
-        dynamicLightColors
+        dynamicLightColors,
+        dynamicLightColorsRaw
       ),
 
       /* Dark theme */
@@ -70,10 +90,17 @@ module.exports = (colors) =>
           "--color-fgcolor": "rgb(242, 242, 247)",
           "--color-bgcolor": "rgb(28, 28, 30)",
 
-          "--color-border": "var(--color-static-gray-700)",
-          "--color-placeholder": "var(--color-static-gray-700)",
+          "--color-border": `rgb(${colors.gray["700"]})`,
+          "--color-placeholder": `rgb(${colors.gray["600"]})`,
+
+          "--color-fgcolor-raw": "242, 242, 247",
+          "--color-bgcolor-raw": "28, 28, 30",
+
+          "--color-border-raw": colors.gray["700"],
+          "--color-placeholder-raw": colors.gray["600"],
         },
-        dynamicDarkColors
+        dynamicDarkColors,
+        dynamicDarkColorsRaw
       ),
 
       "@media (prefers-color-scheme: dark)": {
@@ -83,10 +110,17 @@ module.exports = (colors) =>
             "--color-fgcolor": "rgb(242, 242, 247)",
             "--color-bgcolor": "rgb(28, 28, 30)",
 
-            "--color-border": "var(--color-static-gray-700)",
-            "--color-placeholder": "var(--color-static-gray-700)",
+            "--color-border": `rgb(${colors.gray["700"]})`,
+            "--color-placeholder": `rgb(${colors.gray["600"]})`,
+
+            "--color-fgcolor-raw": "242, 242, 247",
+            "--color-bgcolor-raw": "28, 28, 30",
+
+            "--color-border-raw": colors.gray["700"],
+            "--color-placeholder-raw": colors.gray["600"],
           },
-          dynamicDarkColors
+          dynamicDarkColors,
+          dynamicDarkColorsRaw
         ),
       },
     });

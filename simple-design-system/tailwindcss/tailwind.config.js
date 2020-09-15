@@ -30,8 +30,13 @@ module.exports = (colors) => ({
     // simple design theme settings
     typography: require("./theme/tailwindcss-typography"),
     colors: require("./theme/tailwindcss-colors"),
+    extend: {
+      opacity: {
+        10: "0.1",
+      },
+    },
   },
-  // turn on active variants for
+  // turn on dark mode and active variants for
   // all color types
   variants: {
     backgroundColor: ["responsive", "dark", "hover", "focus", "active"],
@@ -49,9 +54,6 @@ module.exports = (colors) => ({
     require("./plugins/tailwindcss-dark-mode"),
     require("./plugins/tailwindcss-lightness"),
     require("./plugins/tailwindcss-bg-glass"),
-    require("./components/tailwindcss-btn"),
-    require("./components/tailwindcss-form-control"),
-    require("./components/tailwindcss-nav"),
     // the official @tailwindcss/typography
     // plugin
     require("@tailwindcss/typography"),
