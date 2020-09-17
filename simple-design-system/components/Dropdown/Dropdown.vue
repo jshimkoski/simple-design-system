@@ -117,7 +117,7 @@ nav {
   min-width: theme("width.48");
 }
 
-.sds-dropdown[right] nav {
+.sds-dropdown[right="true"] nav {
   @apply right-0;
 }
 
