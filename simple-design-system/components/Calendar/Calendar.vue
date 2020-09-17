@@ -108,7 +108,7 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from "vue";
 import {
   addDays,
   startOfWeek,
@@ -127,7 +127,7 @@ import {
   closestTo,
 } from "date-fns";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Calendar",
   props: {
     date: { type: String, default: null },

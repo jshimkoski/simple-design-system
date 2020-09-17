@@ -10,10 +10,10 @@
       </template>
       <sds-calendar
         variant="red"
-        :date.sync="date"
-        :end-date.sync="endDate"
-        :min.sync="min"
-        :max.sync="max"
+        v-model:date="date"
+        v-model:end-date="endDate"
+        v-model:min="min"
+        v-model:max="max"
         multiple
       />
 
@@ -38,10 +38,10 @@
           </template>
           <sds-calendar
             variant="red"
-            :date.sync="date"
-            :end-date.sync="endDate"
-            :min.sync="min"
-            :max.sync="max"
+            v-model:date="date"
+            v-model:end-date="endDate"
+            v-model:min="min"
+            v-model:max="max"
             multiple
           />
         </sds-card>
@@ -65,9 +65,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Examples",
   data() {
     return {

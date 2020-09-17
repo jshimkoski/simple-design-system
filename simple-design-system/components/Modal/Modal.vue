@@ -2,7 +2,7 @@
   <transition
     name="fade"
     @after-enter="showContent = true"
-    @after-leave="$emit('input', false)"
+    @after-leave="$emit('update:modelValue', false)"
   >
     <div v-if="showModal" class="sds-modal backdrop" @click.self="close">
       <transition name="fade-scale" @after-leave="showModal = false">
@@ -35,12 +35,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Modal",
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -60,8 +60,8 @@ export default Vue.extend({
     },
   },
   watch: {
-    value() {
-      if (this.value) {
+    modelValue() {
+      if (this.modelValue) {
         this.showModal = true;
         document.documentElement.style.overflow = "hidden";
         // wait for next pass before listening for events

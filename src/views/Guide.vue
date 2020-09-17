@@ -1824,10 +1824,10 @@ module.exports = tailwindConfig;</code>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Guide",
   metaInfo() {
     return {

@@ -5,7 +5,7 @@
     </div>
     <transition name="fade-scale">
       <nav
-        v-if="value"
+        v-if="modelValue"
         :class="[menuClass]"
         :style="{ bottom, maxHeight: `${maxHeight}px` }"
         @click.stop="close"
@@ -17,14 +17,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import debounce from "../../helpers/debounce";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Dropdown",
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -48,8 +48,8 @@ export default Vue.extend({
     };
   },
   watch: {
-    value() {
-      if (this.value) {
+    modelValue() {
+      if (this.modelValue) {
         // wait for next pass before listening for events
         // on document
         setTimeout(() => {
@@ -81,10 +81,10 @@ export default Vue.extend({
   },
   methods: {
     close() {
-      this.$emit("input", false);
+      this.$emit("update:modelValue", false);
     },
     toggle() {
-      this.$emit("input", !this.value);
+      this.$emit("update:modelValue", !this.modelValue);
     },
     handleOutsideClick(e: any) {
       if (!this.$el.contains(e.target)) {

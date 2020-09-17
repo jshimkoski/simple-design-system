@@ -2,4 +2,6 @@
 import "./tailwindcss/tailwind.css";
 
 // components
-import "./components";
+import Components from "./components";
+
+export default Components;

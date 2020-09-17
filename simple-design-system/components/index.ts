@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 import SdsCalendar from "./Calendar/Calendar.vue";
 import SdsCard from "./Card/Card.vue";
 import SdsDropdown from "./Dropdown/Dropdown.vue";
@@ -20,8 +18,10 @@ const Components: any = {
   SdsNavbar,
 };
 
-Object.keys(Components).forEach((name) => {
-  Vue.component(name, Components[name]);
-});
-
-export default Components;
+export default {
+  install(Vue: any) {
+    Object.keys(Components).forEach((name) => {
+      Vue.component(name, Components[name]);
+    });
+  },
+};

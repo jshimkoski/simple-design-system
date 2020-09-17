@@ -1,19 +1,16 @@
-import Vue from "vue";
-import VueMeta from "vue-meta";
+import { createApp, h } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
 // simple design system
-import "../simple-design-system";
+import Components from "../simple-design-system";
 
-Vue.config.productionTip = false;
-
-Vue.use(VueMeta, {});
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+createApp({
+  render: () => h(<any>App),
   mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
-}).$mount("#app");
+})
+  .use(router)
+  .use(store)
+  .use(Components)
+  .mount("#app");

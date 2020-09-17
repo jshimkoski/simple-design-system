@@ -7,13 +7,9 @@
       <sds-navbar v-model="navbarMenu" class="bg-glass" nav-class="gap-2">
         <template #brand>
           <h1 class="text-lg">
-            <router-link
-              to="/"
-              active-class="active"
-              exact
-              @click.native="scrollToTop"
-              >{{ appName }}</router-link
-            >
+            <router-link to="/" active-class="active" exact>{{
+              appName
+            }}</router-link>
             <span class="ml-2 text-gray-700 text-sm">{{
               lastRelease.name
             }}</span>
@@ -25,28 +21,24 @@
             active-class="active"
             class="nav nav-red nav-underline"
             exact
-            @click.native="scrollToTop"
             >Home</router-link
           >
           <router-link
             to="/guide"
             active-class="active"
             class="nav nav-red nav-underline"
-            @click.native="scrollToTop"
             >Guide</router-link
           >
           <router-link
             to="/components"
             active-class="active"
             class="nav nav-red nav-underline"
-            @click.native="scrollToTop"
             >Components</router-link
           >
           <router-link
             to="/examples"
             active-class="active"
             class="nav nav-red nav-underline"
-            @click.native="scrollToTop"
             >Examples</router-link
           >
         </template>
@@ -92,10 +84,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { mapGetters, mapActions } from "vuex";
+import { defineComponent } from "vue";
+import { mapGetters, mapActions /* , useStore */ } from "vuex";
 
-export default Vue.extend({
+export default defineComponent({
+  // setup() {
+  //   const store = useStore();
+  //   return { store };
+  // },
   data() {
     return {
       navbarMenu: false,
@@ -106,14 +102,15 @@ export default Vue.extend({
   },
   mounted() {
     this.$store.dispatch("fetchReleases");
+    document.title = this.appName;
   },
-  metaInfo() {
-    return {
-      titleTemplate: `%s | ${this.appName}`,
-      htmlAttrs: {
-        class: this.theme,
-      },
-    };
+  watch: {
+    theme(val) {
+      const el = document.querySelector("html");
+      if (el !== null) {
+        el.className = val;
+      }
+    },
   },
   methods: {
     ...mapActions(["toggleTheme"]),

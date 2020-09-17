@@ -461,10 +461,10 @@
               <code>red</code>, <code>teal</code>, <code>yellow</code>.
             </p>
             <p>
-              Use <code>.sync</code> to syncronize the following props, ie make
-              them act as v-model states: <code>date.sync</code>,
-              <code>end-date.sync</code>, <code>min.sync</code>,
-              <code>max.sync</code>.
+              Use <code>v-model</code> to syncronize the following props, ie
+              make them act as v-model states: <code>v-model:date</code>,
+              <code>v-model:end-date</code>, <code>v-model:min</code>,
+              <code>v-model:max</code>.
             </p>
             <p>
               Can be used inline or embedded within an
@@ -516,10 +516,10 @@
             <sds-calendar
               variant="red"
               class="m-2 mb-4"
-              :min.sync="inlineCalendar.min"
-              :max.sync="inlineCalendar.max"
-              :date.sync="inlineCalendar.date"
-              :end-date.sync="inlineCalendar.endDate"
+              v-model:min="inlineCalendar.min"
+              v-model:max="inlineCalendar.max"
+              v-model:date="inlineCalendar.date"
+              v-model:end-date="inlineCalendar.endDate"
               multiple
             />
           </div>
@@ -533,7 +533,7 @@
                 {{ calendarDate !== "" ? calendarDate : "Pick a date" }}
               </button>
               <template #menu>
-                <sds-calendar variant="blue" :date.sync="calendarDate" />
+                <sds-calendar variant="blue" v-model:date="calendarDate" />
               </template>
             </sds-dropdown>
           </div>
@@ -550,7 +550,7 @@
                 v-model.lazy="calendarDate"
               />
               <template #menu>
-                <sds-calendar variant="purple" :date.sync="calendarDate" />
+                <sds-calendar variant="purple" v-model:date="calendarDate" />
               </template>
             </sds-dropdown>
           </div>
@@ -966,9 +966,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Components",
   metaInfo() {
     return {

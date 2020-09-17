@@ -42,12 +42,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Navbar",
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -63,10 +63,10 @@ export default Vue.extend({
   computed: {
     mobileMenuOpen: {
       get(): Boolean {
-        return this.value;
+        return this.modelValue;
       },
-      set(val): any {
-        this.$emit("input", val);
+      set(val: boolean): any {
+        this.$emit("update:modelValue", val);
       },
     },
     hasBrandSlot(): Boolean {
@@ -82,7 +82,7 @@ export default Vue.extend({
   mounted() {
     document.addEventListener("keyup", this.handleEscKey);
   },
-  destroyed() {
+  unmounted() {
     document.removeEventListener("keyup", this.handleEscKey);
   },
   methods: {
