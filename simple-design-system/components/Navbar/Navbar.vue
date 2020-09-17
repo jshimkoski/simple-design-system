@@ -1,8 +1,10 @@
 <template>
   <div
     class="sds-navbar"
-    :mobile-menu-open="mobileMenuOpen"
-    :hide-brand="!hasBrandSlot"
+    :class="{
+      'mobile-menu-open': mobileMenuOpen,
+      'hide-brand': !hasBrandSlot,
+    }"
   >
     <div v-if="hasBrandSlot" class="brand">
       <slot name="brand" />
@@ -114,7 +116,7 @@ export default defineComponent({
   grid-template-rows: auto auto auto;
 }
 
-.sds-navbar[hide-brand] {
+.sds-navbar.hide-brand {
   grid-template-areas:
     "close-btn spacer"
     "nav nav"
@@ -134,7 +136,7 @@ export default defineComponent({
   grid-area: close-btn;
 }
 
-.sds-navbar[hide-brand] .brand {
+.sds-navbar.hide-brand .brand {
   @apply hidden;
 }
 
@@ -149,7 +151,7 @@ export default defineComponent({
 #navbarMenuButton:hover,
 #navbarMenuButton:focus,
 #navbarMenuButton:active,
-.navbar[mobile-menu-open] #navbarMenuButton {
+.navbar.mobile-menu-open #navbarMenuButton {
   @apply outline-none bg-gray-100 rounded-full;
 }
 
@@ -170,8 +172,8 @@ export default defineComponent({
   @apply hidden self-center border-t p-4 h-full;
 }
 
-.sds-navbar[mobile-menu-open] .nav-left,
-.sds-navbar[mobile-menu-open] .nav-right {
+.sds-navbar.mobile-menu-open .nav-left,
+.sds-navbar.mobile-menu-open .nav-right {
   @apply block;
 }
 
@@ -184,7 +186,7 @@ export default defineComponent({
     grid-template-rows: 1fr;
   }
 
-  .sds-navbar[hide-brand] {
+  .sds-navbar.hide-brand {
     grid-template-areas: "nav nav-right";
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
@@ -200,8 +202,8 @@ export default defineComponent({
     grid-auto-columns: min-content;
   }
 
-  .sds-navbar[mobile-menu-open] .nav-left,
-  .sds-navbar[mobile-menu-open] .nav-right {
+  .sds-navbar.mobile-menu-open .nav-left,
+  .sds-navbar.mobile-menu-open .nav-right {
     @apply grid;
   }
 
