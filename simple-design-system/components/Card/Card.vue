@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
   name: "Card",
@@ -34,19 +34,20 @@ export default defineComponent({
       default: "",
     },
   },
-  computed: {
-    hasHeaderSlot(): Boolean {
-      return this.hasTitleSlot || this.hasSubtitleSlot || this.hasNavSlot;
-    },
-    hasTitleSlot(): Boolean {
-      return !!this.$slots.title;
-    },
-    hasSubtitleSlot(): Boolean {
-      return !!this.$slots.subtitle;
-    },
-    hasNavSlot(): Boolean {
-      return !!this.$slots.nav;
-    },
+  setup(props, { slots }) {
+    const hasTitleSlot = computed(() => !!slots.title);
+    const hasSubtitleSlot = computed(() => !!slots.subtitle);
+    const hasNavSlot = computed(() => !!slots.nav);
+    const hasHeaderSlot = computed(() => {
+      return hasTitleSlot.value || hasSubtitleSlot.value || hasNavSlot.value;
+    });
+
+    return {
+      hasHeaderSlot,
+      hasTitleSlot,
+      hasSubtitleSlot,
+      hasNavSlot,
+    };
   },
 });
 </script>

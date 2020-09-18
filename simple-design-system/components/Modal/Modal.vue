@@ -1,37 +1,39 @@
 <template>
-  <transition
-    name="fade"
-    @after-enter="showContent = true"
-    @after-leave="$emit('update:modelValue', false)"
-  >
-    <div v-if="showModal" class="sds-modal backdrop" @click.self="close">
-      <transition name="fade-scale" @after-leave="showModal = false">
-        <div v-if="showContent" class="modal">
-          <header>
-            <div v-if="hasTitleSlot" class="title"><slot name="title" /></div>
-            <button aria-label="close" class="close-btn" @click="close">
-              <svg
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </header>
-          <main>
-            <slot />
-          </main>
-          <footer v-if="hasFooterSlot">
-            <slot name="footer" />
-          </footer>
-        </div>
-      </transition>
-    </div>
-  </transition>
+  <teleport to="body">
+    <transition
+      name="fade"
+      @after-enter="showContent = true"
+      @after-leave="$emit('update:modelValue', false)"
+    >
+      <div v-if="showModal" class="sds-modal backdrop" @click.self="close">
+        <transition name="fade-scale" @after-leave="showModal = false">
+          <div v-if="showContent" class="modal">
+            <header>
+              <div v-if="hasTitleSlot" class="title"><slot name="title" /></div>
+              <button aria-label="close" class="close-btn" @click="close">
+                <svg
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </header>
+            <main>
+              <slot />
+            </main>
+            <footer v-if="hasFooterSlot">
+              <slot name="footer" />
+            </footer>
+          </div>
+        </transition>
+      </div>
+    </transition>
+  </teleport>
 </template>
 
 <script lang="ts">
@@ -159,7 +161,7 @@ footer {
   @apply transition-opacity duration-75;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   @apply opacity-0;
 }
@@ -169,7 +171,7 @@ footer {
   @apply transition-all duration-75;
 }
 
-.fade-scale-enter,
+.fade-scale-enter-from,
 .fade-scale-leave-to {
   @apply opacity-0 transform scale-90;
 }

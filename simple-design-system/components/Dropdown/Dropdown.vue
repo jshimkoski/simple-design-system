@@ -1,5 +1,11 @@
 <template>
-  <div class="sds-dropdown" @keyup.esc.stop="close" :up="dropUp" :right="right">
+  <div
+    ref="root"
+    class="sds-dropdown"
+    @keyup.esc.stop="close"
+    :up="dropUp"
+    :right="right"
+  >
     <div class="button-wrapper" @click.stop="toggle">
       <slot />
     </div>
@@ -17,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, ref, toRefs, watch } from "vue";
 
 import debounce from "../../helpers/debounce";
 
@@ -41,68 +47,83 @@ export default defineComponent({
       default: false,
     },
   },
-  data() {
-    return {
+  setup(props, { emit }) {
+    const root = ref(null);
+
+    const state = reactive({
       dropUp: false,
       bottom: "auto",
-    };
-  },
-  watch: {
-    modelValue() {
-      if (this.modelValue) {
-        // wait for next pass before listening for events
-        // on document
-        setTimeout(() => {
-          document.addEventListener("click", this.handleOutsideClick);
-          document.addEventListener("keyup", this.handleKeyUp);
-          document.addEventListener(
-            "scroll",
-            debounce(this.positionDropdown, 150)
-          );
-          window.addEventListener(
-            "resize",
-            debounce(this.positionDropdown, 150)
-          );
-        }, 0);
-        this.positionDropdown();
-      } else {
-        document.removeEventListener("click", this.handleOutsideClick);
-        document.removeEventListener("keyup", this.handleKeyUp);
-        document.removeEventListener(
-          "scroll",
-          debounce(this.positionDropdown, 150)
-        );
-        window.removeEventListener(
-          "resize",
-          debounce(this.positionDropdown, 150)
-        );
+    });
+
+    function close() {
+      emit("update:modelValue", false);
+    }
+
+    function toggle() {
+      emit("update:modelValue", !props.modelValue);
+    }
+
+    function handleOutsideClick(e: any) {
+      if (root.value === null) return;
+      if (!(root.value as any).contains(e.target)) {
+        close();
       }
-    },
-  },
-  methods: {
-    close() {
-      this.$emit("update:modelValue", false);
-    },
-    toggle() {
-      this.$emit("update:modelValue", !this.modelValue);
-    },
-    handleOutsideClick(e: any) {
-      if (!this.$el.contains(e.target)) {
-        this.close();
-      }
-    },
-    handleKeyUp(e: KeyboardEvent) {
+    }
+
+    function handleKeyUp(e: KeyboardEvent) {
       if (e.keyCode === 27) {
-        this.close();
+        close();
       }
-    },
-    positionDropdown() {
+    }
+
+    function positionDropdown() {
+      if (root.value === null) return;
       const spaceBelow =
-        window.innerHeight - this.$el.getBoundingClientRect().bottom;
-      const notEnoughSpaceBelow: boolean = spaceBelow < this.maxHeight;
-      this.dropUp = notEnoughSpaceBelow;
-      this.bottom = this.dropUp ? this.$el.clientHeight + "px" : "auto";
-    },
+        window.innerHeight - (root.value as any).getBoundingClientRect().bottom;
+      const notEnoughSpaceBelow: boolean = spaceBelow < props.maxHeight;
+      state.dropUp = notEnoughSpaceBelow;
+      state.bottom = state.dropUp
+        ? (root.value as any).clientHeight + "px"
+        : "auto";
+    }
+
+    watch(
+      () => props.modelValue,
+      (value) => {
+        if (value) {
+          // wait for next pass before listening for events
+          // on document
+          setTimeout(() => {
+            document.addEventListener("click", handleOutsideClick);
+            document.addEventListener("keyup", handleKeyUp);
+            document.addEventListener(
+              "scroll",
+              debounce(positionDropdown, 150)
+            );
+            window.addEventListener("resize", debounce(positionDropdown, 150));
+          }, 0);
+          positionDropdown();
+        } else {
+          document.removeEventListener("click", handleOutsideClick);
+          document.removeEventListener("keyup", handleKeyUp);
+          document.removeEventListener(
+            "scroll",
+            debounce(positionDropdown, 150)
+          );
+          window.removeEventListener("resize", debounce(positionDropdown, 150));
+        }
+      }
+    );
+
+    return {
+      root,
+      ...toRefs(state),
+      close,
+      toggle,
+      handleOutsideClick,
+      handleKeyUp,
+      positionDropdown,
+    };
   },
 });
 </script>
@@ -126,7 +147,7 @@ nav {
   @apply transition-all duration-75;
 }
 
-.fade-scale-enter,
+.fade-scale-enter-from,
 .fade-scale-leave-to {
   @apply opacity-0 transform scale-90;
 }
