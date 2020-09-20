@@ -107,8 +107,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script lang="ts">
+import { defineComponent, reactive, computed, toRefs, nextTick } from "vue";
 import {
   addDays,
   startOfWeek,
@@ -116,9 +116,9 @@ import {
   format,
   getYear,
   getMonth,
-  isSameDay,
+  isSameDay as dateFnsIsSameDay,
   isToday,
-  isSameWeek,
+  isSameWeek as dateFnsIsSameWeek,
   isSameMonth,
   isBefore,
   isAfter,
@@ -136,82 +136,98 @@ export default defineComponent({
     max: { type: String, default: null },
     multiple: { type: Boolean, default: false },
   },
-  data() {
-    const date = this.getDateFromFormattedString(this.date);
-    const visibleDay = date !== null ? date : new Date();
-    const today = new Date();
+  setup(props, { emit }) {
+    const dateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 
-    return {
-      today,
-      visibleDay,
-    };
-  },
-  computed: {
-    localDate: {
-      get() {
-        return this.date;
+    function getDateFromFormattedString(
+      val: string | null | undefined = ""
+    ): Date | null {
+      if (val !== null && val.trim() === "") return null;
+      const userDateMatchesRegex = val?.match(dateRegex);
+      if (!userDateMatchesRegex) return null;
+      if (val !== null) {
+        const dateArr = val.split("-").map((i) => parseInt(i));
+        // month is zero-indexed
+        dateArr[1] = dateArr[1] - 1;
+        const [year, month, day] = dateArr;
+        return new Date(year, month, day);
+      }
+      return null;
+    }
+
+    const date = getDateFromFormattedString(props.date);
+
+    const state = reactive({
+      today: new Date(),
+      visibleDay: date !== null ? date : new Date(),
+    });
+
+    const localDate = computed({
+      get(): string | null | undefined {
+        if (props.date === null || !props.date.match(dateRegex)) return null;
+        return props.date;
       },
-      set(value) {
-        this.$emit("update:date", value);
+      set(value: string | null | undefined) {
+        emit("update:date", value);
       },
-    },
+    });
 
-    localEndDate: {
-      get() {
-        return this.endDate;
+    const localEndDate = computed({
+      get(): string | null | undefined {
+        if (props.endDate === null || !props.endDate.match(dateRegex))
+          return null;
+        return props.endDate;
       },
-      set(value) {
-        this.$emit("update:endDate", value);
+      set(value: string | null | undefined) {
+        emit("update:endDate", value);
       },
-    },
+    });
 
-    localMin: {
-      get() {
-        return this.min;
+    const localMin = computed({
+      get(): string | null | undefined {
+        if (props.min === null || !props.min.match(dateRegex)) return null;
+        return props.min;
       },
-      set(value) {
-        this.$emit("update:min", value);
+      set(value: string | null | undefined) {
+        emit("update:min", value);
       },
-    },
+    });
 
-    localMax: {
-      get() {
-        return this.max;
+    const localMax = computed({
+      get(): string | null | undefined {
+        if (props.max === null || !props.max.match(dateRegex)) return null;
+        return props.max;
       },
-      set(value) {
-        this.$emit("update:max", value);
+      set(value: string | null | undefined) {
+        emit("update:max", value);
       },
-    },
+    });
 
-    selectedDate() {
-      if (this.localDate === null) return null;
-      return this.getDateFromFormattedString(this.localDate);
-    },
+    const selectedDate = computed(() => {
+      if (localDate.value === null) return null;
+      return getDateFromFormattedString(localDate.value);
+    });
 
-    selectedEndDate() {
-      if (this.localEndDate === null) return null;
-      return this.getDateFromFormattedString(this.localEndDate);
-    },
+    const selectedEndDate = computed(() => {
+      if (localEndDate.value === null) return null;
+      return getDateFromFormattedString(localEndDate.value);
+    });
 
-    minDate() {
-      if (this.localMin === null) return null;
-      return this.getDateFromFormattedString(this.localMin);
-    },
+    const minDate = computed(() => {
+      if (localMin.value === null) return null;
+      return getDateFromFormattedString(localMin.value);
+    });
 
-    maxDate() {
-      if (this.localMax === null) return null;
-      return this.getDateFromFormattedString(this.localMax);
-    },
+    const maxDate = computed(() => {
+      if (localMax.value === null) return null;
+      return getDateFromFormattedString(localMax.value);
+    });
 
-    dateRegex() {
-      return /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
-    },
-
-    calendarMatrix() {
+    const calendarMatrix = computed(() => {
       // 0 = Sunday
       const weekStartsOn = 0;
-      const year = getYear(this.visibleDay);
-      const month = getMonth(this.visibleDay);
+      const year = getYear(state.visibleDay);
+      const month = getMonth(state.visibleDay);
       //  1. Generate the date from params, then get the firstDay and lastDay in the month
       const date = new Date(year, month);
       // const firstDay = startOfMonth(date);
@@ -245,179 +261,203 @@ export default defineComponent({
             (matrix, current, index, days) =>
               index % matrixColumns === 0
                 ? [...matrix, days.slice(index, index + matrixColumns)]
-                : matrix,
+                : (matrix as any),
             []
           );
       return calendar;
-    },
-  },
-  methods: {
-    format,
-    isToday,
-    isSameMonth,
+    });
 
-    changeDate(day, e) {
-      this.setSelectedDates(format(day, "yyyy-MM-dd"));
-      this.$nextTick(() => {
+    function isChangingTheStartDate(val: string | null | undefined) {
+      if (!props.multiple) return true;
+      if (selectedDate.value === null) return true;
+      if (selectedEndDate.value === null) return false;
+      const date = getDateFromFormattedString(val);
+      if (date == null) return true;
+      const closest = closestTo(date, [
+        selectedDate.value,
+        selectedEndDate.value,
+      ]);
+      return dateFnsIsSameDay(closest, selectedDate.value);
+    }
+
+    function setSelectedDates(val: string | null | undefined) {
+      const isStartDate = isChangingTheStartDate(val);
+
+      if (isStartDate) {
+        if (localDate.value === val && localEndDate.value !== null) {
+          localDate.value = localEndDate.value;
+          localEndDate.value = null;
+        } else if (localDate.value === val) {
+          localDate.value = null;
+        } else {
+          localDate.value = val;
+        }
+      } else {
+        if (localDate.value === val || localDate.value === null) {
+          localDate.value = null;
+          localEndDate.value = null;
+        } else if (localEndDate.value === val) {
+          localEndDate.value = null;
+        } else {
+          const date = getDateFromFormattedString(val);
+          if (
+            date !== null &&
+            selectedDate.value !== null &&
+            isBefore(date, selectedDate.value)
+          ) {
+            localEndDate.value = localDate.value;
+            localDate.value = val;
+          } else {
+            localEndDate.value = val;
+          }
+        }
+      }
+    }
+
+    function changeDate(day: Date | null, e: { stopPropagation: () => void }) {
+      if (day === null) return;
+      setSelectedDates(format(day, "yyyy-MM-dd"));
+      nextTick(() => {
         if (
-          this.multiple &&
-          (this.localDate === null || this.localEndDate === null)
+          props.multiple &&
+          (localDate.value === null || localEndDate.value === null)
         ) {
           e.stopPropagation();
         }
       });
-    },
+    }
 
-    goToSelectedMonth(e) {
+    function goToSelectedMonth(e: { stopPropagation: () => void }) {
       e.stopPropagation();
-      if (this.selectedDate === null) return;
-      if (!isSameDay(this.visibleDay, this.selectedDate)) {
-        this.visibleDay = this.selectedDate;
-      } else if (this.multiple && this.selectedEndDate !== null) {
-        this.visibleDay = this.selectedEndDate;
+      if (selectedDate.value === null) return;
+      if (!dateFnsIsSameDay(state.visibleDay, selectedDate.value)) {
+        state.visibleDay = selectedDate.value;
+      } else if (props.multiple && selectedEndDate.value !== null) {
+        state.visibleDay = selectedEndDate.value;
       }
-    },
+    }
 
-    goToThisMonth(e) {
+    function goToThisMonth(e: { stopPropagation: () => void }) {
       e.stopPropagation();
-      this.visibleDay = this.today;
-    },
+      state.visibleDay = state.today;
+    }
 
-    goToPrevMonth(e) {
+    function goToPrevMonth(e: { stopPropagation: () => void }) {
       e.stopPropagation();
-      this.visibleDay = startOfMonth(subMonths(this.visibleDay, 1));
-    },
+      state.visibleDay = startOfMonth(subMonths(state.visibleDay, 1));
+    }
 
-    goToNextMonth(e) {
+    function goToNextMonth(e: { stopPropagation: () => void }) {
       e.stopPropagation();
-      this.visibleDay = startOfMonth(addMonths(this.visibleDay, 1));
-    },
+      state.visibleDay = startOfMonth(addMonths(state.visibleDay, 1));
+    }
 
-    isChangingTheStartDate(val) {
-      if (!this.multiple) return true;
-      if (this.selectedDate === null) return true;
-      if (this.selectedEndDate === null) return false;
-      const date = this.getDateFromFormattedString(val);
-      if (date == null) return true;
-      const closest = closestTo(date, [
-        this.selectedDate,
-        this.selectedEndDate,
-      ]);
-      return isSameDay(closest, this.selectedDate);
-    },
-
-    clampSelectedDates() {
+    function clampSelectedDates() {
       // clamp max to min and reset date/endDate
-      if (this.isBeforeMin(this.maxDate)) {
-        this.localDate = null;
-        this.localEndDate = null;
-        this.localMax = this.localMin;
+      if (isBeforeMin(maxDate.value)) {
+        localDate.value = null;
+        localEndDate.value = null;
+        localMax.value = localMin.value;
         return;
       }
 
       // clamp min to max and reset date/endDate
-      if (this.isAfterMax(this.minDate)) {
-        this.localDate = null;
-        this.localEndDate = null;
-        this.localMin = this.localMax;
+      if (isAfterMax(minDate.value)) {
+        localDate.value = null;
+        localEndDate.value = null;
+        localMin.value = localMax.value;
         return;
       }
 
       // clamp date to min and max
-      if (this.localDate !== null) {
-        if (this.isBeforeMin(this.selectedDate)) {
-          this.localDate = this.localMin;
-        } else if (this.isAfterMax(this.selectedDate)) {
-          this.localDate = this.localMax;
-          this.localEndDate = null;
+      if (localDate.value !== null) {
+        if (isBeforeMin(selectedDate.value)) {
+          localDate.value = localMin.value;
+        } else if (isAfterMax(selectedDate.value)) {
+          localDate.value = localMax.value;
+          localEndDate.value = null;
         }
       }
 
       // clamp endDate to min and max
-      if (this.localEndDate !== null) {
-        if (this.isBeforeMin(this.selectedEndDate)) {
-          this.localDate = this.localMin;
-          this.localEndDate = null;
-        } else if (this.isAfterMax(this.selectedEndDate)) {
-          this.localEndDate = this.localMax;
+      if (localEndDate.value !== null) {
+        if (isBeforeMin(selectedEndDate.value)) {
+          localDate.value = localMin.value;
+          localEndDate.value = null;
+        } else if (isAfterMax(selectedEndDate.value)) {
+          localEndDate.value = localMax.value;
         }
       }
-    },
+    }
 
-    setSelectedDates(val) {
-      const isStartDate = this.isChangingTheStartDate(val);
+    function isBeforeMin(date: Date | null): boolean {
+      if (date === null || minDate.value === null) return false;
+      return isBefore(date, minDate.value);
+    }
 
-      if (isStartDate) {
-        if (this.localDate === val && this.localEndDate !== null) {
-          this.localDate = this.localEndDate;
-          this.localEndDate = null;
-        } else if (this.localDate === val) {
-          this.localDate = null;
-        } else {
-          this.localDate = val;
-        }
-      } else {
-        if (this.localDate === val || this.localDate === null) {
-          this.localDate = null;
-          this.localEndDate = null;
-        } else if (this.localEndDate === val) {
-          this.localEndDate = null;
-        } else {
-          const date = this.getDateFromFormattedString(val);
-          if (isBefore(date, this.selectedDate)) {
-            this.localEndDate = this.localDate;
-            this.localDate = val;
-          } else {
-            this.localEndDate = val;
-          }
-        }
-      }
-    },
+    function isAfterMax(date: Date | null): boolean {
+      if (date === null || maxDate.value === null) return false;
+      return isAfter(date, maxDate.value);
+    }
 
-    isBeforeMin(date) {
-      return isBefore(date, this.minDate);
-    },
-
-    isAfterMax(date) {
-      return isAfter(date, this.maxDate);
-    },
-
-    getDateFromFormattedString(val = "") {
-      if (val !== null && val.trim() === "") return null;
-      const userDateMatchesRegex = val?.match(this.dateRegex);
-      if (!userDateMatchesRegex) return null;
-      const dateArr = val.split("-").map((i) => parseInt(i));
-      // month is zero-indexed
-      dateArr[1] = dateArr[1] - 1;
-      const [year, month, day] = dateArr;
-      return new Date(year, month, day);
-    },
-
-    isInsideRange(day) {
+    function isInsideRange(day: Date | null): boolean {
+      if (day === null) return false;
       return (
-        this.selectedDate !== null &&
-        (isAfter(day, this.selectedDate) ||
-          isSameDay(day, this.selectedDate)) &&
-        this.selectedEndDate !== null &&
-        (isBefore(day, this.selectedEndDate) ||
-          isSameDay(day, this.selectedEndDate))
+        selectedDate.value !== null &&
+        (isAfter(day, selectedDate.value) ||
+          dateFnsIsSameDay(day, selectedDate.value)) &&
+        selectedEndDate.value !== null &&
+        (isBefore(day, selectedEndDate.value) ||
+          dateFnsIsSameDay(day, selectedEndDate.value))
       );
-    },
+    }
 
-    isSameWeek(day) {
+    function isSameWeek(day: Date | null): boolean {
+      if (day === null) return false;
       return (
-        this.selectedDate !== null &&
-        isSameWeek(day, this.selectedDate) &&
-        this.selectedEndDate === null
+        selectedDate.value !== null &&
+        dateFnsIsSameWeek(day, selectedDate.value) &&
+        selectedEndDate.value === null
       );
-    },
+    }
 
-    isSameDay(day) {
+    function isSameDay(day: Date | null): boolean {
+      if (day === null) return false;
       return (
-        (this.selectedDate !== null && isSameDay(day, this.selectedDate)) ||
-        (this.selectedEndDate !== null && isSameDay(day, this.selectedEndDate))
+        (selectedDate.value !== null &&
+          dateFnsIsSameDay(day, selectedDate.value)) ||
+        (selectedEndDate.value !== null &&
+          dateFnsIsSameDay(day, selectedEndDate.value))
       );
-    },
+    }
+
+    return {
+      // state
+      ...toRefs(state),
+
+      // computed
+      selectedDate,
+      selectedEndDate,
+      minDate,
+      maxDate,
+      calendarMatrix,
+
+      // methods
+      format,
+      isToday,
+      isSameMonth,
+      changeDate,
+      goToSelectedMonth,
+      goToThisMonth,
+      goToPrevMonth,
+      goToNextMonth,
+      clampSelectedDates,
+      isBeforeMin,
+      isAfterMax,
+      isInsideRange,
+      isSameWeek,
+      isSameDay,
+    };
   },
 });
 </script>
