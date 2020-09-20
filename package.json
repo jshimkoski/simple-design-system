@@ -49,7 +49,7 @@
     "vue-class-component": "^7.2.6",
     "vue-meta": "^2.4.0",
     "vue-property-decorator": "^9.0.0",
-    "vue-router": "^4.0.0-beta.10",
+    "vue-router": "^4.0.0-beta.11",
     "vuex": "^3.5.1"
   },
   "bugs": {
