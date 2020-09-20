@@ -263,7 +263,7 @@ module.exports = tailwindConfig;</code>
         <strong>Please note:</strong> You can override the 100-900 variants for
         gray, blue, green, indigo, orange, pink, purple, red, teal, and yellow.
         These overrides will automatically apply to the static and dynamic color
-        palette.
+        palette. You must use raw RGB style values.
       </p>
       <pre>
 <code class="text-green mt-4">// tailwind.config.js</code>
@@ -271,7 +271,10 @@ module.exports = tailwindConfig;</code>
 
 const tailwindConfig = sdsConfig({
   red: {
-    500: "#f00",
+    500: "255, 0, 0",
+  },
+  blue: {
+    500: "0, 0, 255",
   },
 });
 
