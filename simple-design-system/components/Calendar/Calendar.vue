@@ -107,7 +107,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
 import {
   addDays,
@@ -127,7 +127,7 @@ import {
   closestTo,
 } from "date-fns";
 
-export default Vue.extend({
+export default Vue.extend<any, any, any, any>({
   name: "Calendar",
   props: {
     date: { type: String, default: null },
@@ -148,7 +148,9 @@ export default Vue.extend({
   },
   computed: {
     localDate: {
-      get() {
+      get(): Date | null {
+        if (this.date === null || !this.dateRegex().test(this.date))
+          return null;
         return this.date;
       },
       set(value) {
@@ -157,7 +159,9 @@ export default Vue.extend({
     },
 
     localEndDate: {
-      get() {
+      get(): Date | null {
+        if (this.endDate === null || !this.dateRegex().test(this.endDate))
+          return null;
         return this.endDate;
       },
       set(value) {
@@ -166,7 +170,8 @@ export default Vue.extend({
     },
 
     localMin: {
-      get() {
+      get(): Date | null {
+        if (this.min === null || !this.dateRegex().test(this.min)) return null;
         return this.min;
       },
       set(value) {
@@ -175,7 +180,8 @@ export default Vue.extend({
     },
 
     localMax: {
-      get() {
+      get(): Date | null {
+        if (this.max === null || !this.dateRegex().test(this.max)) return null;
         return this.max;
       },
       set(value) {
@@ -183,28 +189,24 @@ export default Vue.extend({
       },
     },
 
-    selectedDate() {
+    selectedDate(): Date | null {
       if (this.localDate === null) return null;
       return this.getDateFromFormattedString(this.localDate);
     },
 
-    selectedEndDate() {
+    selectedEndDate(): Date | null {
       if (this.localEndDate === null) return null;
       return this.getDateFromFormattedString(this.localEndDate);
     },
 
-    minDate() {
+    minDate(): Date | null {
       if (this.localMin === null) return null;
       return this.getDateFromFormattedString(this.localMin);
     },
 
-    maxDate() {
+    maxDate(): Date | null {
       if (this.localMax === null) return null;
       return this.getDateFromFormattedString(this.localMax);
-    },
-
-    dateRegex() {
-      return /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
     },
 
     calendarMatrix() {
@@ -245,7 +247,7 @@ export default Vue.extend({
             (matrix, current, index, days) =>
               index % matrixColumns === 0
                 ? [...matrix, days.slice(index, index + matrixColumns)]
-                : matrix,
+                : (matrix as any),
             []
           );
       return calendar;
@@ -256,7 +258,12 @@ export default Vue.extend({
     isToday,
     isSameMonth,
 
-    changeDate(day, e) {
+    dateRegex(): RegExp {
+      return /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
+    },
+
+    changeDate(day: Date | null, e: { stopPropagation: () => void }): void {
+      if (day === null) return;
       this.setSelectedDates(format(day, "yyyy-MM-dd"));
       this.$nextTick(() => {
         if (
@@ -268,7 +275,7 @@ export default Vue.extend({
       });
     },
 
-    goToSelectedMonth(e) {
+    goToSelectedMonth(e: { stopPropagation: () => void }): void {
       e.stopPropagation();
       if (this.selectedDate === null) return;
       if (!isSameDay(this.visibleDay, this.selectedDate)) {
@@ -278,22 +285,22 @@ export default Vue.extend({
       }
     },
 
-    goToThisMonth(e) {
+    goToThisMonth(e: { stopPropagation: () => void }): void {
       e.stopPropagation();
       this.visibleDay = this.today;
     },
 
-    goToPrevMonth(e) {
+    goToPrevMonth(e: { stopPropagation: () => void }): void {
       e.stopPropagation();
       this.visibleDay = startOfMonth(subMonths(this.visibleDay, 1));
     },
 
-    goToNextMonth(e) {
+    goToNextMonth(e: { stopPropagation: () => void }): void {
       e.stopPropagation();
       this.visibleDay = startOfMonth(addMonths(this.visibleDay, 1));
     },
 
-    isChangingTheStartDate(val) {
+    isChangingTheStartDate(val: string | undefined): boolean {
       if (!this.multiple) return true;
       if (this.selectedDate === null) return true;
       if (this.selectedEndDate === null) return false;
@@ -306,7 +313,7 @@ export default Vue.extend({
       return isSameDay(closest, this.selectedDate);
     },
 
-    clampSelectedDates() {
+    clampSelectedDates(): void {
       // clamp max to min and reset date/endDate
       if (this.isBeforeMin(this.maxDate)) {
         this.localDate = null;
@@ -344,7 +351,7 @@ export default Vue.extend({
       }
     },
 
-    setSelectedDates(val) {
+    setSelectedDates(val: string | null | undefined) {
       const isStartDate = this.isChangingTheStartDate(val);
 
       if (isStartDate) {
@@ -374,26 +381,35 @@ export default Vue.extend({
       }
     },
 
-    isBeforeMin(date) {
+    isBeforeMin(date: Date | null): boolean {
+      if (date === null || this.minDate === null) return false;
       return isBefore(date, this.minDate);
     },
 
-    isAfterMax(date) {
+    isAfterMax(date: Date | null): boolean {
+      if (date === null || this.maxDate === null) return false;
       return isAfter(date, this.maxDate);
     },
 
-    getDateFromFormattedString(val = "") {
+    getDateFromFormattedString(
+      val: string | null | undefined = ""
+    ): Date | null {
       if (val !== null && val.trim() === "") return null;
-      const userDateMatchesRegex = val?.match(this.dateRegex);
+      const userDateMatchesRegex =
+        val !== null ? this.dateRegex().test(val) : false;
       if (!userDateMatchesRegex) return null;
-      const dateArr = val.split("-").map((i) => parseInt(i));
-      // month is zero-indexed
-      dateArr[1] = dateArr[1] - 1;
-      const [year, month, day] = dateArr;
-      return new Date(year, month, day);
+      if (val !== null) {
+        const dateArr = val.split("-").map((i) => parseInt(i));
+        // month is zero-indexed
+        dateArr[1] = dateArr[1] - 1;
+        const [year, month, day] = dateArr;
+        return new Date(year, month, day);
+      }
+      return null;
     },
 
-    isInsideRange(day) {
+    isInsideRange(day: Date | null): boolean {
+      if (day === null) return false;
       return (
         this.selectedDate !== null &&
         (isAfter(day, this.selectedDate) ||
@@ -404,7 +420,8 @@ export default Vue.extend({
       );
     },
 
-    isSameWeek(day) {
+    isSameWeek(day: Date | null): boolean {
+      if (day === null) return false;
       return (
         this.selectedDate !== null &&
         isSameWeek(day, this.selectedDate) &&
@@ -412,7 +429,8 @@ export default Vue.extend({
       );
     },
 
-    isSameDay(day) {
+    isSameDay(day: Date | null): boolean {
+      if (day === null) return false;
       return (
         (this.selectedDate !== null && isSameDay(day, this.selectedDate)) ||
         (this.selectedEndDate !== null && isSameDay(day, this.selectedEndDate))
