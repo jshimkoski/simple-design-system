@@ -143,7 +143,7 @@ export default defineComponent({
       val: string | null | undefined = ""
     ): Date | null {
       if (val !== null && val.trim() === "") return null;
-      const userDateMatchesRegex = val?.match(dateRegex);
+      const userDateMatchesRegex = val === null ? false : dateRegex.test(val);
       if (!userDateMatchesRegex) return null;
       if (val !== null) {
         const dateArr = val.split("-").map((i) => parseInt(i));
@@ -164,7 +164,7 @@ export default defineComponent({
 
     const localDate = computed({
       get(): string | null | undefined {
-        if (props.date === null || !props.date.match(dateRegex)) return null;
+        if (props.date === null || !dateRegex.test(props.date)) return null;
         return props.date;
       },
       set(value: string | null | undefined) {
@@ -174,7 +174,7 @@ export default defineComponent({
 
     const localEndDate = computed({
       get(): string | null | undefined {
-        if (props.endDate === null || !props.endDate.match(dateRegex))
+        if (props.endDate === null || !dateRegex.test(props.endDate))
           return null;
         return props.endDate;
       },
@@ -185,7 +185,7 @@ export default defineComponent({
 
     const localMin = computed({
       get(): string | null | undefined {
-        if (props.min === null || !props.min.match(dateRegex)) return null;
+        if (props.min === null || !dateRegex.test(props.min)) return null;
         return props.min;
       },
       set(value: string | null | undefined) {
@@ -195,7 +195,7 @@ export default defineComponent({
 
     const localMax = computed({
       get(): string | null | undefined {
-        if (props.max === null || !props.max.match(dateRegex)) return null;
+        if (props.max === null || !dateRegex.test(props.max)) return null;
         return props.max;
       },
       set(value: string | null | undefined) {
