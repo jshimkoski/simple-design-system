@@ -3,15 +3,4 @@
 /* purgecss end ignore */
 
 @tailwind components;
-
-/**
- * Components are created in CSS
- * due to limitations of how Tailwind
- * processes color values in plugins
- */
-
-@import "./components/btn.css";
-@import "./components/form-control.css";
-@import "./components/nav.css";
-
 @tailwind utilities;

@@ -54,6 +54,10 @@ module.exports = (colors) => ({
     require("./plugins/tailwindcss-dark-mode"),
     require("./plugins/tailwindcss-lightness"),
     require("./plugins/tailwindcss-bg-glass"),
+    // simple design system css components
+    require("./components/btn"),
+    require("./components/form-control"),
+    require("./components/nav"),
     // the official @tailwindcss/typography
     // plugin
     require("@tailwindcss/typography"),
